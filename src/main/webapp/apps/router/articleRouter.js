@@ -1,5 +1,5 @@
 articleApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
-       $locationProvider.hashPrefix("!");
+       //$locationProvider.hashPrefix("!");
 	   $urlRouterProvider.otherwise('/articles');
        $stateProvider 
     .state('home', {
