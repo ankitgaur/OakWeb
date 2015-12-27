@@ -1,0 +1,45 @@
+{
+    "articles": [
+        {
+			"id": 1,
+            "title": "Hollywood",
+            "description": "This Articl is for Hollywood",
+            "details": [
+                {
+                    "day": 1,
+                    "date": "15/11/2015"
+                }
+            ]
+        },
+        {
+			"id": 2,
+            "title": "Bollywood",
+            "description": "This Articl is for Bollywood",
+            "details": [
+                {
+                    "day": 2,
+                    "date": "14/10/2015"
+                },
+                {
+                    "day": 3,
+                    "date": "10/09/2012"
+                }
+            ]
+        },
+        {
+			"id": 3,
+            "title": "Shoping",
+            "description": "This Articl is for Shoping",
+            "details": [
+                {
+                    "day": 4,
+                    "date": "12/05/2015"
+                },
+                {
+                    "day": 5,
+                    "date": "10/05/2012"
+                }
+            ]
+        }
+    ]
+}

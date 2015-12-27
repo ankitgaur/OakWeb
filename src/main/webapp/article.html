@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+ <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>My AngularJS App</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/articles.css">
+  
+</head>
+
+<body ng-app='articleApp'>
+
+<div ng-include = "'partial_views/header.html'"></div>
+
+  <div id="content" ui-view="body"></div>
+
+<div ng-include = "'partial_views/footer.html'"></div>
+
+<script src="apps/library/jQuery1.11.js"></script>
+<script src="apps/library/angular.js"></script>
+<script src="apps/library/angular-route.js"></script>
+<script src="apps/library/angular-ui-router.js"></script>
+<script src="apps/module/articleApp.js"></script>
+<script src="apps/router/articleRouter.js"></script>
+<script src="apps/controller/articleController.js"></script>
+<script src="apps/service/articleService.js"></script>
+
+</body>
+</html>

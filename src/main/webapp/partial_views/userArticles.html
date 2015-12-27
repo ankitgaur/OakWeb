@@ -1,0 +1,33 @@
+<form novalidate>
+     Article Title:<br>
+    <input type="text" ng-model="title"><br>
+    Article Description:<br>
+    <input type="textarea" ng-model="description">
+    <br><br>
+	<button ng-click="saveArticles()">Save Articles</button>
+    <button ng-click="resetForm()">Reset Form</button>
+		
+  </form>
+  
+<div ng-if="articles.length > 0">
+  <br/><br/>
+  User Articles
+  
+  <ul>
+    <li data-ng-repeat="article in articles">
+     Article Title :: {{ article.title }}  Article Description  :: {{article.description}}
+    </li>
+</ul>
+</div>
+
+<div ng-if="searchArticles.length > 0">
+  <br/><br/>
+  User Articles from URI Search
+  <ul>
+    <li data-ng-repeat="article in searchArticles">
+     Article Title :: {{ article.title }}  Article Description  :: {{article.description}}
+    </li>
+  </ul>
+   
+</div>
+
