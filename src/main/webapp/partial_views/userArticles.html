@@ -10,13 +10,36 @@
   </form>
   
 <div ng-if="articles.length > 0">
-  <br/><br/>
-  User Articles
-  
-  <ul>
+ 
+  <!--<ul>
     <li data-ng-repeat="article in articles">
      Article Title :: {{ article.title }}  Article Description  :: {{article.description}}
-    </li>
+    </li>-->
+	
+	<table id="poctable" class="table table-striped">
+	<h1>Articles</h1>
+	<thead>
+		<tr>
+			<th></th> <!-- select checkbox -->
+			<th></th> <!-- edit -->
+			<th>Title</th>
+			<td>Description</td>			
+		</tr>
+	</thead>
+	<tbody>
+		
+		<tr data-ng-repeat="article in articles">
+			<td><input id="selectRow" type="checkbox" /></td>
+			<td><i class="glyphicon glyphicon-pencil"></i></td>
+			<td>{{article.title}}</td>
+			<td>{{article.description}}</td>			
+		</tr>		
+	</tbody>
+</table>
+
+<a id="addRow"><i class="glyphicon glyphicon-plus"></i></a>
+<a id="deleteRow"><i class="glyphicon glyphicon-minus"></i></a>
+	
 </ul>
 </div>
 
