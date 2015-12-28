@@ -2,7 +2,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.oak</groupId>
-  <artifactId>OakWebapp</artifactId>
+  <artifactId>OakWeb</artifactId>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>OakWebapp Maven Webapp</name>
@@ -75,7 +75,7 @@
 			<artifactId>tomcat7-maven-plugin</artifactId>
 			<version>2.2</version>
 			<configuration>
-				<path>/OakWebapp</path>
+				<path>/OakWeb</path>
 			</configuration>
 		  </plugin>
 		  
@@ -86,7 +86,7 @@
 					<version>2.4</version>
 					<configuration>
 						<warSourceDirectory>src/main/webapp</warSourceDirectory>
-						<warName>OakWebapp</warName>
+						<warName>OakWeb</warName>
 						<failOnMissingWebXml>false</failOnMissingWebXml>
 					</configuration>
 				</plugin>
