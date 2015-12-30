@@ -1,50 +1,46 @@
 articleApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
-       //$locationProvider.hashPrefix("!");
-	   $urlRouterProvider.otherwise('/articles');
+       $locationProvider.hashPrefix("!");
+	   $urlRouterProvider.otherwise('/');
        $stateProvider 
-    .state('home', {
-        url: '/article/:articleID',
+    .state('child', {
+        url: '/articles/:articleID',
         views: {
                'body': {
                    templateUrl: function ($stateParams) {
-                      return  'partial_views/userArticles.html';
+                      return  'partial_views/createUpdateArticle.html';
                    },
-                   controller: 'articleCtrl',
-                   resolve: {
+                   controller: 'articleDetailCtrl',
+                  /*  resolve: {
 					    
                        getArticleData: ['articleFactory', function(articleFactory) {
                           	return articleFactory.getArticles();
                        }]
-                   }
-               },
-               'body12': {
-                   templateUrl: function ($stateParams) {
-                      return  'partial_views/userArticles.html';
-                   },
-                   controller: 'articleCtrl',
-                   resolve: {
-					    
-                       getArticleData: ['articleFactory', function(articleFactory) {
-                          	return articleFactory.getArticles();
-                       }]
-                   }
+                   } */
                }
            }
-    }).state('default', {
-        url: '/articles',
+    }).state('create', {
+        url: '/createArticles',
+        views: {
+               'body': {
+				   
+				   templateUrl: function ($stateParams) {
+                      return  'partial_views/createUpdateArticle.html';
+                   },
+					
+				    controller: 'articleDetailCtrl',
+					}
+			  
+           }
+    }).state('home', {
+        url: '/',
         views: {
                'body': {
 					
-					templateUrl: 'partial_views/userArticles.html',
-				    controller: 'articleCtrl',
-					resolve: {
-				   
-                       getArticleData: ['articleFactory', function(articleFactory) {
-                           
-							return articleFactory.getArticles();
-                       }]
-					   
-                   }
+					 templateUrl: function ($stateParams) {
+                      return  'partial_views/userArticles.html';
+                   },
+				    controller: 'articleDetailCtrl',
+					
                }
 			  
            }

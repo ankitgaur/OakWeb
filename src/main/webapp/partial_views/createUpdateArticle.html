@@ -1,0 +1,88 @@
+<div>
+    <h1>Create Or Update Article</h1>
+
+    <form novalidate="novalidate" class="form-horizontal" name="articleForm">
+        <div class="form-group col-sm-12">
+            <label class="control-label" for="category">Category:</label>
+
+            <div>
+                <input class="form-control" type="text" id="category" ng-model="article.category" placeholder="Category"/>
+            </div>
+        </div>
+        <div class="form-group col-sm-12">
+            <label class="control-label" for="title">Title:</label>
+
+            <div>
+                <input class="form-control" type="text" id="title" ng-model="article.title" placeholder="Title"/>
+            </div>
+        </div>
+		
+		<div class="form-group col-sm-12">
+            <label class="control-label" for="createdBy">Created By:</label>
+
+            <div>
+                <input class="form-control" type="text" id="createdBy" ng-model="article.createdBy" placeholder="Created By"/>
+            </div>
+        </div>
+		
+		<div class="form-group col-sm-12">
+            <label class="control-label" for="updatedBy">Updated By:</label>
+
+            <div>
+                <input class="form-control" type="text" id="updatedBy" ng-model="article.updatedBy" placeholder="Updated By"/>
+            </div>
+        </div>
+		
+		<div class="row">
+			<div ng-if="!article.updatedOn" class="col-sm-6 col-xs-12">
+					
+					<button ng-click="createArticle()" type="button" class="btn  btn-primary btn-group-justified">Create New Article </button>
+				
+			</div>
+			
+			<div ng-if="article.updatedOn" class="col-sm-6 col-xs-12">
+					
+					<button ng-click="updateArticle(article.category,article.updatedOn)" type="button" class="btn  btn-primary btn-group-justified">Update Article </button>
+				
+			</div>
+			
+			<div class="col-sm-6 col-xs-12">
+					
+					<button ng-click="resetForm()" type="button" class="btn btn-default btn-group-justified">Clear Article Form </button>
+				
+			</div>
+			
+		</div>
+	
+    </form>
+</div>
+
+<div  ng-if="articles.length > 0">
+  
+<table  class="poctable table table-striped table-bordered">
+	<h1>Articles</h1>
+	<thead>
+		<tr>
+			<th>Checkbox</th> <!-- select checkbox -->
+			<th>Edit</th> <!-- edit -->
+			<th>Article Title</th>
+			<th>Created By</th>	
+			<th>Remove </th>	
+			
+		</tr>
+	</thead>
+	<tbody>
+		
+		<tr data-ng-repeat="article in articles">
+			<td><input id="selectRow" type="checkbox" /></td>
+			<td><a ui-sref='child({articleID:article.category+"_"+article.updatedOn})'><i class="glyphicon glyphicon-pencil"></i></a></td>
+			<td>{{article.title}}</td>
+			<td>{{article.createdBy}}</td>	
+			<td><a style="cursor:pointer;" ng-click="deleteArticle(article.category,article.updatedOn)"><i class="glyphicon glyphicon-minus"></i></a></td>		
+		</tr>		
+	</tbody>
+</table>
+
+<a ui-sref="create" id="addRow"><i class="glyphicon glyphicon-plus"></i></a>
+
+
