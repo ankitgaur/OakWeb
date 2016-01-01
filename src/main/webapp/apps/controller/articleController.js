@@ -1,16 +1,12 @@
 articleApp.controller('articleDetailCtrl',['$scope','$http','$stateParams','$log','articleFactory', function($scope,$http,$stateParams,$log,articleFactory) {
- 
-  
+
 	$scope.articles  = [];
 	$scope.articleId = $stateParams.articleID;
-	 
   if($scope.articleId !="" && $scope.articleId !=undefined && $scope.articleId !='undefined'){
 	 getArticleByID($scope.articleId); 
   }else{
 	  getAllArticles();
   }
-	
-	
 	$scope.createArticle = function(){
 		articleFactory.createArticles($scope.article)
 				.then(function success(response) {
@@ -19,10 +15,7 @@ articleApp.controller('articleDetailCtrl',['$scope','$http','$stateParams','$log
 		 $log.debug('There is some issue while crating  article ');
 	  }); 
 	}
-	
-	
 	$scope.updateArticle = function(category,updatedOn){
-		
 		var articleID = category+"_"+updatedOn;
 		articleFactory.updateArticles($scope.article,articleID)
 				.then(function successCallback(response) {
@@ -55,8 +48,6 @@ articleApp.controller('articleDetailCtrl',['$scope','$http','$stateParams','$log
 		$scope.article = angular.copy(articleOrg);
 		$scope.articleForm.$setPristine();
 	}
-	
-	
 	function getArticleByID(articleID){
 		
 		articleFactory.getArticleByID(articleID).then(function success(response) {
@@ -84,10 +75,6 @@ articleApp.controller('articleDetailCtrl',['$scope','$http','$stateParams','$log
 			$log.debug('There is some issue while getting articles from rest service');
 	  });
 	}
-	
-	
-	
-	
-	
+
 	
 }]);

@@ -8,14 +8,8 @@ articleFactory.getArticles = function(){
 	return $http({
 		  method: 'GET',
 		  url: url,
-		  crossDomain:true,
-		  headers: {
-			  'crossDomain':'true',
-			  'Content-Type': 'application/json',
-			  'Accept': 'application/json, text/plain',
-			  'Cache-Control' : 'no-cache' 
-			}
-	 }).then(function successCallback(response) {
+		  crossDomain:true
+		 }).then(function successCallback(response) {
 		$log.debug('Success Article Detail service '+JSON.stringify(response.data));
 		return response.data;
 	  }, function errorCallback(response) {
@@ -30,18 +24,12 @@ articleFactory.getArticleByID = function(articleID){
 	return $http({
 		  method: 'GET',
 		  url: url,
-		  crossDomain:true,
-		  headers: {
-			  'crossDomain':'true',
-			  'Content-Type': 'application/json',
-			  'Accept': 'application/json, text/plain',
-			  'Cache-Control' : 'no-cache' 
-			}
-	 }).then(function successCallback(response) {
+		  crossDomain:true
+		  }).then(function successCallback(response) {
 		$log.debug('Success Article Detail service '+JSON.stringify(response.data));
 		return response.data;
 	  }, function errorCallback(response) {
-			$log.debug('There is some issue while getting data from rest service');
+		$log.debug('There is some issue while getting data from rest service');
 	  }); 
   
 }
@@ -52,13 +40,8 @@ articleFactory.deleteArticleByID = function(articleID){
 	return $http({
 		  method: 'DELETE',
 		  url: url,
-		  crossDomain:true,
-		  headers: {
-			  'crossDomain':'true',
-			  'Content-Type': 'application/json',
-			  'Accept': 'application/json, text/plain',
-			  'Cache-Control' : 'no-cache' 
-			}
+		  crossDomain:true
+		  
 	 }).then(function successCallback(response) {
 		$log.debug('Success Article Detail service '+JSON.stringify(response.data));
 		return response.data;
@@ -74,14 +57,8 @@ articleFactory.createArticles = function(articleData){
 		var req = {
 				method: 'POST',
 				url: url,
-				headers: {
-					'crossDomain':'true',
-					'Content-Type': 'application/json',
-					"Accept": "application/json, text/plain, */*"
-				},
 				data:articleData
-		   }
-		   
+			}
 
 	return $http(req).then(function success(response) {
 			$log.debug('article response is '+JSON.stringify(response.data));
@@ -95,20 +72,12 @@ articleFactory.createArticles = function(articleData){
 articleFactory.updateArticles = function(articleData,articleID){
 		var url = 'http://localhost:6767/articles';
 		url = url+"/"+articleID;
-		console.log("url "+url);
-		console.log(articleData);
 		var req = {
 				method: 'PUT',
 				url: url,
-				headers: {
-					'crossDomain':'true',
-					'Content-Type': 'application/json',
-					"Accept": "application/json, text/plain, */*"
-				},
 				data:articleData
 		   }
-		   
-
+	
 	return $http(req).then(function success(response) {
 			$log.debug('article response is '+JSON.stringify(response.data));
 		},function error(response) {
