@@ -37,7 +37,7 @@ articleApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 
                'body': {
 					
 					 templateUrl: function ($stateParams) {
-                      return  'partial_views/userArticles.html';
+                      return  'partial_views/articles/listArticles.html';
                    },
 				    controller: 'articleDetailCtrl',
 					

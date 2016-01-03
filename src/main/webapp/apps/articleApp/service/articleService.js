@@ -61,7 +61,7 @@ articleFactory.createArticles = function(articleData){
 			}
 
 	return $http(req).then(function success(response) {
-			$log.debug('article response is '+JSON.stringify(response.data));
+			$log.debug('article response is '+JSON.stringify(response.data));			
 		},function error(response) {
 		$log.debug('There is some issue while getting data from rest service');
 	});

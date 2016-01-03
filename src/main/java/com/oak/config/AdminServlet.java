@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(urlPatterns = { "/index.html", "/index.jsp", "/index.htm" })
-public class AppInitializerServlet extends HttpServlet {
+@WebServlet(urlPatterns = { "/admin" })
+public class AdminServlet extends HttpServlet {
 
 	/**
 	 * 
@@ -19,6 +19,7 @@ public class AppInitializerServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("oakhome.html").forward(request, response);
+		request.getRequestDispatcher("oakadmin.html")
+				.forward(request, response);
 	}
 }

@@ -11,6 +11,7 @@ articleApp.controller('articleDetailCtrl',['$scope','$http','$stateParams','$log
 		articleFactory.createArticles($scope.article)
 				.then(function success(response) {
 					getAllArticles();
+					$('#createArticleModal').modal('hide');
 				}, function error(response) {
 		 $log.debug('There is some issue while crating  article ');
 	  }); 
@@ -25,6 +26,10 @@ articleApp.controller('articleDetailCtrl',['$scope','$http','$stateParams','$log
 	  });
 	}
 		
+	$scope.createPopup = function(){
+		alert("Yayyy!");
+		$scope.showModal = true;
+	}
 	
 	$scope.deleteArticle= function(category,updatedOn){
 		var articleID = category+"_"+updatedOn;
