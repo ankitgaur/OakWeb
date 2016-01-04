@@ -19,7 +19,7 @@
 
 			<tr data-ng-repeat="article in articles">
 				<td style="width: 20px;"><input id="selectRow" type="checkbox" /></td>
-				<td style="width: 20px;"><a data-toggle="modal" data-target="#updateArticleModal"><i
+				<td style="width: 20px;cursor: pointer;"><a data-toggle="modal" data-target="#updateArticleModal" ng-click="getArticleByID(article.category,article.updatedOn);"><i
 						class="glyphicon glyphicon-pencil"></i></a></td>
 				<td>{{article.title}}</td>
 				<td>{{article.createdBy}}</td>
@@ -30,17 +30,10 @@
 		</tbody>
 	</table>
 
-	<a data-toggle="modal" data-target="#createArticleModal" id="addRow"><i
+	<a data-toggle="modal" data-target="#createArticleModal"><i
 		class="glyphicon glyphicon-plus"></i></a>
 
 </div>
 
-<!-- <div  ng-if="!articles.length > 0">
-
- <h1> Currently there is no article available . </h1>
-
-</div>-->
-
-<!-- Create Modal -->
 <div ng-include = "'partial_views/articles/createArticle.html'"></div>
 <div ng-include = "'partial_views/articles/updateArticle.html'"></div>

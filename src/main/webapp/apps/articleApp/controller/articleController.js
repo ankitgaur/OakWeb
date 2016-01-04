@@ -7,10 +7,26 @@ articleApp.controller('articleDetailCtrl',['$scope','$http','$stateParams','$log
   }else{
 	  getAllArticles();
   }
+  
+  $scope.getArticleByID = function(category,updatedOn){
+		var articleID = category+"_"+updatedOn;
+		
+		articleFactory.getArticleByID(articleID).then(function success(response) {
+		setTimeout(function () {
+				$scope.$apply(function () {
+				$scope.article = response;
+		});
+		}, 0);
+		
+  }, function error(response) {
+		$log.debug('There is some issue while getting articles from rest service');
+  });
+}
 	$scope.createArticle = function(){
-		articleFactory.createArticles($scope.article)
+		articleFactory.createArticles(this.article)
 				.then(function success(response) {
 					getAllArticles();
+					clearArticleForm();
 					$('#createArticleModal').modal('hide');
 				}, function error(response) {
 		 $log.debug('There is some issue while crating  article ');
@@ -21,14 +37,12 @@ articleApp.controller('articleDetailCtrl',['$scope','$http','$stateParams','$log
 		articleFactory.updateArticles($scope.article,articleID)
 				.then(function successCallback(response) {
 					getAllArticles();
-					}, function errorCallback(response) {
+					clearArticleForm();
+				
+				$('#updateArticleModal').modal('hide');
+				}, function errorCallback(response) {
 		 $log.debug('There is some issue while crating  article ');
 	  });
-	}
-		
-	$scope.createPopup = function(){
-		alert("Yayyy!");
-		$scope.showModal = true;
 	}
 	
 	$scope.deleteArticle= function(category,updatedOn){
@@ -42,17 +56,23 @@ articleApp.controller('articleDetailCtrl',['$scope','$http','$stateParams','$log
 	  });
 	}
 	
-	$scope.clearArticleForm = function(){
-		$scope.article = {
-		category: "",
-		title: "",
-		createdBy:"",
-		updatedBy:""
-    };
-	 var articleOrg = angular.copy($scope.article);
-		$scope.article = angular.copy(articleOrg);
-		$scope.articleForm.$setPristine();
+	function clearArticleForm(){
+		$scope.articleOrg = {
+						category: "",
+						title: "",
+						createdBy:"",
+						updatedBy:""
+				};					
+				setTimeout(function () {
+						$scope.$apply(function () {
+						$scope.article=angular.copy($scope.articleOrg);
+					 });
+				}, 0);
+		//$scope.articleCreateForm.$setPristine();
+		//$scope.articleUpdateForm.$setPristine();
+		
 	}
+	
 	function getArticleByID(articleID){
 		
 		articleFactory.getArticleByID(articleID).then(function success(response) {
