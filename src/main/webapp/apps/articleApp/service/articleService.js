@@ -10,8 +10,7 @@ articleFactory.getArticles = function(){
 		  url: url,
 		  crossDomain:true
 		 }).then(function successCallback(response) {
-		$log.debug('Success Article Detail service '+JSON.stringify(response.data));
-		return response.data;
+			 return response.data;
 	  }, function errorCallback(response) {
 			$log.debug('There is some issue while getting data from rest service');
 	  }); 
@@ -26,8 +25,7 @@ articleFactory.getArticleByID = function(articleID){
 		  url: url,
 		  crossDomain:true
 		  }).then(function successCallback(response) {
-		$log.debug('Success Article Detail service '+JSON.stringify(response.data));
-		return response.data;
+			  return response.data;
 	  }, function errorCallback(response) {
 		$log.debug('There is some issue while getting data from rest service');
 	  }); 
@@ -43,8 +41,7 @@ articleFactory.deleteArticleByID = function(articleID){
 		  crossDomain:true
 		  
 	 }).then(function successCallback(response) {
-		$log.debug('Success Article Detail service '+JSON.stringify(response.data));
-		return response.data;
+		 return response.data;
 	  }, function errorCallback(response) {
 			$log.debug('There is some issue while getting data from rest service');
 	  }); 
@@ -61,7 +58,7 @@ articleFactory.createArticles = function(articleData){
 			}
 
 	return $http(req).then(function success(response) {
-			$log.debug('article response is '+JSON.stringify(response.data));			
+			$log.debug('article created successfully ');			
 		},function error(response) {
 		$log.debug('There is some issue while getting data from rest service');
 	});
@@ -79,7 +76,7 @@ articleFactory.updateArticles = function(articleData,articleID){
 		   }
 	
 	return $http(req).then(function success(response) {
-			$log.debug('article response is '+JSON.stringify(response.data));
+			$log.debug('article updated successfully ');
 		},function error(response) {
 		$log.debug('There is some issue while getting data from rest service');
 	});
