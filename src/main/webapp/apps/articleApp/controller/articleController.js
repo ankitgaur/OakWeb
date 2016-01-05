@@ -22,22 +22,24 @@ articleApp.controller('articleDetailCtrl',['$scope','$http','$stateParams','$log
 		$log.debug('There is some issue while getting articles from rest service');
   });
 }
-	$scope.createArticle = function(){
+	
+	$scope.createArticle = function(articleFormObj){
 		articleFactory.createArticles(this.article)
 				.then(function success(response) {
+									
 					getAllArticles();
-					clearArticleForm();
+					clearArticleForm(articleFormObj);
 					$('#createArticleModal').modal('hide');
 				}, function error(response) {
 		 $log.debug('There is some issue while crating  article ');
 	  }); 
 	}
-	$scope.updateArticle = function(category,updatedOn){
+	$scope.updateArticle = function(category,updatedOn,articleFormObj){
 		var articleID = category+"_"+updatedOn;
 		articleFactory.updateArticles($scope.article,articleID)
 				.then(function successCallback(response) {
 					getAllArticles();
-					clearArticleForm();
+					clearArticleForm(articleFormObj);
 				
 				$('#updateArticleModal').modal('hide');
 				}, function errorCallback(response) {
@@ -55,22 +57,16 @@ articleApp.controller('articleDetailCtrl',['$scope','$http','$stateParams','$log
 			$log.debug('There is some issue while getting articles from rest service');
 	  });
 	}
+	$scope.resetForm = function(articleFormObj){
+		clearArticleForm(articleFormObj);
+	}
 	
-	function clearArticleForm(){
-		$scope.articleOrg = {
-						category: "",
-						title: "",
-						createdBy:"",
-						updatedBy:""
-				};					
-				setTimeout(function () {
-						$scope.$apply(function () {
-						$scope.article=angular.copy($scope.articleOrg);
-					 });
-				}, 0);
-		//$scope.articleCreateForm.$setPristine();
-		//$scope.articleUpdateForm.$setPristine();
-		
+	function clearArticleForm(articleFormObj){
+			articleFormObj.category=null;
+			articleFormObj.createdBy=null;
+			articleFormObj.title=null;
+			articleFormObj.updatedBy=null;
+			articleFormObj.updatedOn=null;
 	}
 	
 	function getArticleByID(articleID){
