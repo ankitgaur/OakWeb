@@ -12,10 +12,15 @@
 				<form novalidate class="form-horizontal"
 					name="articleCreateForm">
 					<div class="form-group col-sm-12">
+					
+					
 						<label class="control-label" for="category">Category:</label>
 
 						<div>
-							<input class="form-control" type="text" id="category"
+							<input ng-show="!article.updatedOn" class="form-control" type="text" id="category"
+								ng-model="article.category" placeholder="Category" />
+								
+							<input ng-show="article.updatedOn" ng-disabled="article.updatedOn" class="form-control" type="text" id="category"
 								ng-model="article.category" placeholder="Category" />
 						</div>
 					</div>
