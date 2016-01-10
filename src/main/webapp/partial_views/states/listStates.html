@@ -1,0 +1,57 @@
+
+<div>
+
+	<table class="poctable table table-striped table-bordered">
+		<h1>States</h1>
+		<thead>
+			<tr>
+				<th style="width: 20px;"></th>
+				<!-- select checkbox -->
+				<th style="width: 20px;"></th>
+				<!-- edit -->
+				<th>ID</th>
+				<th>Name</th>
+				<th>Abbreviation</th>
+				<th>Government</th>				
+				<th>Created By</th>
+				<th>Updated By</th>
+				<th>Created On</th>
+				<th>Updated On</th>
+								
+				<th>Remove</th>
+
+			</tr>
+		</thead>
+		<tbody>
+
+			<tr data-ng-repeat="state in states">
+				<td style="width: 20px;"><input id="selectRow" type="checkbox" /></td>
+				<td style="width: 20px;cursor: pointer;"><a data-toggle="modal" data-target="#updateStateModal" ng-click="getStateByID(state.id);"><i
+						class="glyphicon glyphicon-pencil"></i></a></td>
+				<td>{{state.id}}</td>
+				<td>{{state.name}}</td>
+				<td>{{state.abbr}}</td>
+				<td>{{state.currGovt}}</td>				
+				<td>{{state.createdBy}}</td>
+				<td>{{state.updatedBy}}</td>
+				<td>{{state.createdOnStr}}</td>
+				<td>{{state.updateOnStr}}</td>
+				<td><a style="cursor: pointer;"
+					ng-click="deleteState(state.id)"><i
+						class="glyphicon glyphicon-minus"></i></a></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<a data-toggle="modal" data-target="#createStateModal"><i
+		class="glyphicon glyphicon-plus"></i></a>
+
+</div>
+
+<div id="createStateModal" class="modal fade" role="dialog">
+	<div ng-include = "'partial_views/states/createState.html'"></div>
+</div>
+<div id="updateStateModal" class="modal fade" role="dialog">
+	<div ng-include = "'partial_views/states/updateState.html'"></div>
+</div>
+

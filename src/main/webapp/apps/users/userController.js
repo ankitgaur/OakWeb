@@ -61,11 +61,16 @@ userApp.controller('userDetailCtrl',['$scope','$http','$stateParams','$log','use
 	}
 	
 	function clearUserForm(userFormObj){
-			userFormObj.category=null;
-			userFormObj.createdBy=null;
-			userFormObj.title=null;
-			userFormObj.updatedBy=null;
-			userFormObj.updatedOn=null;
+			userFormObj.email=null;
+			userFormObj.name=null;
+			userFormObj.username=null;
+			userFormObj.password=null;
+			userFormObj.groups=null;
+			userFormObj.activated=null;
+			userFormObj.forgotpassword=null;
+			userFormObj.sendemail=null;
+			userFormObj.updatedby=null;
+			userFormObj.createdby=null;
 	}
 	
 	function getUserByID(userID){
