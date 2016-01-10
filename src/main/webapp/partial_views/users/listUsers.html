@@ -1,0 +1,63 @@
+
+<div>
+
+	<table class="poctable table table-striped table-bordered">
+		<h1>Users</h1>
+		<thead>
+			<tr>
+				<th style="width: 20px;"></th>
+				<!-- select checkbox -->
+				<th style="width: 20px;"></th>
+				<!-- edit -->
+				<th>Email</th>
+				<th>Name</th>
+				<th>Username</th>
+				<th>Groups</th>
+				<th>Activated</th>
+				<th>Forgot Password</th>
+				<th>Send Email</th>
+				<th>Created By</th>
+				<th>Updated By</th>
+				<th>Created On</th>
+				<th>Updated On</th>
+								
+				<th>Remove</th>
+
+			</tr>
+		</thead>
+		<tbody>
+
+			<tr data-ng-repeat="user in users">
+				<td style="width: 20px;"><input id="selectRow" type="checkbox" /></td>
+				<td style="width: 20px;cursor: pointer;"><a data-toggle="modal" data-target="#updateUserModal" ng-click="getUserByID(user.email);"><i
+						class="glyphicon glyphicon-pencil"></i></a></td>
+				<td>{{user.email}}</td>
+				<td>{{user.name}}</td>
+				<td>{{user.username}}</td>
+				<td>{{user.groups}}</td>
+				<td>{{user.activated}}</td>
+				<td>{{user.forgotpassword}}</td>
+				<td>{{user.sendemail}}</td>
+				<td>{{user.createdby}}</td>
+				<td>{{user.updatedby}}</td>
+				<td>{{user.createdOnStr}}</td>
+				<td>{{user.updateOnStr}}</td>
+				<td><a style="cursor: pointer;"
+					ng-click="deleteUser(user.email)"><i
+						class="glyphicon glyphicon-minus"></i></a></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<a data-toggle="modal" data-target="#createUserModal"><i
+		class="glyphicon glyphicon-plus"></i></a>
+
+</div>
+
+<div id="createUserModal" class="modal fade" role="dialog">
+	<div ng-include = "'partial_views/users/createUpdateUser.html'"></div>
+</div>
+<div id="updateUserModal" class="modal fade" role="dialog">
+	<div ng-include = "'partial_views/users/createUpdateUser.html'"></div>
+</div>
+
