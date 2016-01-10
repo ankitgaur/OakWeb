@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app='articleApp' lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html ng-app='oakAdminApp' lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
 	<meta charset="utf-8">
@@ -22,25 +22,29 @@
 
 <body>
 
-
 <div ng-include = "'partial_views/header.html'"></div>
 
-<div class="container" ui-view="body"></div>
+<div  ui-view="body"></div>
  
 <div ng-include = "'partial_views/footer.html'"></div>
-
 
 <script src="lib/angular/angular.js"></script>
 <script src="lib/angular/angular-route.js"></script>
 <script src="lib/angular/angular-ui-router.js"></script>
 <script src="lib/bootstrap/bootstrap.js"></script>
-<script src="apps/articleApp/module/articleApp.js"></script>
-<script src="apps/articleApp/router/articleRouter.js"></script>
-<script src="apps/articleApp/controller/articleController.js"></script>
-<script src="apps/articleApp/service/articleService.js"></script>
+<script src="apps/oakAdminApp/module/oakAdminApp.js"></script>
+<script src="apps/oakAdminApp/router/oakAdminRouter.js"></script>
+<script src="apps/oakAdminApp/controller/articleController.js"></script>
+<script src="apps/oakAdminApp/controller/defaultController.js"></script>
+<script src="apps/oakAdminApp/controller/blogController.js"></script>
+<script src="apps/oakAdminApp/controller/incidentController.js"></script>
+<script src="apps/oakAdminApp/controller/stateController.js"></script>
+<script src="apps/oakAdminApp/controller/userController.js"></script>
+<script src="apps/oakAdminApp/service/articleService.js"></script>
+<script src="apps/oakAdminApp/service/blogService.js"></script>
+<script src="apps/oakAdminApp/service/incidentService.js"></script>
+<script src="apps/oakAdminApp/service/stateService.js"></script>
+<script src="apps/oakAdminApp/service/userService.js"></script>
 
-
-<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>-->
 </body>
 </html>

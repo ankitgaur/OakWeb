@@ -1,0 +1,44 @@
+<div class="container">
+
+	<table class="poctable table table-striped table-bordered">
+		<h1>Incidents</h1>
+		<thead>
+			<tr>
+				<th style="width: 20px;"></th>
+				<!-- select checkbox -->
+				<th style="width: 20px;"></th>
+				<!-- edit -->
+				<th>Created By</th>
+				<th>Report Date</th>
+				<th>State</th>
+				<th>Remove</th>
+			</tr>
+		</thead>
+		<tbody>
+
+			<tr data-ng-repeat="incident in incidents">
+				<td style="width: 20px;"><input id="selectRow" type="checkbox" /></td>
+				<td style="width: 20px;cursor: pointer;"><a data-toggle="modal" data-target="#updateIncidentModal" ng-click="getIncidentByID(incident.id);"><i
+						class="glyphicon glyphicon-pencil"></i></a></td>
+				<td>{{incident.createdBy}}</td>
+				<td>{{incident.reportDateStr}}</td>
+				<td>{{incident.state}}</td>
+				<td><a style="cursor: pointer;"
+					ng-click="deleteIncident(incident.id)"><i
+						class="glyphicon glyphicon-minus"></i></a></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<a data-toggle="modal" data-target="#createIncidentModal"><i
+		class="glyphicon glyphicon-plus"></i></a>
+
+</div>
+
+<div id="createIncidentModal" class="modal fade" role="dialog">
+	<div ng-include = "'partial_views/incidents/createUpdateIncident.html'"></div>
+</div>
+<div id="updateIncidentModal" class="modal fade" role="dialog">
+	<div ng-include = "'partial_views/incidents/createUpdateIncident.html'"></div>
+</div>
+

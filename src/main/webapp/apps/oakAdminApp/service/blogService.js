@@ -1,10 +1,9 @@
-stateApp.factory('stateFactory',['$http','$log',function($http,$log){
+oakAdminApp.factory('blogsFactory',['$http','$log',function($http,$log){
 	
-	var stateFactory = {};
-	
+var blogsFactory = {};
 
-stateFactory.getStates = function(){
-	  var url = 'http://localhost:6767/states';
+blogsFactory.getBlogs = function(){
+	  var url = 'http://localhost:6767/blogs';
 	return $http({
 		  method: 'GET',
 		  url: url,
@@ -17,9 +16,9 @@ stateFactory.getStates = function(){
   
 }
 
-stateFactory.getStateByID = function(stateID){
-	  var url = 'http://localhost:6767/states';
-	  url = url+"/"+stateID;
+blogsFactory.getBlogByID = function(blogID){
+	  var url = 'http://localhost:6767/blogs';
+	  url = url+"/"+blogID;
 	return $http({
 		  method: 'GET',
 		  url: url,
@@ -32,9 +31,9 @@ stateFactory.getStateByID = function(stateID){
   
 }
 
-stateFactory.deleteStateByID = function(stateID){
-	  var url = 'http://localhost:6767/states';
-	  url = url+"/"+stateID;
+blogsFactory.deleteBlogByID = function(blogID){
+	  var url = 'http://localhost:6767/blogs';
+	  url = url+"/"+blogID;
 	return $http({
 		  method: 'DELETE',
 		  url: url,
@@ -49,34 +48,32 @@ stateFactory.deleteStateByID = function(stateID){
 }
 
 
-stateFactory.createStates = function(stateData){
-		var url = 'http://localhost:6767/states';
+blogsFactory.createBlogs = function(blogData){
+		var url = 'http://localhost:6767/blogs';
 		var req = {
 				method: 'POST',
 				url: url,
-				data:stateData
+				data:blogData
 			}
 
 	return $http(req).then(function success(response) {
-			$log.debug('state created successfully ');			
+			$log.debug('blog created successfully ');			
 		},function error(response) {
 		$log.debug('There is some issue while getting data from rest service');
-	});
-  
-	
+	});	
 }
 
-stateFactory.updateStates = function(stateData,stateID){
-		var url = 'http://localhost:6767/states';
-		url = url+"/"+stateID;
+blogsFactory.updateBlogs = function(blogData,blogID){
+		var url = 'http://localhost:6767/blogs';
+		url = url+"/"+blogID;
 		var req = {
 				method: 'PUT',
 				url: url,
-				data:stateData
+				data:blogData
 		   }
 	
 	return $http(req).then(function success(response) {
-			$log.debug('state updated successfully ');
+			$log.debug('blog updated successfully ');
 		},function error(response) {
 		$log.debug('There is some issue while getting data from rest service');
 	});
@@ -84,6 +81,6 @@ stateFactory.updateStates = function(stateData,stateID){
 	
 }
 
-	return stateFactory;
+	return blogsFactory;
 
 }]);

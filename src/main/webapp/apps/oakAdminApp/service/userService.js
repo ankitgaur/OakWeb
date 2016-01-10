@@ -1,7 +1,6 @@
-userApp.factory('userFactory',['$http','$log',function($http,$log){
+oakAdminApp.factory('userFactory',['$http','$log',function($http,$log){
 	
-	var userFactory = {};
-	
+var userFactory = {};
 
 userFactory.getUsers = function(){
 	  var url = 'http://localhost:6767/users';

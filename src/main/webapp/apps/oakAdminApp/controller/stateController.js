@@ -1,4 +1,4 @@
-stateApp.controller('stateDetailCtrl',['$scope','$http','$stateParams','$log','stateFactory', function($scope,$http,$stateParams,$log,stateFactory) {
+oakAdminApp.controller('stateCtrl',['$scope','$http','$stateParams','$log','stateFactory', function($scope,$http,$stateParams,$log,stateFactory) {
 
 	$scope.states  = [];
 	$scope.stateId = $stateParams.stateID;

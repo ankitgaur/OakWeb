@@ -1,5 +1,5 @@
-var userApp = angular.module('userApp', ['ui.router']);
-userApp.config(['$httpProvider', function ($httpProvider) {
+var oakAdminApp = angular.module('oakAdminApp', ['ui.router']);
+oakAdminApp.config(['$httpProvider', function ($httpProvider) {
 	if (!$httpProvider.defaults.headers.get) {
         $httpProvider.defaults.headers.get = {};    
     }  	
@@ -14,7 +14,7 @@ userApp.config(['$httpProvider', function ($httpProvider) {
 	
 }]);
 
-userApp.run(function($http) {
+oakAdminApp.run(function($http) {
 	delete $http.defaults.headers.common['X-Requested-With']; 
 	$http.defaults.headers.put = {
         'Access-Control-Allow-Origin': '*',

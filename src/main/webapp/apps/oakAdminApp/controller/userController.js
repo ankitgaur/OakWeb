@@ -1,5 +1,4 @@
-userApp.controller('userDetailCtrl',['$scope','$http','$stateParams','$log','userFactory', function($scope,$http,$stateParams,$log,userFactory) {
-
+oakAdminApp.controller('userCtrl',['$scope','$http','$stateParams','$log','userFactory', function($scope,$http,$stateParams,$log,userFactory) {
 	$scope.users  = [];
 	$scope.userId = $stateParams.userID;
   if($scope.userId !="" && $scope.userId !=undefined && $scope.userId !='undefined'){

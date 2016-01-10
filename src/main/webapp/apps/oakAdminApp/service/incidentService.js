@@ -1,10 +1,10 @@
-articleApp.factory('articleFactory',['$http','$log',function($http,$log){
+oakAdminApp.factory('incidentFactory',['$http','$log',function($http,$log){
 	
-	var articleFactory = {};
+	var incidentFactory = {};
 	
 
-articleFactory.getArticles = function(){
-	  var url = 'http://localhost:6767/articles';
+incidentFactory.getIncidents = function(){
+	  var url = 'http://localhost:6767/incidents';
 	return $http({
 		  method: 'GET',
 		  url: url,
@@ -17,9 +17,9 @@ articleFactory.getArticles = function(){
   
 }
 
-articleFactory.getArticleByID = function(articleID){
-	  var url = 'http://localhost:6767/articles';
-	  url = url+"/"+articleID;
+incidentFactory.getIncidentByID = function(incidentID){
+	  var url = 'http://localhost:6767/incidents';
+	  url = url+"/"+incidentID;
 	return $http({
 		  method: 'GET',
 		  url: url,
@@ -32,9 +32,9 @@ articleFactory.getArticleByID = function(articleID){
   
 }
 
-articleFactory.deleteArticleByID = function(articleID){
-	  var url = 'http://localhost:6767/articles';
-	  url = url+"/"+articleID;
+incidentFactory.deleteIncidentByID = function(incidentID){
+	  var url = 'http://localhost:6767/incidents';
+	  url = url+"/"+incidentID;
 	return $http({
 		  method: 'DELETE',
 		  url: url,
@@ -49,16 +49,16 @@ articleFactory.deleteArticleByID = function(articleID){
 }
 
 
-articleFactory.createArticles = function(articleData){
-		var url = 'http://localhost:6767/articles';
+incidentFactory.createIncidents = function(incidentData){
+		var url = 'http://localhost:6767/incidents';
 		var req = {
 				method: 'POST',
 				url: url,
-				data:articleData
+				data:incidentData
 			}
 
 	return $http(req).then(function success(response) {
-			$log.debug('article created successfully ');			
+			$log.debug('Incident created successfully ');			
 		},function error(response) {
 		$log.debug('There is some issue while getting data from rest service');
 	});
@@ -66,24 +66,23 @@ articleFactory.createArticles = function(articleData){
 	
 }
 
-articleFactory.updateArticles = function(articleData,articleID){
-		var url = 'http://localhost:6767/articles';
-		url = url+"/"+articleID;
+incidentFactory.updateIncidents = function(incidentData,incidentID){
+		var url = 'http://localhost:6767/incidents';
+		url = url+"/"+incidentID;
 		var req = {
 				method: 'PUT',
 				url: url,
-				data:articleData
+				data:incidentData
 		   }
 	
 	return $http(req).then(function success(response) {
-			$log.debug('article updated successfully ');
+			$log.debug('Incident updated successfully ');
 		},function error(response) {
 		$log.debug('There is some issue while getting data from rest service');
 	});
   
-	
 }
 
-	return articleFactory;
+	return incidentFactory;
 
 }]);

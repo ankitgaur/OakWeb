@@ -1,4 +1,4 @@
-articleApp.controller('articleDetailCtrl',['$scope','$http','$stateParams','$log','articleFactory', function($scope,$http,$stateParams,$log,articleFactory) {
+oakAdminApp.controller('articleCtrl',['$scope','$http','$stateParams','$log','articleFactory', function($scope,$http,$stateParams,$log,articleFactory) {
 
 	$scope.articles  = [];
 	$scope.articleId = $stateParams.articleID;
@@ -36,6 +36,7 @@ articleApp.controller('articleDetailCtrl',['$scope','$http','$stateParams','$log
 	}
 	$scope.updateArticle = function(category,updatedOn,articleFormObj){
 		var articleID = category+"_"+updatedOn;
+		console.log($scope.article);
 		articleFactory.updateArticles($scope.article,articleID)
 				.then(function successCallback(response) {
 					getAllArticles();
