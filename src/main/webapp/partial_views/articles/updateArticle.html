@@ -1,0 +1,133 @@
+
+	<div class="modal-dialog">
+
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Update Article</h4>
+			</div>
+			<div class="modal-body">
+				<form novalidate class="form-horizontal"
+					name="articleUpdateForm">
+					
+					<div class="form-group col-sm-12">
+						<label class="control-label" for="category">Category:</label>
+						<div>
+							<input ng-disabled="article.updatedOn" class="form-control category" type="text" ng-model="article.category" placeholder="Category" />
+						</div>
+					</div>
+					
+					<div class="form-group col-sm-12">
+						<label class="control-label" for="title">Title:</label>
+
+						<div>
+							<input class="form-control title" type="text" 
+								ng-model="article.title" placeholder="Title" />
+						</div>
+					</div>
+					<div class="form-group col-sm-12">
+						<label class="control-label" for="content">Content:</label>
+
+						<div>
+							<input class="form-control content" type="text" 
+								ng-model="article.content" placeholder="Content" />
+						</div>
+					</div>
+					
+					<div class="form-group col-sm-12">
+						<label class="control-label" for="displayImage">DisplayImage:</label>
+
+						<div>
+							<input class="form-control displayImage" type="text" 
+								ng-model="article.displayImage" placeholder="DisplayImage" />
+						</div>
+					</div>
+					
+					<div class="form-group col-sm-12">
+						<label class="control-label" for="approved">Approved:</label>
+
+						<div>
+							<input class="form-control approved" type="text" 
+								ng-model="article.approved" placeholder="Approved" />
+						</div>
+					</div>
+
+					<div class="form-group col-sm-12">
+						<label class="control-label" for="approvedBy">ApprovedBy:</label>
+
+						<div>
+							<input class="form-control approvedBy" type="text" 
+								ng-model="article.approvedBy" placeholder="ApprovedBy" />
+						</div>
+					</div>
+					
+					<div class="form-group col-sm-12">
+						<label class="control-label" for="approvedOn">ApprovedOn:</label>
+
+						<div>
+							<input class="form-control approvedOn" type="text" 
+								ng-model="article.approvedOn" placeholder="ApprovedOn"/>
+						</div>
+					</div>
+					
+					<div class="form-group col-sm-12">
+						<label class="control-label" for="createdOn">CreatedOn:</label>
+
+						<div>
+							<input class="form-control createdOn" type="text" 
+								ng-model="article.createdOn" placeholder="CreatedOn"/>
+						</div>
+					</div>
+									
+					
+					<div class="form-group col-sm-12">
+						<label class="control-label" for="createdBy">Created By:</label>
+
+						<div>
+							<input class="form-control" type="text" id="createdBy"
+								ng-model="article.createdBy" placeholder="Created By" />
+						</div>
+					</div>
+
+					<div class="form-group col-sm-12">
+						<label class="control-label" for="updatedBy">Updated By:</label>
+
+						<div>
+							<input class="form-control" type="text" id="updatedBy"
+								ng-model="article.updatedBy" placeholder="Updated By" />
+						</div>
+					</div>
+					
+					<div class="form-group col-sm-12">
+						<label class="control-label" for="rating">Rating:</label>
+
+						<div>
+							<input class="form-control rating" type="text" 
+								ng-model="article.rating" placeholder="Rating"/>
+						</div>
+					</div>
+					
+					<div class="form-group col-sm-12">
+						<label class="control-label" for="hits">Hits:</label>
+						<div>
+							<input class="form-control hits" type="text" 
+								ng-model="article.hits" placeholder="Hits"/>
+						</div>
+					</div>
+
+					<div class="row">					
+
+					</div>
+
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button"ng-click="resetForm(article)" class="btn btn-default" data-dismiss="modal">Close</button>
+				<button ng-click="resetForm(article)" type="button" class="btn btn-default">Reset</button>
+				<button ng-click="updateArticle(article.category,article.updatedOn,article)" type="button" class="btn btn-primary">Update</button>
+				
+			</div>
+		</div>
+
+	</div>
