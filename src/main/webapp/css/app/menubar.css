@@ -7,3 +7,9 @@
 .collapsable a {
     text-decoration: none;    
 }
+
+.footer_main {
+	position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
