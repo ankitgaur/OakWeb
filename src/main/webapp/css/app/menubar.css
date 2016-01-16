@@ -1,0 +1,9 @@
+.collapsable{
+	overflow: hidden;
+	width: 1em;
+	 padding-top: 10px;
+}
+
+.collapsable a {
+    text-decoration: none;    
+}

@@ -9,6 +9,8 @@
 	<!-- Bootstrap -->
     <link href="css/bootstrap/bootstrap.css" rel="stylesheet">
     <link href="css/bootstrap/theme-style.css" rel="stylesheet">
+    <link href="css/app/menubar.css" rel="stylesheet">
+    <link href="css/app/admin.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -24,7 +26,79 @@
 
 <div ng-include = "'partial_views/header.html'"></div>
 
-<div  ui-view="body"></div>
+
+<table id="container-tab">
+		<tbody>
+			<tr>
+
+				<td id="detail_tree_cell">
+					<div id="menubar">
+						<div class='left_item collapsable'>
+							<a ui-sref="#">&nbsp;&nbsp;&nbsp;&nbsp;Dashboard</a>
+						</div>
+						
+						<div class='left_item collapsable'>
+							<a ui-sref="article">&nbsp;&nbsp;&nbsp;&nbsp;Articles</a>
+						</div>
+						
+						<div class='left_item collapsable'>
+							<a ui-sref="blog">&nbsp;&nbsp;&nbsp;&nbsp;Blogs</a>
+						</div>
+						
+						<div class='left_item collapsable'>
+							<a ui-sref="state">&nbsp;&nbsp;&nbsp;&nbsp;States</a>
+						</div>
+						
+						<div class='left_item collapsable'>
+							<a a ui-sref="user">&nbsp;&nbsp;&nbsp;&nbsp;Users</a>
+						</div>
+						
+						<div class='left_item collapsable'>
+							<a ui-sref="incident">&nbsp;&nbsp;&nbsp;&nbsp;Incidents</a>
+						</div>
+						
+						<!-- Admin Section Starts 
+						
+						<div id='admin' class='left_item collapsable' style='display:none'>
+							<a onClick='MenuBar.adminToggle()'>&nbsp;&nbsp;&nbsp;&nbsp;Admin Panel</a>
+							<a class='downicons' onClick='MenuBar.adminToggle()'>
+								<i id='adminDown' class='glyphicon glyphicon-chevron-down'></i>
+							</a>
+						</div>
+						
+						<div id='user_admin' class='left_item_child collapsable admin_child'>
+							<a href='#useradmin'>&nbsp;&nbsp;&nbsp;&nbsp;Users</a>
+						</div>
+						
+						<div id='trans_admin' class='left_item_child collapsable admin_child'>
+							<a href='#transformationsadmin'>&nbsp;&nbsp;&nbsp;&nbsp;Transformations</a>
+						</div>
+						<div id='groups_admin' class='left_item_child collapsable admin_child'>
+							<a href='#groupadmin'>&nbsp;&nbsp;&nbsp;&nbsp;Group</a>
+						</div>
+						<!-- Admin Section ends -->
+						
+						
+				</td>
+				<td id="detail_separator_cell">
+					<!-- <img id="detail_tab"
+								src="img/mv-right.jpg"
+								alt="Expand" title="Expand" onclick="MenuBar.barToggle()"
+								style="visibility: visible; left: -14px;">	--> 
+				<i id="detail_tab" class="glyphicon glyphicon-circle-arrow-right" onclick="MenuBar.barToggle()"
+					style="font-size: 1.8em; left: -20px;"> </i>
+				</td>
+				<td id="detail_content_cell">
+					<div id="alertPanel"></div>
+					<div  ui-view="body"></div>
+					<!-- <div id="content" class="col-md-12"></div>-->
+
+				</td>
+			</tr>
+		</tbody>
+
+
+	</table>
  
 <div ng-include = "'partial_views/footer.html'"></div>
 
@@ -32,6 +106,7 @@
 <script src="lib/angular/angular-route.js"></script>
 <script src="lib/angular/angular-ui-router.js"></script>
 <script src="lib/bootstrap/bootstrap.js"></script>
+<script src="lib/menubar.js"></script>
 <script src="apps/oakAdminApp/module/oakAdminApp.js"></script>
 <script src="apps/oakAdminApp/router/oakAdminRouter.js"></script>
 <script src="apps/oakAdminApp/controller/articleController.js"></script>
