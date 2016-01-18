@@ -41,6 +41,19 @@ oakAdminApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
 				}
 			  
            }
+    }).state('placement', {
+        url: '/placement',
+        views: {
+               'body': {
+				   
+				   templateUrl: function ($stateParams) {
+                      return  'partial_views/placements/listPlacements.html';
+                   },
+					
+				    controller: 'placementCtrl',
+				}
+			  
+           }
     })
 	.state('user', {
         url: '/users',

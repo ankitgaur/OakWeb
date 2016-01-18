@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="oakHomeApp">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -44,7 +44,9 @@
 </div>
 <div class="container">
 <div class="row main-oakty-dv">
-<div id="oakmain" class="col-lg-7 col-md-8 col-sm-12 col-xs-12 oakt-main"><span class="img-bx"><img src="images/sample/Dutse_airport.jpg"></span></div>
+
+<div ui-view="placemen" ></div>
+
 <div class="col-lg-2 col-md-3 col-sm-7 col-xs-12 hidden-md rit-3-dvs">
 <div id="oakmidmain1" class="oak-main3 col-lg-12 col-md-12 col-sm-6 col-xs-6"><span class="img-bx"><img src="images/sample/Dutse_airport-2.jpg"></span></div>
 <div id="oakmidmain2" class="oak-main3 col-lg-12 col-md-12 col-sm-6 col-xs-6"><span class="img-bx"><img src="images/sample/Dutse_airport-3.jpg"></span></div>
@@ -285,7 +287,19 @@
   </div>
 </div>
 <!-- Forgot-Pass end -->
-  </body>
+
+    <script src="apps/xhr-xdr-adapter.js"></script>
+    <script src="lib/jQuery/jQuery1.11.js"></script>
+    <script src="lib/angular/angular.js"></script>
+	<script src="lib/angular/angular-route.js"></script>
+	<script src="lib/angular/angular-ui-router.js"></script>
+	<script src="lib/bootstrap/bootstrap.js"></script>
+	<script src="apps/oakHomeApp/module/oakHomeApp.js"></script>
+	<script src="apps/oakHomeApp/router/oakHomeRouter.js"></script>
+	<script src="apps/oakHomeApp/controller/oakHomeController.js"></script>
+	<script src="apps/oakHomeApp/service/oakHomeService.js"></script>
+
+</body>
   
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 

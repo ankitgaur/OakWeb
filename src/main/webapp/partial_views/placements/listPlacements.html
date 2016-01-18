@@ -1,0 +1,56 @@
+<div>
+	<table class="poctable table table-striped table-bordered">
+		<h1>Placements</h1>
+		<thead>
+			<tr>
+				<th style="width: 20px;"><input id="selectRow" type="checkbox" /></th>
+				<!-- select checkbox -->
+				<th style="width: 20px;"><i
+						class="glyphicon glyphicon-pencil"></i></th>
+				<!-- edit -->
+				<th>ID</th>
+				<th>Title</th>
+				<th>Link</th>
+				<th>Intro</th>				
+				<th>Created By</th>
+				<th>Updated By</th>
+				<th>Created On</th>
+				<th>Updated On</th>
+								
+				<th>Remove</th>
+
+			</tr>
+		</thead>
+		<tbody>
+
+			<tr data-ng-repeat="placement in placements">
+				<td style="width: 20px;"><input id="selectRow" type="checkbox" /></td>
+				<td style="width: 20px;cursor: pointer;"><a data-toggle="modal" data-target="#updatePlacementModal" ng-click="getPlacementByID(placement.id);"><i
+						class="glyphicon glyphicon-pencil"></i></a></td>
+				<td>{{placement.id}}</td>
+				<td>{{placement.title}}</td>
+				<td>{{placement.link}}</td>
+				<td>{{placement.intro}}</td>				
+				<td>{{placement.createdBy}}</td>
+				<td>{{placement.updatedBy}}</td>
+				<td>{{placement.createdOnStr}}</td>
+				<td>{{placement.updateOnStr}}</td>
+				<td><a style="cursor: pointer;"
+					ng-click="deletePlacement(placement.id)"><i
+						class="glyphicon glyphicon-minus"></i></a></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<a data-toggle="modal" data-target="#createPlacementModal"><i
+		class="glyphicon glyphicon-plus"></i></a>
+
+</div>
+
+<div id="createPlacementModal" class="modal fade" role="dialog">
+	<div ng-include ="'partial_views/placements/createPlacement.html'"></div>
+</div>
+<div id="updatePlacementModal" class="modal fade" role="dialog">
+	<div ng-include = "'partial_views/placements/updatePlacement.html'"></div>
+</div>
+
