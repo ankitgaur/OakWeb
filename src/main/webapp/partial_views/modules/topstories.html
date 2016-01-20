@@ -1,0 +1,12 @@
+<table class="table">
+	<thead>
+			<tr>
+				<td><b>Top Stories</b></td>
+			</tr>
+	</thead>
+	<tbody>
+		<tr data-ng-repeat="story in topstories">
+			<td><a style='text-decoration:none' href='{{story.link}}'>{{story.title}}</a></td>
+		</tr>		
+	</tbody>
+</table>

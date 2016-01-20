@@ -7,11 +7,19 @@ oakHomeApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 
                'placemen': {
 					
 					 templateUrl: function ($stateParams) {
-                      return  'placement.html';
+                      return  'partial_views/modules/singleimg.html';
                    },
 				    controller: 'oakHomeCtrl',
 					
-               }
+               },
+               'topstories' : {
+					
+					 templateUrl: function ($stateParams) {
+                    return  'partial_views/modules/topstories.html';
+                 },
+				    controller: 'oakHomeCtrl',
+					
+             }
 			  
            }
     });

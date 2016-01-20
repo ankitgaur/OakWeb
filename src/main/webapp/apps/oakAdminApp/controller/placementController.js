@@ -8,8 +8,8 @@ oakAdminApp.controller('placementCtrl',['$scope','$http','$stateParams','$log','
 	  getAllPlacements();
   }
   
-  $scope.getPlacementByID = function(id){
-		var placementID = id;
+  $scope.getPlacementByID = function(section,position){
+		var placementID = section+"_"+position;
 		
 		placementFactory.getPlacementByID(placementID).then(function success(response) {
 		setTimeout(function () {

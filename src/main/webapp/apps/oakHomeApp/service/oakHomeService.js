@@ -15,6 +15,21 @@ oakHomeFactory.getPlacementImgByID = function(placementID){
 		$log.debug('There is some issue while getting data from rest service');
 	  }); 
   
+	}
+
+oakHomeFactory.getTopStories = function(){
+	  var url = 'http://localhost:6767/placements/section/topstories';
+	  
+	return $http({
+		  method: 'GET',
+		  url: url,
+		  crossDomain:true
+		  }).then(function successCallback(response) {
+			    return response.data;
+	  }, function errorCallback(response) {
+		$log.debug('There is some issue while getting data from rest service');
+	  }); 
+
 }
 	return oakHomeFactory;
 
