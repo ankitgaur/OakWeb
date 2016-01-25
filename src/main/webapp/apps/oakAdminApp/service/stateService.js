@@ -4,7 +4,7 @@ oakAdminApp.factory('stateFactory',['$http','$log',function($http,$log){
 	
 
 stateFactory.getStates = function(){
-	  var url = 'http://localhost:6767/states';
+	  var url = AppConfig.appUrl+'states';
 	return $http({
 		  method: 'GET',
 		  url: url,
@@ -18,7 +18,7 @@ stateFactory.getStates = function(){
 }
 
 stateFactory.getStateByID = function(stateID){
-	  var url = 'http://localhost:6767/states';
+	  var url = AppConfig.appUrl+'states';
 	  url = url+"/"+stateID;
 	return $http({
 		  method: 'GET',
@@ -33,7 +33,7 @@ stateFactory.getStateByID = function(stateID){
 }
 
 stateFactory.deleteStateByID = function(stateID){
-	  var url = 'http://localhost:6767/states';
+	  var url = AppConfig.appUrl+'states';
 	  url = url+"/"+stateID;
 	return $http({
 		  method: 'DELETE',
@@ -50,7 +50,7 @@ stateFactory.deleteStateByID = function(stateID){
 
 
 stateFactory.createStates = function(stateData){
-		var url = 'http://localhost:6767/states';
+		var url = AppConfig.appUrl+'states';
 		var req = {
 				method: 'POST',
 				url: url,
@@ -67,7 +67,7 @@ stateFactory.createStates = function(stateData){
 }
 
 stateFactory.updateStates = function(stateData,stateID){
-		var url = 'http://localhost:6767/states';
+		var url = AppConfig.appUrl+'states';
 		url = url+"/"+stateID;
 		var req = {
 				method: 'PUT',

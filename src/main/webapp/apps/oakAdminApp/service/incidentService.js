@@ -4,7 +4,7 @@ oakAdminApp.factory('incidentFactory',['$http','$log',function($http,$log){
 	
 
 incidentFactory.getIncidents = function(){
-	  var url = 'http://localhost:6767/incidents';
+	  var url = AppConfig.appUrl+'incidents';
 	return $http({
 		  method: 'GET',
 		  url: url,
@@ -18,7 +18,7 @@ incidentFactory.getIncidents = function(){
 }
 
 incidentFactory.getIncidentByID = function(incidentID){
-	  var url = 'http://localhost:6767/incidents';
+	  var url = AppConfig.appUrl+'incidents';
 	  url = url+"/"+incidentID;
 	return $http({
 		  method: 'GET',
@@ -33,7 +33,7 @@ incidentFactory.getIncidentByID = function(incidentID){
 }
 
 incidentFactory.deleteIncidentByID = function(incidentID){
-	  var url = 'http://localhost:6767/incidents';
+	  var url = AppConfig.appUrl+'incidents';
 	  url = url+"/"+incidentID;
 	return $http({
 		  method: 'DELETE',
@@ -50,7 +50,7 @@ incidentFactory.deleteIncidentByID = function(incidentID){
 
 
 incidentFactory.createIncidents = function(incidentData){
-		var url = 'http://localhost:6767/incidents';
+		var url = AppConfig.appUrl+'incidents';
 		var req = {
 				method: 'POST',
 				url: url,
@@ -67,7 +67,7 @@ incidentFactory.createIncidents = function(incidentData){
 }
 
 incidentFactory.updateIncidents = function(incidentData,incidentID){
-		var url = 'http://localhost:6767/incidents';
+		var url = AppConfig.appUrl+'incidents';
 		url = url+"/"+incidentID;
 		var req = {
 				method: 'PUT',

@@ -3,7 +3,7 @@ oakHomeApp.factory('oakHomeFactory',['$http','$log',function($http,$log){
 var oakHomeFactory = {};
 	
 oakHomeFactory.getPlacementImgByID = function(placementID){
-	  var url = 'http://localhost:6767/placements';
+	  var url = AppConfig.appUrl+'placements';
 	  url = url+"/"+placementID;
 	return $http({
 		  method: 'GET',
@@ -18,7 +18,7 @@ oakHomeFactory.getPlacementImgByID = function(placementID){
 	}
 
 oakHomeFactory.getTopStories = function(){
-	  var url = 'http://localhost:6767/placements/section/topstories';
+	  var url = AppConfig.appUrl+'placements/section/topstories';
 	  
 	return $http({
 		  method: 'GET',

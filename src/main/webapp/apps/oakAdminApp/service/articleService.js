@@ -4,7 +4,7 @@ oakAdminApp.factory('articleFactory',['$http','$log',function($http,$log){
 	
 
 articleFactory.getArticles = function(){
-	  var url = 'http://localhost:6767/articles';
+	  var url = AppConfig.appUrl+'articles';
 	return $http({
 		  method: 'GET',
 		  url: url,
@@ -18,7 +18,7 @@ articleFactory.getArticles = function(){
 }
 
 articleFactory.getArticleByID = function(articleID){
-	  var url = 'http://localhost:6767/articles';
+	  var url = AppConfig.appUrl+'articles';
 	  url = url+"/"+articleID;
 	return $http({
 		  method: 'GET',
@@ -33,7 +33,7 @@ articleFactory.getArticleByID = function(articleID){
 }
 
 articleFactory.deleteArticleByID = function(articleID){
-	  var url = 'http://localhost:6767/articles';
+	  var url = AppConfig.appUrl+'articles';
 	  url = url+"/"+articleID;
 	return $http({
 		  method: 'DELETE',
@@ -50,7 +50,7 @@ articleFactory.deleteArticleByID = function(articleID){
 
 
 articleFactory.createArticles = function(articleData){
-		var url = 'http://localhost:6767/articles';
+		var url = AppConfig.appUrl+'articles';
 		var req = {
 				method: 'POST',
 				url: url,
@@ -67,7 +67,7 @@ articleFactory.createArticles = function(articleData){
 }
 
 articleFactory.updateArticles = function(articleData,articleID){
-		var url = 'http://localhost:6767/articles';
+		var url = AppConfig.appUrl+'articles';
 		url = url+"/"+articleID;
 		var req = {
 				method: 'PUT',

@@ -4,7 +4,7 @@ oakAdminApp.factory('placementFactory',['$http','$log',function($http,$log){
 	
 
 placementFactory.getPlacements = function(){
-	  var url = 'http://localhost:6767/placements';
+	  var url = AppConfig.appUrl+'placements';
 	return $http({
 		  method: 'GET',
 		  url: url,
@@ -18,7 +18,7 @@ placementFactory.getPlacements = function(){
 }
 
 placementFactory.getPlacementByID = function(placementID){
-	  var url = 'http://localhost:6767/placements';
+	  var url = AppConfig.appUrl+'placements';
 	  url = url+"/"+placementID;
 	return $http({
 		  method: 'GET',
@@ -33,7 +33,7 @@ placementFactory.getPlacementByID = function(placementID){
 }
 
 placementFactory.deletePlacementByID = function(placementID){
-	  var url = 'http://localhost:6767/placements';
+	  var url = AppConfig.appUrl+'placements';
 	  url = url+"/"+placementID;
 	return $http({
 		  method: 'DELETE',
@@ -50,7 +50,7 @@ placementFactory.deletePlacementByID = function(placementID){
 
 
 placementFactory.createPlacement = function(placementData){
-		var url = 'http://localhost:6767/placements';
+		var url = AppConfig.appUrl+'placements';
 		var req = {
 				method: 'POST',
 				url: url,
@@ -67,7 +67,7 @@ placementFactory.createPlacement = function(placementData){
 }
 
 placementFactory.updatePlacement = function(placementData,placementID){
-		var url = 'http://localhost:6767/placements';
+		var url = AppConfig.appUrl+'placements';
 		url = url+"/"+placementID;
 		var req = {
 				method: 'PUT',

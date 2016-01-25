@@ -3,7 +3,7 @@ oakAdminApp.factory('blogsFactory',['$http','$log',function($http,$log){
 var blogsFactory = {};
 
 blogsFactory.getBlogs = function(){
-	  var url = 'http://localhost:6767/blogs';
+	  var url = AppConfig.appUrl+'blogs';
 	return $http({
 		  method: 'GET',
 		  url: url,
@@ -17,7 +17,7 @@ blogsFactory.getBlogs = function(){
 }
 
 blogsFactory.getBlogByID = function(blogID){
-	  var url = 'http://localhost:6767/blogs';
+	  var url = AppConfig.appUrl+'blogs';
 	  url = url+"/"+blogID;
 	return $http({
 		  method: 'GET',
@@ -32,7 +32,7 @@ blogsFactory.getBlogByID = function(blogID){
 }
 
 blogsFactory.deleteBlogByID = function(blogID){
-	  var url = 'http://localhost:6767/blogs';
+	  var url = AppConfig.appUrl+'blogs';
 	  url = url+"/"+blogID;
 	return $http({
 		  method: 'DELETE',
@@ -49,7 +49,7 @@ blogsFactory.deleteBlogByID = function(blogID){
 
 
 blogsFactory.createBlogs = function(blogData){
-		var url = 'http://localhost:6767/blogs';
+		var url = AppConfig.appUrl+'blogs';
 		var req = {
 				method: 'POST',
 				url: url,
@@ -64,7 +64,7 @@ blogsFactory.createBlogs = function(blogData){
 }
 
 blogsFactory.updateBlogs = function(blogData,blogID){
-		var url = 'http://localhost:6767/blogs';
+		var url = AppConfig.appUrl+'blogs';
 		url = url+"/"+blogID;
 		var req = {
 				method: 'PUT',

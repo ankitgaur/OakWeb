@@ -3,7 +3,7 @@ oakAdminApp.factory('userFactory',['$http','$log',function($http,$log){
 var userFactory = {};
 
 userFactory.getUsers = function(){
-	  var url = 'http://localhost:6767/users';
+	  var url = AppConfig.appUrl+'users';
 	return $http({
 		  method: 'GET',
 		  url: url,
@@ -17,7 +17,7 @@ userFactory.getUsers = function(){
 }
 
 userFactory.getUserByID = function(userID){
-	  var url = 'http://localhost:6767/users';
+	  var url = AppConfig.appUrl+'users';
 	  url = url+"/"+userID;
 	return $http({
 		  method: 'GET',
@@ -32,7 +32,7 @@ userFactory.getUserByID = function(userID){
 }
 
 userFactory.deleteUserByID = function(userID){
-	  var url = 'http://localhost:6767/users';
+	  var url = AppConfig.appUrl+'users';
 	  url = url+"/"+userID;
 	return $http({
 		  method: 'DELETE',
@@ -49,7 +49,7 @@ userFactory.deleteUserByID = function(userID){
 
 
 userFactory.createUsers = function(userData){
-		var url = 'http://localhost:6767/users';
+		var url = AppConfig.appUrl+'users';
 		var req = {
 				method: 'POST',
 				url: url,
@@ -66,7 +66,7 @@ userFactory.createUsers = function(userData){
 }
 
 userFactory.updateUsers = function(userData,userID){
-		var url = 'http://localhost:6767/users';
+		var url = AppConfig.appUrl+'users';
 		url = url+"/"+userID;
 		var req = {
 				method: 'PUT',
