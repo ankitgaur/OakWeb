@@ -19,6 +19,22 @@ oakHomeApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 
                  },
 				    controller: 'oakHomeCtrl',
 					
+             },
+             'topmid' : {
+					
+				 templateUrl: function ($stateParams) {
+                return  'partial_views/modules/topmid.html';
+             },
+			    controller: 'oakHomeCtrl',
+				
+             },
+             'topleft' : {
+					
+				 templateUrl: function ($stateParams) {
+                return  'partial_views/modules/topleft.html';
+             },
+			    controller: 'oakHomeCtrl',
+				
              }
 			  
            }

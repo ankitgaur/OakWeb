@@ -2,6 +2,8 @@ oakHomeApp.controller('oakHomeCtrl',['$scope','$http','$stateParams','$log','oak
   var id="topmain_1";
   getPlacementByID(id);
   getTopStories();
+  getTopMid();
+  getTopLeft();
   function getPlacementByID(id){
 		var placementID = id;
 		
@@ -21,6 +23,7 @@ oakHomeApp.controller('oakHomeCtrl',['$scope','$http','$stateParams','$log','oak
 		$log.debug('There is some issue while getting states from rest service');
   });
 }
+  
   function getTopStories(){
 	
 	oakHomeFactory.getTopStories().then(function success(response) {
@@ -35,9 +38,46 @@ oakHomeApp.controller('oakHomeCtrl',['$scope','$http','$stateParams','$log','oak
 	}, 0);
 	
 }, function error(response) {
-	$log.debug('There is some issue while getting states from rest service');
+	$log.debug('There is some issue while getting topstories from rest service');
 });
 }
 	
+  function getTopMid(){
+		
+		oakHomeFactory.getTopMid().then(function success(response) {
+			
+		setTimeout(function () {
+				$scope.$apply(function () {
+				$scope.topmid = response;
+				
+				//$scope.testPlacement ={name:"sampmeObj",url:"images/sample/Dutse_airport.jpg",id:"2"};
+				
+			});
+		}, 0);
+		
+	}, function error(response) {
+		$log.debug('There is some issue while getting topmid from rest service');
+	});
+	}
+  
+  function getTopLeft(){
+		
+		oakHomeFactory.getTopLeft().then(function success(response) {
+			
+		setTimeout(function () {
+				$scope.$apply(function () {		
+									
+				$scope.topleftup = response.slice(0,3);
+				$scope.topleftdown = response.slice(3,6);
+				
+				//$scope.testPlacement ={name:"sampmeObj",url:"images/sample/Dutse_airport.jpg",id:"2"};
+				
+			});
+		}, 0);
+		
+	}, function error(response) {
+		$log.debug('There is some issue while getting topmid from rest service');
+	});
+	}
 	
 }]);

@@ -15,7 +15,7 @@ oakHomeFactory.getPlacementImgByID = function(placementID){
 		$log.debug('There is some issue while getting data from rest service');
 	  }); 
   
-	}
+	};
 
 oakHomeFactory.getTopStories = function(){
 	  var url = AppConfig.appUrl+'placements/section/topstories';
@@ -30,7 +30,38 @@ oakHomeFactory.getTopStories = function(){
 		$log.debug('There is some issue while getting data from rest service');
 	  }); 
 
-}
+};
+
+oakHomeFactory.getTopMid = function(){
+	  var url = AppConfig.appUrl+'placements/section/topmid';
+	  
+	return $http({
+		  method: 'GET',
+		  url: url,
+		  crossDomain:true
+		  }).then(function successCallback(response) {
+			    return response.data;
+	  }, function errorCallback(response) {
+		$log.debug('There is some issue while getting data from rest service');
+	  }); 
+
+};
+
+oakHomeFactory.getTopLeft = function(){
+	  var url = AppConfig.appUrl+'placements/section/topleft';
+	  
+	return $http({
+		  method: 'GET',
+		  url: url,
+		  crossDomain:true
+		  }).then(function successCallback(response) {
+			    return response.data;
+	  }, function errorCallback(response) {
+		$log.debug('There is some issue while getting data from rest service');
+	  }); 
+
+};
+
 	return oakHomeFactory;
 
 }]);

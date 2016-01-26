@@ -1,0 +1,20 @@
+<!-- <div data-ng-repeat="mid in topmid" >
+    <div class="oak-main3 col-lg-12 col-md-12 col-sm-6 col-xs-6"><span class="img-bx"><img src='{{mid.img}}'></span></div>
+  </div>-->
+  
+  <!-- <table class="table">
+	
+		<tr data-ng-repeat="mid in topmid">
+			<td><div class="oak-main3 col-lg-12 col-md-12 col-sm-6 col-xs-6"><span class="img-bx"><img src='{{mid.img}}'></span></div></td>
+		</tr>		
+	
+ </table>-->
+	<table style="width: 100%;height: 35em" class="table table-bordered" cellspacing="10">
+		<tbody><tr>
+			<td data-ng-repeat="item in topleftup" style="border-width: 5px; background-size: 100% 100%; background-repeat: no-repeat" background="{{item.img}}" valign="bottom"><b><font color="#ffffff">{{item.title}}</font></b></td>			
+		</tr>
+		<tr>
+			<td data-ng-repeat="item in topleftdown" style="border-width: 5px; background-size: 100% 100%; background-repeat: no-repeat" background="{{item.img}}" valign="bottom"><b><font color="#ffffff">{{item.title}}</font></b></td>
+		</tr>		
+		</tbody>
+	</table>
