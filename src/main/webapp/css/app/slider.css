@@ -1,0 +1,31 @@
+#slide_1{
+	display: block;
+}
+
+#slide_2{
+	display: none;
+}
+
+#slide_3{
+	display: none;
+}
+
+#slide_4{
+	display: none;
+}
+
+#slide_5{
+	display: none;
+}
+
+.slider-container{
+	position: relative;
+	width: 100%;
+}
+
+.slider-element{
+	position: absolute;
+	top:0;
+	left:0;
+	width: 100%;
+}

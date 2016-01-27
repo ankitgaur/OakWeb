@@ -44,10 +44,10 @@ oakHomeApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 
 			    controller: 'oakHomeCtrl',
 				
              },
-             'homead2' : {
+             'homeslider' : {
 					
 				 templateUrl: function ($stateParams) {
-                return  'partial_views/modules/ad2.html';
+                return  'partial_views/modules/homeslider.html';
              },
 			    controller: 'oakHomeCtrl',
 				

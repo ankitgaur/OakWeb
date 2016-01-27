@@ -5,6 +5,8 @@ oakHomeApp.controller('oakHomeCtrl',['$scope','$http','$stateParams','$log','oak
   getTopMid();
   getTopLeft();
   getHomeAds();
+  getHomeSlider();
+  
   function getPlacementByID(id){
 		var placementID = id;
 		
@@ -88,6 +90,24 @@ oakHomeApp.controller('oakHomeCtrl',['$scope','$http','$stateParams','$log','oak
 		setTimeout(function () {
 				$scope.$apply(function () {
 				$scope.homeads = response;
+				
+				//$scope.testPlacement ={name:"sampmeObj",url:"images/sample/Dutse_airport.jpg",id:"2"};
+				
+			});
+		}, 0);
+		
+	}, function error(response) {
+		$log.debug('There is some issue while getting topmid from rest service');
+	});
+	}
+  
+    function getHomeSlider(){
+		
+		oakHomeFactory.getHomeSlider().then(function success(response) {
+			
+		setTimeout(function () {
+				$scope.$apply(function () {
+				$scope.homeslider = response;
 				
 				//$scope.testPlacement ={name:"sampmeObj",url:"images/sample/Dutse_airport.jpg",id:"2"};
 				
