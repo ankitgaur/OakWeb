@@ -35,6 +35,22 @@ oakHomeApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 
              },
 			    controller: 'oakHomeCtrl',
 				
+             },
+             'homead1' : {
+					
+				 templateUrl: function ($stateParams) {
+                return  'partial_views/modules/ad1.html';
+             },
+			    controller: 'oakHomeCtrl',
+				
+             },
+             'homead2' : {
+					
+				 templateUrl: function ($stateParams) {
+                return  'partial_views/modules/ad2.html';
+             },
+			    controller: 'oakHomeCtrl',
+				
              }
 			  
            }

@@ -4,6 +4,7 @@ oakHomeApp.controller('oakHomeCtrl',['$scope','$http','$stateParams','$log','oak
   getTopStories();
   getTopMid();
   getTopLeft();
+  getHomeAds();
   function getPlacementByID(id){
 		var placementID = id;
 		
@@ -79,5 +80,24 @@ oakHomeApp.controller('oakHomeCtrl',['$scope','$http','$stateParams','$log','oak
 		$log.debug('There is some issue while getting topmid from rest service');
 	});
 	}
+  
+  function getHomeAds(){
+		
+		oakHomeFactory.getHomeAds().then(function success(response) {
+			
+		setTimeout(function () {
+				$scope.$apply(function () {
+				$scope.homeads = response;
+				
+				//$scope.testPlacement ={name:"sampmeObj",url:"images/sample/Dutse_airport.jpg",id:"2"};
+				
+			});
+		}, 0);
+		
+	}, function error(response) {
+		$log.debug('There is some issue while getting topmid from rest service');
+	});
+	}
+  
 	
 }]);
