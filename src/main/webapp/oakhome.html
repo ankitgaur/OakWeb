@@ -166,7 +166,7 @@
  <!-- Login Popup end -->
  
      <!-- Signup Popup -->
-<div class="modal fade" id="Signup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div  ng-controller="userCtrl" class="modal fade" id="Signup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -179,26 +179,26 @@
    <div class="row">
   <div class="form-group col-sm-6 col-xs-12">
     <label for="exampleInputEmail1">First Name</label>
-    <input type="text" class="form-control"  placeholder="Enter First Name">
+    <input ng-model="user.firstname"  type="text" class="form-control"  placeholder="Enter First Name">
   </div>
   <div class="form-group col-sm-6 col-xs-12">
     <label for="exampleInputPassword1">Last Name</label>
-    <input type="text" class="form-control"  placeholder="Enter Last Name">
+    <input ng-model="user.lastname" type="text" class="form-control"  placeholder="Enter Last Name">
   </div>
   </div>
  
   <div class="row">
   <div class="form-group col-sm-12">
     <label for="exampleInputEmail1">Email Address</label>
-    <input type="email" class="form-control"  placeholder="Enter Email ID">
+    <input ng-model="user.email" type="email" class="form-control"  placeholder="Enter Email ID">
   </div>
   <div class="form-group col-sm-12">
     <label for="exampleInputEmail1">Choose a username</label>
-    <input type="text" class="form-control"  placeholder="Choose username">
+    <input type="text" ng-model="user.username" class="form-control"  placeholder="Choose username">
   </div>
   <div class="form-group col-sm-12">
     <label for="exampleInputEmail1">Choose a Password</label>
-    <input type="password" class="form-control"  placeholder="Enter Password">
+    <input ng-model="user.password" type="password" class="form-control"  placeholder="Enter Password">
   </div>
   
    <div class="form-group col-md-12">
@@ -212,7 +212,7 @@
       <div class="modal-footer"> 
       <div class="row">
       <div class="col-sm-6 col-xs-12"> 
-      <button type="button" class="btn btn-primary pull-left" >Sign Up <span aria-hidden="true" class="glyphicon glyphicon-triangle-right"></span></button>
+      <button ng-click="createUser(user)" type="button" class="btn btn-primary pull-left" >Sign Up <span aria-hidden="true" class="glyphicon glyphicon-triangle-right"></span></button>
          <button data-dismiss="modal" class="btn btn-default pull-left" type="button">Close</button></div>
        <div class="col-sm-6 col-xs-12"><p class="tog-pup">I have an Account <a data-toggle="modal" data-dismiss="modal" href="#" data-target="#Login">Login</a> </p> 
       
@@ -267,6 +267,9 @@
 	<script src="apps/oakHomeApp/router/oakHomeRouter.js"></script>
 	<script src="apps/oakHomeApp/controller/oakHomeController.js"></script>
 	<script src="apps/oakHomeApp/service/oakHomeService.js"></script>
+	<script src="apps/oakHomeApp/controller/userController.js"></script>
+	<script src="apps/oakHomeApp/service/userService.js"></script>
+	
 
 </body>
   
