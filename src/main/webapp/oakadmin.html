@@ -1,35 +1,36 @@
 <!DOCTYPE html>
-<html ng-app='oakAdminApp' lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html ng-app='oakAdminApp' lang="en"
+	xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-	<!-- Bootstrap -->
-    <link href="css/bootstrap/bootstrap.css" rel="stylesheet">
-    <link href="css/bootstrap/theme-style.css" rel="stylesheet">
-    <link href="css/app/menubar.css" rel="stylesheet">
-    <link href="css/app/admin.css" rel="stylesheet">
-    <link href="bootstrap-datetimepicker.css" rel="stylesheet">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<!-- Bootstrap -->
+<link href="css/bootstrap/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap/theme-style.css" rel="stylesheet">
+<link href="css/app/menubar.css" rel="stylesheet">
+<link href="css/app/admin.css" rel="stylesheet">
+<link href="bootstrap-datetimepicker.css" rel="stylesheet">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]--> 
-  <script src="apps/xhr-xdr-adapter.js"></script>
-  <script src="lib/jQuery/jQuery1.11.js"></script>
-  <script src="apps/AppConfig.js"></script>
+    <![endif]-->
+<script src="apps/xhr-xdr-adapter.js"></script>
+<script src="lib/jQuery/jQuery1.12.js"></script>
+<script src="apps/AppConfig.js"></script>
 </head>
 
 <body>
 
-<div ng-include = "'partial_views/header.html'"></div>
+	<div ng-include="'partial_views/header.html'"></div>
 
 
-<table id="container-tab">
+	<table id="container-tab">
 		<tbody>
 			<tr>
 
@@ -38,31 +39,31 @@
 						<div class='left_item collapsable'>
 							<a ui-sref="#">&nbsp;&nbsp;&nbsp;&nbsp;Dashboard</a>
 						</div>
-						
+
 						<div class='left_item collapsable'>
 							<a ui-sref="article">&nbsp;&nbsp;&nbsp;&nbsp;Articles</a>
 						</div>
-						
+
 						<div class='left_item collapsable'>
 							<a ui-sref="blog">&nbsp;&nbsp;&nbsp;&nbsp;Blogs</a>
 						</div>
-						
+
 						<div class='left_item collapsable'>
 							<a ui-sref="state">&nbsp;&nbsp;&nbsp;&nbsp;States</a>
 						</div>
-						
+
 						<div class='left_item collapsable'>
 							<a a ui-sref="user">&nbsp;&nbsp;&nbsp;&nbsp;Users</a>
 						</div>
-						
+
 						<div class='left_item collapsable'>
 							<a ui-sref="incident">&nbsp;&nbsp;&nbsp;&nbsp;Incidents</a>
 						</div>
-						
+
 						<div class='left_item collapsable'>
 							<a ui-sref="placement">&nbsp;&nbsp;&nbsp;&nbsp;Placements</a>
 						</div>
-						
+
 						<!-- Admin Section Starts 
 						
 						<div id='admin' class='left_item collapsable' style='display:none'>
@@ -83,21 +84,19 @@
 							<a href='#groupadmin'>&nbsp;&nbsp;&nbsp;&nbsp;Group</a>
 						</div>
 						<!-- Admin Section ends -->
-						
-						
 				</td>
 				<td id="detail_separator_cell">
 					<!-- <img id="detail_tab"
 								src="img/mv-right.jpg"
 								alt="Expand" title="Expand" onclick="MenuBar.barToggle()"
-								style="visibility: visible; left: -14px;">	--> 
-				<i id="detail_tab" class="glyphicon glyphicon-circle-arrow-right" onclick="MenuBar.barToggle()"
+								style="visibility: visible; left: -14px;">	--> <i
+					id="detail_tab" class="glyphicon glyphicon-circle-arrow-right"
+					onclick="MenuBar.barToggle()"
 					style="font-size: 1.8em; left: -20px;"> </i>
 				</td>
 				<td id="detail_content_cell">
 					<div id="alertPanel"></div>
-					<div  ui-view="body"></div>
-					<!-- <div id="content" class="col-md-12"></div>-->
+					<div ui-view="body"></div> <!-- <div id="content" class="col-md-12"></div>-->
 
 				</td>
 			</tr>
@@ -105,32 +104,36 @@
 
 
 	</table>
- 
-<div class="footer_main" ng-include = "'partial_views/footer.html'"></div>
+	
+	<div class="footer_main" ng-include="'partial_views/footer.html'"></div>
 
-<script src="moment-with-locales.js"></script>
-<script src="lib/angular/angular.js"></script>
-<script src="bootstrap-datetimepicker.js"></script>
+	<script src="moment-with-locales.js"></script>
+	<script src="lib/angular/angular.js"></script>
+	<script src="bootstrap-datetimepicker.js"></script>
 
-<script src="lib/angular/angular-route.js"></script>
-<script src="lib/angular/angular-ui-router.js"></script>
-<script src="lib/bootstrap/bootstrap.js"></script>
-<script src="lib/menubar.js"></script>
-<script src="apps/oakAdminApp/module/oakAdminApp.js"></script>
-<script src="apps/oakAdminApp/router/oakAdminRouter.js"></script>
-<script src="apps/oakAdminApp/controller/articleController.js"></script>
-<script src="apps/oakAdminApp/controller/defaultController.js"></script>
-<script src="apps/oakAdminApp/controller/blogController.js"></script>
-<script src="apps/oakAdminApp/controller/incidentController.js"></script>
-<script src="apps/oakAdminApp/controller/stateController.js"></script>
-<script src="apps/oakAdminApp/controller/userController.js"></script>
-<script src="apps/oakAdminApp/controller/placementController.js"></script>
-<script src="apps/oakAdminApp/service/articleService.js"></script>
-<script src="apps/oakAdminApp/service/blogService.js"></script>
-<script src="apps/oakAdminApp/service/incidentService.js"></script>
-<script src="apps/oakAdminApp/service/stateService.js"></script>
-<script src="apps/oakAdminApp/service/userService.js"></script>
-<script src="apps/oakAdminApp/service/placementService.js"></script>
-
+	<script src="lib/angular/angular-route.js"></script>
+	<script src="lib/angular/angular-ui-router.js"></script>
+	<script src="lib/bootstrap/bootstrap.js"></script>
+	<script src="lib/menubar.js"></script>
+	<script src="apps/oakAdminApp/module/oakAdminApp.js"></script>
+	<script src="apps/oakAdminApp/router/oakAdminRouter.js"></script>
+	<script src="apps/oakAdminApp/controller/articleController.js"></script>
+	<script src="apps/oakAdminApp/controller/videoController.js"></script>
+	<script src="apps/oakAdminApp/controller/defaultController.js"></script>
+	<script src="apps/oakAdminApp/controller/blogController.js"></script>
+	<script src="apps/oakAdminApp/controller/incidentController.js"></script>
+	<script src="apps/oakAdminApp/controller/stateController.js"></script>
+	<script src="apps/oakAdminApp/controller/userController.js"></script>
+	<script src="apps/oakAdminApp/controller/placementController.js"></script>
+	<script src="apps/oakAdminApp/service/articleService.js"></script>
+	<script src="apps/oakAdminApp/service/videoService.js"></script>
+	<script src="apps/oakAdminApp/service/blogService.js"></script>
+	<script src="apps/oakAdminApp/service/incidentService.js"></script>
+	<script src="apps/oakAdminApp/service/stateService.js"></script>
+	<script src="apps/oakAdminApp/service/userService.js"></script>
+	<script src="apps/oakAdminApp/service/placementService.js"></script>
+	
+	<script src='lib/ckeditor/ckeditor.js'></script>
+	
 </body>
 </html>

@@ -1,0 +1,53 @@
+
+<div class="container" style="overflow:auto; width:100%;height:350px;  padding: 10px 20px; box-sizing: border-box;position:absolute;">
+
+	<table class="poctable table table-striped table-bordered">
+		<h1>Videos</h1>
+		<thead>
+			<tr>
+				<th style="width: 20px;"></th>
+				<!-- select checkbox -->
+				<th style="width: 20px;"></th>
+				<!-- edit -->
+				<th>Category</th>
+				<th>Title</th>
+				<th>Video URL</th>
+				<th>Display Image</th>
+				<th>Created By</th>
+				<th>Created On</th>
+				<th>Remove</th>
+
+			</tr>
+		</thead>
+		<tbody>
+
+			<tr data-ng-repeat="video in videos">
+				<td style="width: 20px;"><input id="selectRow" type="checkbox" /></td>
+				<td style="width: 20px;cursor: pointer;"><a data-toggle="modal" data-target="#updateVideoModal" ng-click="getVideoByID(video.category,video.updatedOn);"><i
+						class="glyphicon glyphicon-pencil"></i></a></td>
+				<td>{{video.category}}</td>
+				<td>{{video.title}}</td>
+				<td>{{video.videourl}}</td>
+				<td>{{video.videoimgurl}}</td>
+				<td>{{video.createdBy}}</td>
+				<td>{{video.createdOnDate}}</td>
+				
+				<td><a style="cursor: pointer;"
+					ng-click="deleteVideo(video.category,video.updatedOn)"><i
+						class="glyphicon glyphicon-minus"></i></a></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<a data-toggle="modal" data-target="#createVideoModal"><i
+		class="glyphicon glyphicon-plus"></i></a>
+
+</div>
+
+<div id="createVideoModal" class="modal fade" role="dialog">
+	<div ng-include = "'partial_views/videos/createVideo.html'"></div>
+</div>
+<div id="updateVideoModal" class="modal fade" role="dialog">
+	<div ng-include = "'partial_views/videos/updateVideo.html'"></div>
+</div>
+

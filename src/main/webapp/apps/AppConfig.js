@@ -1,3 +1,3 @@
 var AppConfig = {
-	appUrl : 'http://52.10.121.24:6767/'		
+	appUrl : 'http://52.11.220.245:6767/'	
 };

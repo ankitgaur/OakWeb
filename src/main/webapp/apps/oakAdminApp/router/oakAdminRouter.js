@@ -97,6 +97,20 @@ oakAdminApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
                }
 			  
            }
+    })
+    .state('video', {
+        url: '/videos',
+        views: {
+               'body': {
+				   
+				   templateUrl: function ($stateParams) {
+                      return  'partial_views/videos/listVideos.html';
+                   },
+					
+				    controller: 'videoCtrl',
+				}
+			  
+           }
     });
 	
 }]);    

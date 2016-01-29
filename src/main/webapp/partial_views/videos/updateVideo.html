@@ -1,0 +1,76 @@
+
+	<div class="modal-dialog">
+
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Update Video</h4>
+			</div>
+			<div class="modal-body">
+				<form novalidate class="form-horizontal"
+					name="videoUpdateForm">
+					
+					<div class="form-group col-sm-12 disabled">
+						<label class="control-label" for="category">Category:</label>
+						<div>
+							<input class="form-control category" type="text" ng-model="video.category" placeholder="Category" />
+						</div>
+					</div>
+								
+					<div class="form-group col-sm-12 disabled">
+						<label class="control-label" for="createdOn">Created On:</label>
+						<div>
+							<input class="form-control createdOn" type="text" ng-model="video.createdOn" placeholder="CreatedOn" />
+						</div>
+					</div>
+					
+					<div class="form-group col-sm-12">
+						<label class="control-label" for="title">Title:</label>
+						<div>
+							<input class="form-control title" type="text" ng-model="video.title" placeholder="Title" />
+						</div>
+					</div>
+					
+					<div class="form-group col-sm-12">
+						<label class="control-label" for="videourl">Video URL:</label>
+
+						<div>
+							<input class="form-control videourl" type="text" 
+								ng-model="video.videourl" placeholder="Video URL" />
+						</div>
+					</div>
+					
+					<div class="form-group col-sm-12">
+						<label class="control-label" for="displayImage">DisplayImage:</label>
+
+						<div>
+							<input class="form-control displayImage" type="text" 
+								ng-model="video.videoimgurl" placeholder="DisplayImage" />
+						</div>
+					</div>
+					
+					<div class="form-group col-sm-12">
+						<label class="control-label" for="intro">Description:</label>
+
+						<div>
+							<input class="form-control intro" type="text" 
+								ng-model="video.intro" placeholder="Description" />
+						</div>
+					</div>
+					
+					<div class="row">					
+
+					</div>
+
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button"ng-click="resetForm(video)" class="btn btn-default" data-dismiss="modal">Close</button>
+				<button ng-click="resetForm(video)" type="button" class="btn btn-default">Reset</button>
+				<button ng-click="updateVideo(video.category,video.updatedOn,video)" type="button" class="btn btn-primary">Update</button>
+				
+			</div>
+		</div>
+
+	</div>

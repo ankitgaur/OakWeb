@@ -24,6 +24,7 @@ oakAdminApp.controller('articleCtrl',['$scope','$http','$stateParams','$log','ar
 }
 	
 	$scope.createArticle = function(articleFormObj){
+		articleFormObj.content = CKEDITOR.instances.editor1.getData();
 		articleFactory.createArticles(this.article)
 				.then(function success(response) {
 									
