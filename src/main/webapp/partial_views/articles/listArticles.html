@@ -8,8 +8,11 @@
 				<!-- select checkbox -->
 				<th style="width: 20px;"></th>
 				<!-- edit -->
-				<th>Article Title</th>
+				<th>ID</th>
+				<th>Category</th>
+				<th>Title</th>
 				<th>Created By</th>
+				<th>Created On</th>
 				<th>Remove</th>
 
 			</tr>
@@ -20,8 +23,11 @@
 				<td style="width: 20px;"><input id="selectRow" type="checkbox" /></td>
 				<td style="width: 20px;cursor: pointer;"><a data-toggle="modal" data-target="#updateArticleModal" ng-click="getArticleByID(article.category,article.updatedOn);"><i
 						class="glyphicon glyphicon-pencil"></i></a></td>
+				<td>{{article.category}}_{{article.createdOn}}</td>
+				<td>{{article.category}}</td>
 				<td>{{article.title}}</td>
 				<td>{{article.createdBy}}</td>
+				<td>{{article.createdOnDate}}</td>
 				<td><a style="cursor: pointer;"
 					ng-click="deleteArticle(article.category,article.updatedOn)"><i
 						class="glyphicon glyphicon-minus"></i></a></td>

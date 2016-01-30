@@ -56,12 +56,12 @@ oakAdminApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
            }
     })
 	.state('user', {
-        url: '/users',
+        url: '/user',
         views: {
                'body': {
 				   
 				   templateUrl: function ($stateParams) {
-                      return  'partial_views/states/listUsers.html';
+                      return  'partial_views/users/listUsers.html';
                    },
 					
 				    controller: 'userCtrl',
@@ -111,7 +111,6 @@ oakAdminApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
 				}
 			  
            }
-    });
-	
+    })	
 }]);    
 
