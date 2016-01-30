@@ -1,4 +1,5 @@
-oakHomeApp.controller('oakHomeCtrl',['$scope','$http','$stateParams','$log','oakHomeFactory', function($scope,$http,$stateParams,$log,oakHomeFactory) {
+oakHomeApp.controller('oakHomeCtrl',['$scope','$http','$stateParams','$log','oakHomeFactory','ngDialog', 
+                                     function($scope,$http,$stateParams,$log,oakHomeFactory,ngDialog) {
   var id="topmain_1";
   getPlacementByID(id);
   getTopStories();
@@ -118,6 +119,17 @@ oakHomeApp.controller('oakHomeCtrl',['$scope','$http','$stateParams','$log','oak
 		$log.debug('There is some issue while getting topmid from rest service');
 	});
 	}
+    
+    $scope.openModelPopup = function () {
+ 	   $scope.value = true;
+                var dialog = ngDialog.open({
+                    
+ 					templateUrl:'partial_views/template.html',
+ 					controller: 'userCtrl',
+ 					className: 'ngdialog-theme-default ngdialog-theme-plain custom-width',
+ 					scope: $scope
+                 });  
+    }
   
 	
 }]);

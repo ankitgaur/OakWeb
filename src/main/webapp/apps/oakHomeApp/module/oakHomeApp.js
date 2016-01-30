@@ -1,4 +1,4 @@
-var oakHomeApp = angular.module('oakHomeApp', ['ui.router']);
+var oakHomeApp = angular.module('oakHomeApp', ['ui.router','ngDialog']);
 oakHomeApp.config(['$httpProvider', function ($httpProvider) {
 	
 	if (!$httpProvider.defaults.headers.get) {
@@ -13,6 +13,20 @@ oakHomeApp.config(['$httpProvider', function ($httpProvider) {
     $httpProvider.defaults.headers.common['Content-Type'] = 'application/json; charset=utf-8';
     $httpProvider.defaults.useXDomain = true;
 	
+}]);
+
+oakHomeApp.config(['ngDialogProvider', function (ngDialogProvider) {
+    ngDialogProvider.setDefaults({
+        className: 'ngdialog-theme-default',
+        plain: false,
+        showClose: true,
+        closeByDocument: true,
+        closeByEscape: true,
+        appendTo: false,
+        preCloseCallback: function () {
+            console.log('default pre-close callback');
+        }
+    });
 }]);
 
 oakHomeApp.run(function($http) {
