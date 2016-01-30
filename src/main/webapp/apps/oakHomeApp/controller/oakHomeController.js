@@ -120,16 +120,36 @@ oakHomeApp.controller('oakHomeCtrl',['$scope','$http','$stateParams','$log','oak
 	});
 	}
     
-    $scope.openModelPopup = function () {
- 	   $scope.value = true;
-                var dialog = ngDialog.open({
-                    
- 					templateUrl:'partial_views/template.html',
- 					controller: 'userCtrl',
- 					className: 'ngdialog-theme-default ngdialog-theme-plain custom-width',
- 					scope: $scope
-                 });  
-    }
+    $scope.openModelPopup = function (link) {
+		
+  	   $scope.value = true;
+ 	   $scope.name="mohit";
+ 	   
+ 	   oakHomeFactory.getArticle(link).then(function success(response) {
+ 			
+ 		setTimeout(function () {
+ 				$scope.$apply(function () {
+ 				$scope.articleData = response;
+ 				
+ 				 var dialog = ngDialog.open({                    
+  					templateUrl:'partial_views/template.html',
+  					//controller: 'userCtrl',
+  					className: 'ngdialog-theme-default ngdialog-theme-plain custom-width ngdialog-overlay',
+ 					overlay: false,
+ 					closeByDocument :true,
+  					scope: $scope
+ 					
+                  });
+ 				
+ 			});
+ 		}, 0);
+ 		
+ 	}, function error(response) {
+ 		$log.debug('There is some issue while getting topmid from rest service');
+ 	});
+ 	   
+                  
+     }
   
 	
 }]);

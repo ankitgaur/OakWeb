@@ -2,12 +2,12 @@
 	<thead>
 			<tr>
 				<td><b>Top Stories</b>
-				<a href="" ng-click="openModelPopup()">Open Pop UP</a></td>
+				<a href="" >Open Pop UP</a></td>
 			</tr>
 	</thead>
 	<tbody>
 		<tr data-ng-repeat="story in topstories">
-			<td><a style='text-decoration:none' href='{{story.link}}'>{{story.title}}</a></td>
+			<td><a ng-click="openModelPopup(story.link)" style='text-decoration:none' >{{story.title}}</a></td>
 		</tr>		
 	</tbody>
 </table>
