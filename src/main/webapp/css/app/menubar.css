@@ -1,15 +1,30 @@
 .collapsable{
 	overflow: hidden;
 	width: 1em;
-	 padding-top: 10px;
+	padding-top: 10px;
 }
 
 .collapsable a {
     text-decoration: none;    
 }
 
-.footer_main {
-	position: fixed;
-    bottom: 0;
-    width: 100%;
-  }
+#detail_tree_cell{
+	width: 1em;
+	max-width: 14em;
+}
+
+#container-tab{
+	width: 100%;
+}
+
+#detail_separator_cell{
+	width: 1em;
+}
+
+#detail_content_cell{
+	vertical-align: top;
+}
+
+#menubar{
+	display: none;
+}

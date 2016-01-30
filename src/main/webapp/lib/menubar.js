@@ -7,7 +7,7 @@ MenuBar = {
 			
 			if(this.isCollapsed)
 			{
-				
+				$('#menubar').show();
 				$('.collapsable').animate({width: '14em'}, 'slow',function(){
 					$('.downicons').show();
 				});

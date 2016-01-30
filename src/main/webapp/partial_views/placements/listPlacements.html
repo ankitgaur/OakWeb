@@ -1,4 +1,4 @@
-<div class="container" style="overflow:auto; width:100%;height:350px;  padding: 10px 20px; box-sizing: border-box;position:absolute;">
+<div class="container admin-content">
 	<table class="poctable table table-striped table-bordered">
 		<h1>Placements</h1>
 		<thead>
@@ -31,7 +31,7 @@
 				<td>{{placement.section}}</td>
 				<td>{{placement.position}}</td>				
 				<td>{{placement.title}}</td>
-				<td>{{placement.link}}</td>
+				<td><a href='{{placement.link}}'>click</a></td>
 				<td>{{placement.intro}}</td>				
 				<td>{{placement.createdBy}}</td>
 				<td>{{placement.updatedBy}}</td>
@@ -55,4 +55,3 @@
 <div id="updatePlacementModal" class="modal fade" role="dialog">
 	<div ng-include = "'partial_views/placements/updatePlacement.html'"></div>
 </div>
-
