@@ -47,6 +47,21 @@ oakHomeFactory.getTopMid = function(){
 
 };
 
+oakHomeFactory.getVideoList = function(){
+	  var url = AppConfig.appUrl+'placements/section/videolist';
+	  
+	return $http({
+		  method: 'GET',
+		  url: url,
+		  crossDomain:true
+		  }).then(function successCallback(response) {
+			    return response.data;
+	  }, function errorCallback(response) {
+		$log.debug('There is some issue while getting data from rest service');
+	  }); 
+
+};
+
 oakHomeFactory.getTopLeft = function(){
 	  var url = AppConfig.appUrl+'placements/section/topleft';
 	  

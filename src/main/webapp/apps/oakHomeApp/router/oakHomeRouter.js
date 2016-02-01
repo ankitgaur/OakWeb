@@ -59,6 +59,14 @@ oakHomeApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 
              },
 			    controller: 'oakHomeCtrl',
 				
+             },
+             'videolist' : {
+					
+				 templateUrl: function ($stateParams) {
+                return  'partial_views/modules/videolist.html';
+             },
+			    controller: 'oakHomeCtrl',
+				
              }
 			  
            }

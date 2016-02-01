@@ -7,6 +7,7 @@ oakHomeApp.controller('oakHomeCtrl',['$scope','$http','$stateParams','$log','oak
   getTopLeft();
   getHomeAds();
   getHomeSlider();
+  getVideoList();
   
   function getPlacementByID(id){
 		var placementID = id;
@@ -56,6 +57,21 @@ oakHomeApp.controller('oakHomeCtrl',['$scope','$http','$stateParams','$log','oak
 				
 				//$scope.testPlacement ={name:"sampmeObj",url:"images/sample/Dutse_airport.jpg",id:"2"};
 				
+			});
+		}, 0);
+		
+	}, function error(response) {
+		$log.debug('There is some issue while getting topmid from rest service');
+	});
+	}
+  
+  function getVideoList(){
+		
+		oakHomeFactory.getVideoList().then(function success(response) {
+			
+		setTimeout(function () {
+				$scope.$apply(function () {
+				$scope.videolist = response;				
 			});
 		}, 0);
 		

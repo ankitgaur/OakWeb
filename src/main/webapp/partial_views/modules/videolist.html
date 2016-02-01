@@ -1,0 +1,24 @@
+<!-- <div data-ng-repeat="item in videolist"
+	class="oak-main3 col-lg-12 col-md-12 col-sm-6 col-xs-6">
+	<a ng-click="openVideoPopup(item.link)" style='text-decoration: none'>
+		<figure>
+			<img style='width: 100%; max-height: 10em' ng-src="{{item.img}}">
+			<figcaption class='figcaption_small'>
+				<span>{{item.title}}</span>
+			</figcaption>
+		</figure>
+	</a>
+</div> -->
+<table style='height:100%; width:100%'>
+	<tr data-ng-repeat="item in videolist">
+		<td style='padding:2px'><a ng-click="openVideoPopup(item.link)"
+			style='text-decoration: none'>
+				<figure>
+					<img style='max-height:11.4em; width: 100%;' ng-src="{{item.img}}">
+					<figcaption class='figcaption_small'>
+						<span>{{item.title}}</span>
+					</figcaption>
+				</figure>
+		</a></td>
+	</tr>
+</table>
