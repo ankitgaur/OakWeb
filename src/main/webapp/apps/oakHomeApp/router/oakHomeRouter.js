@@ -51,6 +51,14 @@ oakHomeApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 
              },
 			    controller: 'oakHomeCtrl',
 				
+             },
+             'oakleft' : {
+					
+				 templateUrl: function ($stateParams) {
+                return  'partial_views/modules/oakleft.html';
+             },
+			    controller: 'oakHomeCtrl',
+				
              }
 			  
            }
