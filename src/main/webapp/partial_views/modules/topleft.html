@@ -14,6 +14,7 @@
 	<tbody>
 		<tr>
 			<td data-ng-repeat="item in topleftup" style='max-height: 15em;'>
+				<a ng-click="openModelPopup(item.link)" style='text-decoration:none' >
 				<figure>
 					<img style='width: 100%; height: 15em;'
 						ng-src="{{item.img}}">
@@ -21,10 +22,12 @@
 						<span>{{item.title}}</span>
 					</figcaption>
 				</figure>
+				</a>
 			</td>			
 		</tr>
 		<tr>
 			<td data-ng-repeat="item in topleftdown" style='max-height: 15em;'>
+				<a ng-click="openModelPopup(item.link)" style='text-decoration:none' >
 				<figure>
 					<img style='width: 100%; height: 15em;'
 						ng-src="{{item.img}}">
@@ -32,6 +35,7 @@
 						<span>{{item.title}}</span>
 					</figcaption>
 				</figure>
+				</a>
 			</td>	
 		</tr>
 	</tbody>

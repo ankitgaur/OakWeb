@@ -1,3 +1,14 @@
+.header-footer-oak{
+	background-color: black;
+	margin-left: 0px !important;
+	margin-right: 0px !important;
+	width: 100%;
+}
+
+.ngdialog-content{
+	margin-top: -10em !important;
+}
+
 table{
 	table-layout: fixed;
 }

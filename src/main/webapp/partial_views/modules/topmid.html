@@ -4,12 +4,14 @@
 
 <div data-ng-repeat="item in topmid"
 	class="oak-main3 col-lg-12 col-md-12 col-sm-6 col-xs-6">
+	<a ng-click="openModelPopup(item.link)" style='text-decoration:none' >
 	<figure>
 		<img style='width: 100%; max-height: 10em' ng-src="{{item.img}}">
 		<figcaption  class='figcaption_small'>
 			<span>{{item.title}}</span>
 		</figcaption>
 	</figure>
+	</a>
 	<!-- <span class="img-bx"><img src='{{mid.img}}'></span> -->
 </div>
 
