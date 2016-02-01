@@ -9,6 +9,10 @@
 	margin-top: -10em !important;
 }
 
+.ngdialog-open{
+	 overflow: visible !important;
+}
+
 table{
 	table-layout: fixed;
 }
