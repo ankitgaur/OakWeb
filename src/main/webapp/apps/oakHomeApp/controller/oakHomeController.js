@@ -149,9 +149,7 @@ oakHomeApp.controller('oakHomeCtrl',['$scope','$http','$stateParams','$log','oak
  				
  				 var dialog = ngDialog.open({                    
   					templateUrl:'partial_views/template.html',
-  					//controller: 'userCtrl',
-  					className: 'ngdialog-theme-default ngdialog-theme-plain custom-width ngdialog-overlay',
- 					overlay: false,
+  					className: 'ngdialog-theme-default ngdialog-theme-plain custom-width',
  					closeByDocument :true,
   					scope: $scope
  					
