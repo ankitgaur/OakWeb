@@ -1,5 +1,5 @@
-oakHomeApp.controller('oakHomeCtrl',['$scope','$rootScope','$http','$stateParams','$log','oakHomeFactory','ngDialog', 
-                                     function($scope,$rootScope,$http,$stateParams,$log,oakHomeFactory,ngDialog) {
+oakHomeApp.controller('oakHomeCtrl',['$scope','$rootScope','$http','$stateParams','$log','oakHomeFactory', 
+                                     function($scope,$rootScope,$http,$stateParams,$log,oakHomeFactory) {
   var id="topmain_1";
   getPlacementByID(id);
   getTopStories();

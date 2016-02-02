@@ -1,4 +1,4 @@
-var oakHomeApp = angular.module('oakHomeApp', ['ui.router','ngDialog']);
+var oakHomeApp = angular.module('oakHomeApp', ['ui.router']);
 oakHomeApp.config(['$httpProvider', function ($httpProvider) {
 	
 	if (!$httpProvider.defaults.headers.get) {
@@ -15,7 +15,7 @@ oakHomeApp.config(['$httpProvider', function ($httpProvider) {
 	
 }]);
 
-oakHomeApp.config(['ngDialogProvider', function (ngDialogProvider) {
+/*oakHomeApp.config(['ngDialogProvider', function (ngDialogProvider) {
     ngDialogProvider.setDefaults({
         className: 'ngdialog-theme-default',
         plain: false,
@@ -27,7 +27,7 @@ oakHomeApp.config(['ngDialogProvider', function (ngDialogProvider) {
             console.log('default pre-close callback');
         }
     });
-}]);
+}]);*/
 
 oakHomeApp.run(function($http) {
 	delete $http.defaults.headers.common['X-Requested-With']; 
