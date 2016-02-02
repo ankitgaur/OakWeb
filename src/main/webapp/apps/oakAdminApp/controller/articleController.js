@@ -15,6 +15,8 @@ oakAdminApp.controller('articleCtrl',['$scope','$http','$stateParams','$log','ar
 		setTimeout(function () {
 				$scope.$apply(function () {
 				$scope.article = response;
+				//Fix for update Articles
+				CKEDITOR.instances.editor2.setData(response.content);
 		});
 		}, 0);
 		
@@ -38,6 +40,7 @@ oakAdminApp.controller('articleCtrl',['$scope','$http','$stateParams','$log','ar
 	$scope.updateArticle = function(category,updatedOn,articleFormObj){
 		var articleID = category+"_"+updatedOn;
 		console.log($scope.article);
+		
 		articleFactory.updateArticles($scope.article,articleID)
 				.then(function successCallback(response) {
 					getAllArticles();
@@ -65,10 +68,10 @@ oakAdminApp.controller('articleCtrl',['$scope','$http','$stateParams','$log','ar
 	
 	function clearArticleForm(articleFormObj){
 			articleFormObj.category=null;
-			articleFormObj.createdBy=null;
 			articleFormObj.title=null;
-			articleFormObj.updatedBy=null;
-			articleFormObj.updatedOn=null;
+			articleFormObj.displayImage=null;
+			CKEDITOR.instances.editor2.setData("Enter Text");
+		
 	}
 	
 	function getArticleByID(articleID){
@@ -77,6 +80,8 @@ oakAdminApp.controller('articleCtrl',['$scope','$http','$stateParams','$log','ar
 		setTimeout(function () {
 				$scope.$apply(function () {
 				$scope.article = response;
+				
+				//$('textarea#editor2').html(response.content);
 		});
 		}, 0);
 		

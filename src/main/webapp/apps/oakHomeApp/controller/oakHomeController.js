@@ -1,5 +1,5 @@
-oakHomeApp.controller('oakHomeCtrl',['$scope','$http','$stateParams','$log','oakHomeFactory','ngDialog', 
-                                     function($scope,$http,$stateParams,$log,oakHomeFactory,ngDialog) {
+oakHomeApp.controller('oakHomeCtrl',['$scope','$rootScope','$http','$stateParams','$log','oakHomeFactory','ngDialog', 
+                                     function($scope,$rootScope,$http,$stateParams,$log,oakHomeFactory,ngDialog) {
   var id="topmain_1";
   getPlacementByID(id);
   getTopStories();
@@ -137,23 +137,14 @@ oakHomeApp.controller('oakHomeCtrl',['$scope','$http','$stateParams','$log','oak
 	}
     
     $scope.openModelPopup = function (link) {
-		
-  	   $scope.value = true;
- 	   $scope.name="mohit";
- 	   
- 	   oakHomeFactory.getArticle(link).then(function success(response) {
+	 	   oakHomeFactory.getArticle(link).then(function success(response) {
  			
  		setTimeout(function () {
  				$scope.$apply(function () {
- 				$scope.articleData = response;
+ 				$rootScope.articleData = response;
+ 						
+ 				$('#articlePopup').modal('show');
  				
- 				 var dialog = ngDialog.open({                    
-  					templateUrl:'partial_views/template.html',
-  					className: 'ngdialog-theme-default ngdialog-theme-plain custom-width',
- 					closeByDocument :true,
-  					scope: $scope
- 					
-                  });
  				
  			});
  		}, 0);

@@ -5,6 +5,20 @@
 	width: 100%;
 }
 
+.article-dialog{
+width: 90% !important;
+}
+
+.oak-close-button{
+	
+	height: 2em;
+}
+
+.close-button-holder{
+	/* position: fixed; */
+	float: right;
+}
+
 .ngdialog-content{
 	margin-top: -10em !important;
 }
