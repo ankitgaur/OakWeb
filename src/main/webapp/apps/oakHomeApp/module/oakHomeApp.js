@@ -15,20 +15,6 @@ oakHomeApp.config(['$httpProvider', function ($httpProvider) {
 	
 }]);
 
-/*oakHomeApp.config(['ngDialogProvider', function (ngDialogProvider) {
-    ngDialogProvider.setDefaults({
-        className: 'ngdialog-theme-default',
-        plain: false,
-        showClose: true,
-        closeByDocument: true,
-        closeByEscape: true,
-        appendTo: false,
-        preCloseCallback: function () {
-            console.log('default pre-close callback');
-        }
-    });
-}]);*/
-
 oakHomeApp.run(function($http) {
 	delete $http.defaults.headers.common['X-Requested-With']; 
 	$http.defaults.headers.put = {
