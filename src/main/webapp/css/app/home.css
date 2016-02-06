@@ -1,3 +1,18 @@
+body{
+	background: transparent url('../../images/main_bg.jpg') repeat 0 0;
+}
+
+.module_header_small{
+	background: transparent url('../../images/modulebg.png');
+	background-size:     cover;                     
+    background-repeat:   no-repeat;
+    background-position: center center;
+	color: #ffffff;
+	text-transform: uppercase;
+	/* font-size: 135%; */
+	font-weight: normal;
+}
+
 .header-footer-oak{
 	background-color: black;
 	margin-left: 0px !important;
