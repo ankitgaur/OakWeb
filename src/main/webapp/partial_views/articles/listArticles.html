@@ -19,7 +19,8 @@
 		</thead>
 		<tbody>
 
-			<tr data-ng-repeat="article in articles">
+			<!-- <tr dir-paginate="article in articles" current-page="currentPage" > -->
+			<tr dir-paginate="article in articles | itemsPerPage: pageSize">
 				<td style="width: 20px;"><input id="selectRow" type="checkbox" /></td>
 				<td style="width: 20px;cursor: pointer;"><a data-toggle="modal" data-target="#updateArticleModal" ng-click="getArticleByID(article.category,article.updatedOn);"><i
 						class="glyphicon glyphicon-pencil"></i></a></td>
@@ -32,9 +33,21 @@
 					ng-click="deleteArticle(article.category,article.createdOn)"><i
 						class="glyphicon glyphicon-minus"></i></a></td>
 			</tr>
+			<tr>
+			
+          <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="dirPagination.tpl.html"></dir-pagination-controls>
+    </tr>
 		</tbody>
+		
+	
+	 
 	</table>
 
+	<div>
+          
+         
+	
+	
 	<a data-toggle="modal" data-target="#createArticleModal"><i
 		class="glyphicon glyphicon-plus"></i></a>
 

@@ -1,4 +1,4 @@
-var oakAdminApp = angular.module('oakAdminApp', ['ui.router']);
+var oakAdminApp = angular.module('oakAdminApp', ['ui.router','angularUtils.directives.dirPagination']);
 oakAdminApp.config(['$httpProvider', function ($httpProvider) {
 	if (!$httpProvider.defaults.headers.get) {
         $httpProvider.defaults.headers.get = {};    
