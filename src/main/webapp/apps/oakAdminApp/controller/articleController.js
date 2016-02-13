@@ -8,8 +8,7 @@ oakAdminApp.controller('articleCtrl',['$scope','$http','$stateParams','$log','ar
 	  getAllArticles();
   }
   
-  $scope.currentPage = 1;
-  $scope.pageSize = 10;
+
 	$scope.pageChangeHandler = function(num) {
     console.log('going to page ' + num);
   };
@@ -101,9 +100,10 @@ oakAdminApp.controller('articleCtrl',['$scope','$http','$stateParams','$log','ar
 		articleFactory.getArticles().then(function success(response) {
 			setTimeout(function () {
 					$scope.$apply(function () {
-						$scope.currentPage = 1;
-						$scope.pageSize = 10;
+					$scope.currentPage = 1;
+					$scope.pageSize = 10;	
 					$scope.articles = response;
+					  
 			});
 			}, 0);
 			

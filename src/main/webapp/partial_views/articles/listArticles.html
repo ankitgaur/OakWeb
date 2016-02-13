@@ -19,8 +19,8 @@
 		</thead>
 		<tbody>
 
-			<!-- <tr dir-paginate="article in articles" current-page="currentPage" > -->
-			<tr dir-paginate="article in articles | itemsPerPage: pageSize">
+			
+			<tr dir-paginate="article in articles | itemsPerPage: pageSize" current-page="currentPage">
 				<td style="width: 20px;"><input id="selectRow" type="checkbox" /></td>
 				<td style="width: 20px;cursor: pointer;"><a data-toggle="modal" data-target="#updateArticleModal" ng-click="getArticleByID(article.category,article.updatedOn);"><i
 						class="glyphicon glyphicon-pencil"></i></a></td>
