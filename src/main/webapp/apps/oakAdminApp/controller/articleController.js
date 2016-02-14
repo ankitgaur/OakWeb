@@ -1,5 +1,7 @@
 oakAdminApp.controller('articleCtrl',['$scope','$http','$stateParams','$log','articleFactory', function($scope,$http,$stateParams,$log,articleFactory) {
 
+	$scope.currentPage = 1;
+	$scope.pageSize = 10;
 	$scope.articles  = [];
 	$scope.articleId = $stateParams.articleID;
   if($scope.articleId !="" && $scope.articleId !=undefined && $scope.articleId !='undefined'){
@@ -99,9 +101,7 @@ oakAdminApp.controller('articleCtrl',['$scope','$http','$stateParams','$log','ar
 		
 		articleFactory.getArticles().then(function success(response) {
 			setTimeout(function () {
-					$scope.$apply(function () {
-					$scope.currentPage = 1;
-					$scope.pageSize = 10;	
+					$scope.$apply(function () {						
 					$scope.articles = response;
 					  
 			});
