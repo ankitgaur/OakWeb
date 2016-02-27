@@ -1,76 +1,88 @@
 oakHomeApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
        $urlRouterProvider.otherwise('/');
        $stateProvider 
-	   .state('placement', {
-        url: '/',
-        views: {
-               'placemen': {
+	   .state('home', {
+        url: '/',		
+		     views: {
+			
+				'body': {
+					
+					 templateUrl: function ($stateParams) {
+                      return  'partial_views/modules/homebody.html';
+                   },
+					 controller: 'oakHomeCtrl'
+               },
+			
+               'placemen@home': {
 					
 					 templateUrl: function ($stateParams) {
                       return  'partial_views/modules/singleimg.html';
-                   },
-				    controller: 'oakHomeCtrl',
-					
+                   }					
                },
-               'topstories' : {
+               'topstories@home' : {
 					
 					 templateUrl: function ($stateParams) {
                     return  'partial_views/modules/topstories.html';
-                 },
-				    controller: 'oakHomeCtrl',
-					
+                 }					
              },
-             'topmid' : {
+             'topmid@home' : {
 					
 				 templateUrl: function ($stateParams) {
                 return  'partial_views/modules/topmid.html';
+             }
              },
-			    controller: 'oakHomeCtrl',
-				
-             },
-             'topleft' : {
+             'topleft@home' : {
 					
 				 templateUrl: function ($stateParams) {
                 return  'partial_views/modules/topleft.html';
+             }
+			   				
              },
-			    controller: 'oakHomeCtrl',
-				
-             },
-             'homead1' : {
+             'homead1@home' : {
 					
 				 templateUrl: function ($stateParams) {
                 return  'partial_views/modules/ad1.html';
+             }				
              },
-			    controller: 'oakHomeCtrl',
-				
-             },
-             'homeslider' : {
+             'homeslider@home' : {
 					
 				 templateUrl: function ($stateParams) {
                 return  'partial_views/modules/homeslider.html';
+             }				
              },
-			    controller: 'oakHomeCtrl',
-				
-             },
-             'oakleft' : {
+             'oakleft@home' : {
 					
 				 templateUrl: function ($stateParams) {
                 return  'partial_views/modules/oakleft.html';
+             }				
              },
-			    controller: 'oakHomeCtrl',
-				
-             },
-             'videolist' : {
+             'videolist@home' : {
 					
 				 templateUrl: function ($stateParams) {
                 return  'partial_views/modules/videolist.html';
-             },
-			    controller: 'oakHomeCtrl',
-				
              }
+             }
+			   
+			  
+           }
+    })
+	.state('blog', {
+        url: '/blog',		
+		     views: {
+			
+				'body': {
+					
+					 templateUrl: function ($stateParams) {
+                      return  'partial_views/modules/blogbody.html';
+                   },
+					 controller: 'oakHomeCtrl'
+               }
+			   
 			  
            }
     });
+	
+	
 	
 }]);    
 
