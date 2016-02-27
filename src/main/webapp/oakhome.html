@@ -26,132 +26,13 @@
 </head>
 <body>
 
-
-	<div class="top-wrap">
-
-		<div class="container heads">
-			<div class="row" id="oakheader">
-				<div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 pull-left"
-					id="oaklogo">
-					<a href="#" class="logo">&nbsp;</a>
-				</div>
-				<div
-					class="col-lg-3 col-md-4  col-sm-5 col-xs-12 pull-right hdr-rit-bx">
-					<div class="login-links">
-						<a data-toggle="modal" href="#" data-target="#Login">Login</a> | <a
-							data-toggle="modal" href="#" data-target="#Signup">Singup</a>
-					</div>
-
-				</div>
-
-			</div>
-		</div>
-
-
-		<div id="oakmenubar" class="container-fluid main-meus">
-			<div class="container">
-				<div class="mob-mnu">
-					<span class="mnu-btn"></span>
-				</div>
-				<ul style="background: black;" class="nav nav-pills">
-					<li><a href="#">Home</a></li>
-					<li><a href="#">Blogs</a></li>
-					<li><a href="#">News</a></li>
-					<li><a href="#">Entertainment</a></li>
-					<li><a href="#">CitizenX</a></li>
-					<li><a href="#">Articles</a></li>
-				</ul>
-			</div>
-		</div>
-		<div class="container srch-bx">
-			<div class="input-group">
-				<input type="text" placeholder="Search for..." class="form-control">
-				<button type="button" class="btn btn-default">
-					<span aria-hidden="true" class="glyphicon glyphicon-search"></span>
-				</button>
-			</div>
-		</div>
-	</div>
-	<div class="container" id='oakhomebody'>
-		<div class="row main-oakty-dv">
-
-			<div id="oakmain"
-				class="col-lg-7 col-md-8 col-sm-12 col-xs-12 oakt-main"
-				ui-view="placemen"></div>
-
-			<div class="col-lg-2 col-md-3 col-sm-7 col-xs-12 hidden-md rit-3-dvs"
-				ui-view="topmid">
-				<!-- Topmid Section -->
-			</div>
-
-			<div id="oaktopright"
-				class="col-lg-3 col-md-4 col-sm-5 col-xs-12 oakto-pright">
-				<!--<span class="img-bx"><img src="images/sample/enugu-airport-1.jpg"></span>-->
-				<div style="padding: 6px" ui-view="topstories">
-					<!-- topstories.html -->
-				</div>
-			</div>
-		</div>
-		<div class="row mid-bdy">
-			<div class="col-lg-9 col-md-8 col-sm-7 col-xs-12 to-pleft">
-				<!--Ankit-->
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 oakk-left"
-					id="topleft" ui-view="topleft">
-					<!-- Topleft Section -->
-				</div>
-				<div class="col-lg-9 col-md-12 col-sm-12 col-xs-12 oak-lft2"
-					id="oakleft" ui-view="oakleft">
-					<!-- Oak Left Big Video -->
-				</div>
-
-				<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 hidden-md oakmide"
-					id="oakmid" ui-view="videolist">
-					<!-- Oak Video List-->
-				</div>
-
-				<div
-					class="col-lg-12 col-md-12 col-sm-12 col-xs-12 oak-bottom-left slider-container"
-					style="height: 35.5em" id="oakbottomleft" ui-view="homeslider">
-					<!-- Home Slider -->
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-4 col-sm-5 col-xs-12 oak-rite ">
-				<!--Ankit -->
-				<table class='table'>
-					<tr>
-						<td><div ui-view="homead1"></div></td>
-					</tr>
-					<tr>
-						<td><span class="img-bx"><img
-								src="images/sample/ipledge1.jpg"></span></td>
-					</tr>
-					<tr>
-						<td><span class="img-bx"><img
-								src="images/sample/poll.PNG"></span></td>
-					</tr>
-					<tr>
-						<td><div ui-view="homead2"></div></td>
-					</tr>
-					<tr>
-						<td><span class="img-bx"><img
-								src="images/sample/pics.PNG"></span></td>
-					</tr>
-				</table>
-
-			</div>
-		</div>
-	</div>
-	<div class="container-fluid footer">
-		<div class="container header-footer-oak">
-			<div class="row">
-				<div class="col-lg-12 col-md-12  col-sm-12  col-sx-12 oak-footer"
-					id="oakfooter">
-					<!-- Copyright © 2015 ipledge2nigeria All rights reserved. -->
-					<img style="width: 100%" src="images/sample/footer.png"></img>
-				</div>
-			</div>
-		</div>
-	</div>
+	<div ng-include src="'header.html'"></div>
+			
+	<div ui-view="body"></div>
+		
+	<div ng-include src="'footer.html'"></div>
+	
+	
 	<!-- Login Popup -->
 	<div class="modal fade" id="Login" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel">
