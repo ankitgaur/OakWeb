@@ -1,6 +1,8 @@
 @font-face {font-family: 'FontAwesome';src: url('../fonts/fontawesome-webfont.eot');src: url('../fonts/fontawesome-webfont.eot') format('embedded-opentype'), url('../fonts/fontawesome-webfont.woff2') format('woff2'), url('../fonts/fontawesome-webfont.woff') format('woff'), url('../fonts/fontawesome-webfont.ttf') format('truetype'), url('../fonts/fontawesome-webfont.svg#fontawesomeregular') format('svg');font-weight: normal;font-style: normal;}
 .font-icn {font-family:'FontAwesome';}
 
+
+aside {height: 100%;}
 body { background:url(../../images/main_bg.jpg) 0 0  repeat #fff;}
 .top-wrap { background:url(../../images/top_gradient.png) top left repeat-x #000;}
 .heads { background:url(../../images/banner_final.png) no-repeat center top transparent; height:250px;}
@@ -13,11 +15,11 @@ body { background:url(../../images/main_bg.jpg) 0 0  repeat #fff;}
 .main-meus .nav.nav-pills > li {float:none; display:inline-block; margin:5px 0;} .main-meus .nav.nav-pills > li > a { color:#aaa; text-transform:uppercase; letter-spacing:1px;
  font-size:12px;border-radius:0;background:none; border-right:1px dashed #555;}  .main-meus .nav.nav-pills > li > a:hover { background:none; color:#fff;}
 .oakto-pright {height:100%;} 
-.main-oakty-dv { border:1px solid #ccc; height:400px;margin-top:25px;}
+.main-oakty-dv { border:1px solid #ccc; height:30em;margin-top:25px;}
 .main-oakty-dv .oak-main-dv { height:100%; border-right:1px solid #ccc;} .oakt-main { height:100%; border-right:1px solid #ccc;}
 .rit-3-dvs { height:100%; border-right:1px solid #ccc;}
 .rit-3-dvs .oak-main3 {height:33.60%; border-top:1px solid #ccc; margin-top:-1px;}
-.mid-bdy { border:1px solid #ccc; height:1615px; overflow:hidden; margin-top:-1px;}
+.mid-bdy { border:1px solid #ccc; overflow:hidden; margin-top:-1px;}
 .to-pleft { min-height:500px; border-right:1px solid #ccc;}
 .oakk-left {border-bottom:1px solid #ccc;}
 .oak-lft2 { height:486px;border-right:1px solid #ccc;}
