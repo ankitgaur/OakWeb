@@ -80,7 +80,35 @@ oakHomeApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 
 			   
 			  
            }
-    });
+    }).state('news', {
+        url: '/news',		
+	     views: {
+		
+			'body': {
+				
+				 templateUrl: function ($stateParams) {
+                 return  'partial_views/news.html';
+              },
+				 controller: 'oakHomeCtrl'
+          }
+		   
+		  
+      }
+}).state('citizenx', {
+    url: '/citizenx',		
+    views: {
+	
+		'body': {
+			
+			 templateUrl: function ($stateParams) {
+            return  'partial_views/citizenx.html';
+         },
+			 controller: 'oakHomeCtrl'
+     }
+	   
+	  
+ }
+});
 	
 	
 	

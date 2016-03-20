@@ -1,3 +1,3 @@
 var AppConfig = {
-	appUrl : 'http://52.11.220.245:6767/'	
+	appUrl : 'http://dev.insodel.com:6767/'	
 };

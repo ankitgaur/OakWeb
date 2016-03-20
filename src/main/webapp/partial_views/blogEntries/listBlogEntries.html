@@ -8,6 +8,7 @@
 				<!-- select checkbox -->
 				<th style="width: 20px;"></th>
 				<!-- edit -->
+				<th>ID</th>
 				<th>Blogs Title</th>
 				<th>Created By</th>
 				<th>Remove</th>
@@ -16,14 +17,15 @@
 		</thead>
 		<tbody>
 
-			<tr data-ng-repeat="blog in blogs">
+			<tr data-ng-repeat="blogEntry in blogEntries">
 				<td style="width: 20px;"><input id="selectRow" type="checkbox" /></td>
-				<td style="width: 20px;cursor: pointer;"><a data-toggle="modal" data-target="#updateBlogsModal" ng-click="getBlogByID(blog.category,blog.updatedOn);"><i
+				<td style="width: 20px;cursor: pointer;"><a data-toggle="modal" data-target="#updateBlogsModal" ng-click="getBlogByID(blogEntry.blog,blogEntry.createdOn);"><i
 						class="glyphicon glyphicon-pencil"></i></a></td>
-				<td>{{blog.title}}</td>
-				<td>{{blog.createdBy}}</td>
+				<td>{{blogEntry.blog}}_{{blogEntry.createdOn}}</td>
+				<td>{{blogEntry.title}}</td>
+				<td>{{blogEntry.createdBy}}</td>
 				<td><a style="cursor: pointer;"
-					ng-click="deleteBlog(blog.category,blog.updatedOn)"><i
+					ng-click="deleteBlog(blogEntry.blog,blogEntry.createdOn)"><i
 						class="glyphicon glyphicon-minus"></i></a></td>
 			</tr>
 		</tbody>
@@ -35,9 +37,9 @@
 </div>
 
 <div id="createBlogsModal" class="modal fade" role="dialog">
-	<div ng-include = "'partial_views/blogs/createBlogs.html'"></div>
+	<div ng-include = "'partial_views/blogEntries/createBlogEntries.html'"></div>
 </div>
 <div id="updateBlogsModal" class="modal fade" role="dialog">
-	<div ng-include = "'partial_views/blogs/updateBlogs.html'"></div>
+	<div ng-include = "'partial_views/blogEntries/updateBlogEntries.html'"></div>
 </div>
 
