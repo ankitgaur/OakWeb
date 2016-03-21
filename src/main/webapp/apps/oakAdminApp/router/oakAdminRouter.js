@@ -15,6 +15,19 @@ oakAdminApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
 				}
 			  
            }
+    }).state('articleCategory', {
+        url: '/articleCategories',
+        views: {
+               'body': {
+				   
+				   templateUrl: function ($stateParams) {
+                      return  'partial_views/articleCategories/listArticleCategories.html';
+                   },
+					
+				    controller: 'articleCategoryCtrl',
+				}
+			  
+           }
     }).state('incident', {
         url: '/incidents',
         views: {
