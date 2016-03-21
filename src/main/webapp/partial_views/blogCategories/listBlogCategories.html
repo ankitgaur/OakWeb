@@ -1,0 +1,53 @@
+<div class="container admin-content">
+	<table class="poctable table table-striped table-bordered">
+		<h1>Blog Categories</h1>
+		<thead>
+			<tr>
+				<th style="width: 20px;"><input id="selectRow" type="checkbox" /></th>
+				<!-- select checkbox -->
+				<th style="width: 20px;"><i
+						class="glyphicon glyphicon-pencil"></i></th>
+				<!-- edit -->
+				<th>ID</th>
+				<th>Name</th>
+				<th>Description</th>
+				<th>Image</th>						
+				<th>Created By</th>
+				<th>Updated By</th>
+				<th>Created On</th>
+				<th>Updated On</th>								
+				<th>Remove</th>
+			</tr>
+		</thead>
+		<tbody>
+
+			<tr data-ng-repeat="blogCategory in blogCategories">
+				<td style="width: 20px;"><input id="selectRow" type="checkbox" /></td>
+				<td style="width: 20px;cursor: pointer;"><a data-toggle="modal" data-target="#updateBlogCategoryModal" ng-click="getBlogCategoryByID(blogCategory.id);"><i
+						class="glyphicon glyphicon-pencil"></i></a></td>
+				<td>{{blogCategory.id}}</td>
+				<td>{{blogCategory.name}}</td>				
+				<td>{{blogCategory.description}}</td>				
+				<td>{{blogCategory.displayimage}}</td>				
+				<td>{{blogCategory.createdBy}}</td>
+				<td>{{blogCategory.updatedBy}}</td>
+				<td>{{blogCategory.createdOnStr}}</td>
+				<td>{{blogCategory.updatedOnStr}}</td>
+				<td><a style="cursor: pointer;"
+					ng-click="deleteBlogCategory(blogCategory.id)"><i
+						class="glyphicon glyphicon-minus"></i></a></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<a data-toggle="modal" data-target="#createBlogCategoryModal"><i
+		class="glyphicon glyphicon-plus"></i></a>
+
+</div>
+
+<div id="createBlogCategoryModal" class="modal fade" role="dialog">
+	<div ng-include ="'partial_views/blogCategories/createBlogCategory.html'"></div>
+</div>
+<div id="updateBlogCategoryModal" class="modal fade" role="dialog">
+	<div ng-include = "'partial_views/blogCategories/updateBlogCategory.html'"></div>
+</div>

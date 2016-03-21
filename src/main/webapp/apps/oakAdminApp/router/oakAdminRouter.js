@@ -28,6 +28,19 @@ oakAdminApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
 				}
 			  
            }
+    }).state('blogCategory', {
+        url: '/blogCategories',
+        views: {
+               'body': {
+				   
+				   templateUrl: function ($stateParams) {
+                      return  'partial_views/blogCategories/listBlogCategories.html';
+                   },
+					
+				    controller: 'blogCategoryCtrl',
+				}
+			  
+           }
     }).state('incident', {
         url: '/incidents',
         views: {
