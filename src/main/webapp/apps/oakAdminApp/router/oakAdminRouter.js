@@ -109,7 +109,20 @@ oakAdminApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
 				}
 			  
            }
-    })	
+    }).state('blogs', {
+        url: '/blogs',
+        views: {
+               'body': {
+				   
+				   templateUrl: function ($stateParams) {
+                      return  'partial_views/blog/listBlog.html';
+                   },
+					
+				    controller: 'blogCtrl',
+				}
+			  
+           }
+    })		
 	.state('home', {
         url: '/',
         views: {
