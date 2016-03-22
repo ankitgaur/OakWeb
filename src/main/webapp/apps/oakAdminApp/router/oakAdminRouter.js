@@ -117,7 +117,6 @@ oakAdminApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
 				   templateUrl: function ($stateParams) {
                       return  'partial_views/blog/listBlog.html';
                    },
-					
 				    controller: 'blogCtrl',
 				}
 			  
