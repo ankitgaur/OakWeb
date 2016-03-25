@@ -1,53 +1,45 @@
 <div class="container admin-content">
+
 	<table class="poctable table table-striped table-bordered">
-		<h1>Blog Categories</h1>
+		<h1>Blogs</h1>
 		<thead>
 			<tr>
-				<th style="width: 20px;"><input id="selectRow" type="checkbox" /></th>
+				<th style="width: 20px;"></th>
 				<!-- select checkbox -->
-				<th style="width: 20px;"><i
-						class="glyphicon glyphicon-pencil"></i></th>
+				<th style="width: 20px;"></th>
 				<!-- edit -->
 				<th>ID</th>
-				<th>Name</th>
-				<th>Description</th>
-				<th>Image</th>						
+				<th>Blogs Title</th>
 				<th>Created By</th>
-				<th>Updated By</th>
-				<th>Created On</th>
-				<th>Updated On</th>								
 				<th>Remove</th>
+
 			</tr>
 		</thead>
 		<tbody>
 
-			<tr data-ng-repeat="blogCategory in blogCategories">
+			<tr data-ng-repeat="blogEntry in blogEntries">
 				<td style="width: 20px;"><input id="selectRow" type="checkbox" /></td>
-				<td style="width: 20px;cursor: pointer;"><a data-toggle="modal" data-target="#updateBlogCategoryModal" ng-click="getBlogCategoryByID(blogCategory.id);"><i
+				<td style="width: 20px;cursor: pointer;"><a data-toggle="modal" data-target="#updateBlogsModal" ng-click="getBlogByID(blogEntry.blog,blogEntry.createdOn);"><i
 						class="glyphicon glyphicon-pencil"></i></a></td>
-				<td>{{blogCategory.id}}</td>
-				<td>{{blogCategory.name}}</td>				
-				<td>{{blogCategory.description}}</td>				
-				<td>{{blogCategory.displayimage}}</td>				
-				<td>{{blogCategory.createdBy}}</td>
-				<td>{{blogCategory.updatedBy}}</td>
-				<td>{{blogCategory.createdOnStr}}</td>
-				<td>{{blogCategory.updatedOnStr}}</td>
+				<td>{{blogEntry.blog}}_{{blogEntry.createdOn}}</td>
+				<td>{{blogEntry.title}}</td>
+				<td>{{blogEntry.createdBy}}</td>
 				<td><a style="cursor: pointer;"
-					ng-click="deleteBlogCategory(blogCategory.id)"><i
+					ng-click="deleteBlog(blogEntry.blog,blogEntry.createdOn)"><i
 						class="glyphicon glyphicon-minus"></i></a></td>
 			</tr>
 		</tbody>
 	</table>
 
-	<a data-toggle="modal" data-target="#createBlogCategoryModal"><i
+	<a data-toggle="modal" data-target="#createBlogsModal"><i
 		class="glyphicon glyphicon-plus"></i></a>
 
 </div>
 
-<div id="createBlogCategoryModal" class="modal fade" role="dialog">
-	<div ng-include ="'partial_views/blogCategories/createBlogCategory.html'"></div>
+<div id="createBlogsModal" class="modal fade" role="dialog">
+	<div ng-include = "'partial_views/blogEntries/createBlogEntries.html'"></div>
 </div>
-<div id="updateBlogCategoryModal" class="modal fade" role="dialog">
-	<div ng-include = "'partial_views/blogCategories/updateBlogCategory.html'"></div>
+<div id="updateBlogsModal" class="modal fade" role="dialog">
+	<div ng-include = "'partial_views/blogEntries/updateBlogEntries.html'"></div>
 </div>
+

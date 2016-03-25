@@ -1,4 +1,4 @@
-oakAdminApp.controller('blogEntryCtrl',['$scope','$http','$stateParams','$log','blogEntriesFactory', function($scope,$http,$stateParams,$log,blogEntriesFactory) {
+oakAdminApp.controller('blogEntryCtrl',['$scope','$http','$stateParams','$log','blogEntriesFactory','blogFactory', function($scope,$http,$stateParams,$log,blogEntriesFactory,blogFactory) {
 
 	$scope.blogEntries  = [];
 	$scope.blogEntryId = $stateParams.blogID;
@@ -34,8 +34,8 @@ oakAdminApp.controller('blogEntryCtrl',['$scope','$http','$stateParams','$log','
 		 $log.debug('There is some issue while crating blogEntry');
 	  }); 
 	}
-	$scope.updateBlog = function(category,updatedOn,blogFormObj){
-		var blogEntryID = category+"_"+updatedOn;
+	$scope.updateBlog = function(blog,updatedOn,blogFormObj){
+		var blogEntryID = blog+"_"+updatedOn;
 		blogEntriesFactory.updateBlogs($scope.blogEntry,blogEntryID)
 				.then(function successCallback(response) {
 					getAllBlogs();
@@ -88,12 +88,28 @@ oakAdminApp.controller('blogEntryCtrl',['$scope','$http','$stateParams','$log','
 			setTimeout(function () {
 					$scope.$apply(function () {
 					$scope.blogEntries = response;
+										  
 			});
 			}, 0);
 			
 	  }, function error(response) {
 			$log.debug('There is some issue while getting blogEntries from rest service');
 	  });
+	  
+	  
+	  blogFactory.getBlogs().then(function success(response) {
+			setTimeout(function () {
+					$scope.$apply(function () {						
+						$scope.blogs = response;
+					
+			});
+			}, 0);
+			
+	  }, function error(response) {
+			$log.debug('There is some issue while getting blogs from rest service');
+	  });
+	  
+	  
 	}
 
 	

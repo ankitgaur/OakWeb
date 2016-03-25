@@ -19,14 +19,14 @@ blogEntriesFactory.getBlogs = function(){
 blogEntriesFactory.getBlogByID = function(blogID){
 	  var url = AppConfig.appUrl+'blog_entries';
 	  url = url+"/"+blogID;
-	return $http({
+	 	return $http({
 		  method: 'GET',
 		  url: url,
 		  crossDomain:true
 		  }).then(function successCallback(response) {
-			  return response.data;
+			    return response.data;
 	  }, function errorCallback(response) {
-		$log.debug('There is some issue while getting data from rest service');
+		  $log.debug('There is some issue while getting data from rest service');
 	  }); 
   
 }
