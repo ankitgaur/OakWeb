@@ -101,10 +101,7 @@ oakAdminApp.controller('blogEntryCtrl',['$scope','$http','$stateParams','$log','
 			setTimeout(function () {
 					$scope.$apply(function () {						
 						$scope.blogs = response;
-						angular.forEach($scope.blogs, function(value, key) {
-								value.key=value.category+""+value.createdOn;
-						});				
-					
+											
 			});
 			}, 0);
 			
