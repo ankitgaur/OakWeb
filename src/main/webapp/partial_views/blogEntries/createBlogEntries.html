@@ -10,15 +10,21 @@
 		<div class="modal-body">
 			<form novalidate class="form-horizontal"
 				name="blogEntryCreateUpdateForm">
+						
+						
 				<div class="form-group col-sm-12">
-
-					<label class="control-label" for="category">Blog:</label>
-
-					<div>
-						<input class="form-control category" type="text"
-							ng-model="blogEntry.blog" placeholder="blog" />
-					</div>
+						<label class="control-label" for="blog">Blog  :</label>
+						<div>
+							
+							<select
+									ng-model="blogEntry.blog"
+										ng-options="blogObj.key as blogObj.title for blogObj in blogs">
+							</select>
+							
+						</div>
 				</div>
+							
+				
 				<div class="form-group col-sm-12">
 					<label class="control-label" for="title">Title:</label>
 
@@ -37,6 +43,14 @@
 					</div>
 				</div>
 				
+				<div class="form-group col-sm-12">
+					<label class="control-label" for="rating">Rating:</label>
+
+					<div>
+						<input class="form-control" type="text"
+							ng-model="blogEntry.rating" placeholder="Rating" />
+					</div>
+				</div>
 				
 				<div class="form-group col-sm-12">
 					<div>
@@ -48,81 +62,13 @@
 				</div>
 
 				<script>
-					// Replace the <textarea id="editor1"> with a CKEditor
-					// instance, using default configuration.
 					CKEDITOR.replace('editor1');
 				</script>
 
 
 				<div class="row"></div>
 
-				<!-- 
-				<div class="form-group col-sm-12">
-					<label class="control-label" for="approved">Approved:</label>
 
-					<div>
-						<input class="form-control approved" type="text"
-							ng-model="blogEntry.approved" placeholder="Approved" />
-					</div>
-				</div>
-
-				<div class="form-group col-sm-12">
-					<label class="control-label" for="approvedBy">ApprovedBy:</label>
-
-					<div>
-						<input class="form-control approvedBy" type="text"
-							ng-model="blogEntry.approvedBy" placeholder="ApprovedBy" />
-					</div>
-				</div>
-
-				<div class="form-group col-sm-12">
-					<label class="control-label" for="approvedOn">ApprovedOn:</label>
-
-					<div>
-						<input class="form-control approvedOn" type="text"
-							ng-model="blogEntry.approvedOn" placeholder="ApprovedOn" />
-					</div>
-				</div>
-
-				<div class="form-group col-sm-12">
-					<label class="control-label" for="createdOn">CreatedOn:</label>
-
-					<div>
-						<input class="form-control createdOn" type="text"
-							ng-model="blogEntry.createdOn" placeholder="CreatedOn" />
-					</div>
-				</div>
-
-
-				<div class="form-group col-sm-12">
-					<label class="control-label" for="createdBy">Created By:</label>
-
-					<div>
-						<input class="form-control" type="text" id="createdBy"
-							ng-model="blogEntry.createdBy" placeholder="Created By" />
-					</div>
-				</div>
-
-				<div class="form-group col-sm-12">
-					<label class="control-label" for="updatedBy">Updated By:</label>
-
-					<div>
-						<input class="form-control" type="text" id="updatedBy"
-							ng-model="blogEntry.updatedBy" placeholder="Updated By" />
-					</div>
-				</div>
-
-				<div class="form-group col-sm-12">
-					<label class="control-label" for="rating">Rating:</label>
-
-					<div>
-						<input class="form-control rating" type="text"
-							ng-model="blogEntry.rating" placeholder="Rating" />
-					</div>
-				</div>
-
-				<div class="row"></div>
- -->
 			</form>
 		</div>
 		<div class="modal-footer">
