@@ -149,6 +149,19 @@ oakAdminApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
 				}
 			  
            }
-    })	
+    }).state('image', {
+        url: '/images',
+        views: {
+               'body': {
+				   
+				   templateUrl: function ($stateParams) {
+                      return  'partial_views/images/listImages.html';
+                   },
+					
+				    controller: 'imageCtrl',
+				}
+			  
+           }
+    });	
 }]);    
 
