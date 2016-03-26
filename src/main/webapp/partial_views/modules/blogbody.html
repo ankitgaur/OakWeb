@@ -98,58 +98,7 @@
                         </a>
                         <h2 class="psts-catg"><a href="#">{{blog.title}} <strong>({{blog.count}})</strong></a></h2>
                 </li>
-				
-                    <!-- <li>
-                        <a href="#" class="psts-imgs"><img src="images/enugu-airport-1.jpg">
-                        </a>
-                        <h2 class="psts-catg"><a href="#">Nigerian youths and nation Builduing <strong>(49)</strong></a></h2>
-                    </li>
-                    <li>
-                        <a href="#" class="psts-imgs"><img src="images/default_frontpage.jpg">
-                        </a>
-                        <h2 class="psts-catg"><a href="#">Business Ventures <strong>(73)</strong></a></h2>
-                    </li>
-                    <li>
-                        <a href="#" class="psts-imgs"><img src="images/Dutse_airport-4.jpg">
-                        </a>
-                        <h2 class="psts-catg"><a href="#">What's on in Nollywood <strong>(98)</strong></a></h2>
-                    </li>
-                    <li>
-                        <a href="#" class="psts-imgs"><img src="images/Dutse_airport.jpg">
-                        </a>
-                        <h2 class="psts-catg"><a href="#">Feminine Thoughts <strong>(226)</strong></a></h2>
-                    </li>
-                    <li>
-                        <a href="#" class="psts-imgs"><img src="images/Dutse_airport-3.jpg">
-                        </a>
-                        <h2 class="psts-catg"><a href="#">Reengineering Nigeria <strong>(229)</strong></a></h2>
-                    </li>
-                    <li>
-                        <a href="#" class="psts-imgs"><img src="images/enugu-airport-1.jpg">
-                        </a>
-                        <h2 class="psts-catg"><a href="#">Nigerian youths and nation Builduing <strong>(49)</strong></a></h2>
-                    </li>
-                    <li>
-                        <a href="#" class="psts-imgs"><img src="images/default_frontpage.jpg">
-                        </a>
-                        <h2 class="psts-catg"><a href="#">Business Ventures <strong>(73)</strong></a></h2>
-                    </li>
-                    <li>
-                        <a href="#" class="psts-imgs"><img src="images/Dutse_airport-4.jpg">
-                        </a>
-                        <h2 class="psts-catg"><a href="#">What's on in Nollywood <strong>(98)</strong></a></h2>
-                    </li>
-                    <li>
-                        <a href="#" class="psts-imgs"><img src="images/Dutse_airport.jpg">
-                        </a>
-                        <h2 class="psts-catg"><a href="#">Feminine Thoughts <strong>(226)</strong></a></h2>
-                    </li>
-                    <li>
-                        <a href="#" class="psts-imgs"><img src="images/Dutse_airport-3.jpg">
-                        </a>
-                        <h2 class="psts-catg"><a href="#">Reengineering Nigeria <strong>(229)</strong></a></h2>
-                    </li>
- -->
+				                 
                 </ul>
                 <a href="#" class="red-mors">View All Blogs</a>
             </div>
@@ -160,7 +109,29 @@
             <div class="rit-blg-bxs">
                 <h3 class="rit-bx-titl">Most Popular Blog Posts</h3>
                 <ul class="poplr-post">
-                    <li>
+                    <li ng-repeat="popularPost in popularBlogsPosts">
+                        <a class="pst-images" href="#"><img src="{{popularPost.displayImage}}">
+                        </a>
+                        <h2 class="pst-heading"><a href="#">{{popularPost.title}}</a></h2>
+                        <a href="#" class="pst-in">Money Talk</a>
+                        <div class="post-cntnt"> {{popularPost.content}}</div>
+                        <div class="post-ftr">
+                            <div class="meta-ftr">
+                                <div class="hits"><span class="hts"><a href="#">Hits : {{popularPost.hits}}</a></span> <img style="float:left; margin-top:-2px;" src="images/rating.png">
+                                </div>
+                                <div class="redmor"><a class="cmnt" href="#">0 Comments</a> <a class="rd-mr" href="#">Read More..</a>
+                                </div>
+                            </div>
+                            <div class="pst-by">
+                                <div class="pst-avatar">
+                                    <a href="#"><img src="{{popularPost.displayImage}}">
+                                    </a>
+                                </div>
+                                <p class="pst-authr">Posted by <a href="#">{{popularPost.createdBy}}</a> {{popularPost.createdOnStr}}</p>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- <li>
                         <a class="pst-images" href="#"><img src="images/Dutse_airport.jpg">
                         </a>
                         <h2 class="pst-heading"><a href="#">Story of Gbenga Sesan; CEO Paradigm Initiative.</a></h2>
@@ -247,29 +218,7 @@
                                 <p class="pst-authr">Posted by <a href="#">Web Team</a> on 15 January 2011</p>
                             </div>
                         </div>
-                    </li>
-                    <li>
-                        <a class="pst-images" href="#"><img src="images/Dutse_airport.jpg">
-                        </a>
-                        <h2 class="pst-heading"><a href="#">Story of Gbenga Sesan; CEO Paradigm Initiative.</a></h2>
-                        <a href="#" class="pst-in">Money Talk</a>
-                        <div class="post-cntnt"> If one is to do an assessment of the Nigeria stock market by looking at the performance of the companies listed in the market, then it will be said that the market is not truly reflective of the econo... </div>
-                        <div class="post-ftr">
-                            <div class="meta-ftr">
-                                <div class="hits"><span class="hts"><a href="#">Hits : 592</a></span> <img style="float:left; margin-top:-2px;" src="images/rating.png">
-                                </div>
-                                <div class="redmor"><a class="cmnt" href="#">0 Comments</a> <a class="rd-mr" href="#">Read More..</a>
-                                </div>
-                            </div>
-                            <div class="pst-by">
-                                <div class="pst-avatar">
-                                    <a href="#"><img src="images/default_blogger.png">
-                                    </a>
-                                </div>
-                                <p class="pst-authr">Posted by <a href="#">Web Team</a> on 15 January 2011</p>
-                            </div>
-                        </div>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
             <div class="rit-blg-bxs">

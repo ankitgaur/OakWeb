@@ -17,7 +17,7 @@ oakHomeApp.controller('oakHomeCtrl',['$scope','$rootScope','$http','$stateParams
 	  oakHomeFactory.getMostPopularBlogsPost().then(function success(response) {
 		setTimeout(function () {
 				$scope.$apply(function () {
-				$scope.popularBlogsCount = response;
+				$scope.popularBlogsPosts = response;
 				
 			});
 		}, 0);
