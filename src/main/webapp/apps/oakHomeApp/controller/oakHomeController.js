@@ -10,11 +10,26 @@ oakHomeApp.controller('oakHomeCtrl',['$scope','$rootScope','$http','$stateParams
   getVideoList();
   getTopBlogs();
   getMostPopularBlogCount();
+  getMostPopularBlogsPost();
   
+  
+  function getMostPopularBlogsPost(){
+	  oakHomeFactory.getMostPopularBlogsPost().then(function success(response) {
+		setTimeout(function () {
+				$scope.$apply(function () {
+				$scope.popularBlogsCount = response;
+				
+			});
+		}, 0);
+		
+  }, function error(response) {
+		$log.debug('There is some issue while getting states from rest service');
+  });
+	  
+  }
   
   
    function getMostPopularBlogCount(){
-		
 		
 		oakHomeFactory.getMostPopularBlogsDetails().then(function success(response) {
 			
