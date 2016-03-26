@@ -94,7 +94,9 @@
                 <ul class="poplr-blgs">
 				
 				<li ng-repeat="blog in blogsCount">
-                        <a href="#" class="psts-imgs"><img src="{{blog.displayimage}}">
+                        <a ng-if="blog.displayimage" href="#" class="psts-imgs"><img src="{{blog.displayimage}}">
+                        </a>
+						<a ng-if="!blog.displayimage" href="#" class="psts-imgs"><img src="images/no_photo.jpg">
                         </a>
                         <h2 class="psts-catg"><a href="#">{{blog.title}} <strong>({{blog.count}})</strong></a></h2>
                 </li>
@@ -110,7 +112,9 @@
                 <h3 class="rit-bx-titl">Most Popular Blog Posts</h3>
                 <ul class="poplr-post">
                     <li ng-repeat="popularPost in popularBlogsPosts">
-                        <a ng-if="" class="pst-images" href="#"><img src="{{popularPost.displayImage}}">
+                        <a ng-if="popularPost.displayImage" class="pst-images" href="#"><img src="{{popularPost.displayImage}}">
+                        </a>
+						<a ng-if="!popularPost.displayImage" class="pst-images" href="#"><img ng-src="images/no_photo.jpg">
                         </a>
                         <h2 class="pst-heading"><a href="#">{{popularPost.title}}</a></h2>
                         <!-- <a href="#" class="pst-in">Money Talk</a> -->
