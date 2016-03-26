@@ -34,7 +34,7 @@ oakAdminApp.controller('blogEntryCtrl',['$scope','$http','$stateParams','$log','
 		 $log.debug('There is some issue while crating blogEntry');
 	  }); 
 	}
-	$scope.updateBlog = function(blogEntryID){
+	$scope.updateBlog = function(blogEntryID,blogFormObj){
 		
 		blogEntriesFactory.updateBlogs($scope.blogEntry,blogEntryID)
 				.then(function successCallback(response) {
