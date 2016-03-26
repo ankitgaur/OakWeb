@@ -9,6 +9,29 @@ oakHomeApp.controller('oakHomeCtrl',['$scope','$rootScope','$http','$stateParams
   getHomeSlider();
   getVideoList();
   getTopBlogs();
+  getMostPopularBlogCount();
+  
+  
+  
+   function getMostPopularBlogCount(){
+		
+		
+		oakHomeFactory.getMostPopularBlogsDetails().then(function success(response) {
+			
+		setTimeout(function () {
+				$scope.$apply(function () {
+				$scope.blogsCount = response;
+				
+			});
+		}, 0);
+		
+  }, function error(response) {
+		$log.debug('There is some issue while getting states from rest service');
+  });
+}
+  
+  
+  
   
   function getPlacementByID(id){
 		var placementID = id;
@@ -19,8 +42,6 @@ oakHomeApp.controller('oakHomeCtrl',['$scope','$rootScope','$http','$stateParams
 		setTimeout(function () {
 				$scope.$apply(function () {
 				$scope.placement = response;
-				//$log.debug(response);
-				//$scope.testPlacement ={name:"sampmeObj",url:"images/sample/Dutse_airport.jpg",id:"2"};
 				
 			});
 		}, 0);
