@@ -8,13 +8,13 @@ oakAdminApp.controller('blogEntryCtrl',['$scope','$http','$stateParams','$log','
 	  getAllBlogs();
   }
   
-  $scope.getBlogByID = function(category,updatedOn){
-	  
-		var blogEntryID = category+"_"+updatedOn;
+  $scope.getBlogByID = function(blogEntryID){
+	  		
 		blogEntriesFactory.getBlogByID(blogEntryID).then(function success(response) {
 		setTimeout(function () {
 				$scope.$apply(function () {
 				$scope.blogEntry = response;
+				CKEDITOR.instances.editor2.setData(response.content);
 		});
 		}, 0);
 		
@@ -34,8 +34,8 @@ oakAdminApp.controller('blogEntryCtrl',['$scope','$http','$stateParams','$log','
 		 $log.debug('There is some issue while crating blogEntry');
 	  }); 
 	}
-	$scope.updateBlog = function(blog,updatedOn,blogFormObj){
-		var blogEntryID = blog+"_"+updatedOn;
+	$scope.updateBlog = function(blogEntryID){
+		
 		blogEntriesFactory.updateBlogs($scope.blogEntry,blogEntryID)
 				.then(function successCallback(response) {
 					getAllBlogs();
@@ -47,8 +47,8 @@ oakAdminApp.controller('blogEntryCtrl',['$scope','$http','$stateParams','$log','
 	  });
 	}
 	
-	$scope.deleteBlog= function(category,updatedOn){
-		var blogEntryID = category+"_"+updatedOn;
+	$scope.deleteBlog= function(blogEntryID){
+		
 		blogEntriesFactory.deleteBlogByID(blogEntryID).then(function success(response) {
 			$log.debug("blogEntry deleted successfully");
 			getAllBlogs();			
@@ -61,11 +61,13 @@ oakAdminApp.controller('blogEntryCtrl',['$scope','$http','$stateParams','$log','
 	}
 	
 	function clearBlogForm(blogFormObj){
-			blogFormObj.category=null;
+			blogFormObj.blog=null;
 			blogFormObj.createdBy=null;
 			blogFormObj.title=null;
+			blogFormObj.displayImage=null;
 			blogFormObj.updatedBy=null;
 			blogFormObj.updatedOn=null;
+			CKEDITOR.instances.editor2.setData("Enter Text");
 	}
 	
 	function getBlogByID(blogEntryID){

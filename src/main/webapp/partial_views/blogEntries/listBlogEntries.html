@@ -1,7 +1,7 @@
 <div class="container admin-content">
 
 	<table class="poctable table table-striped table-bordered">
-		<h1>Blogs</h1>
+		<h1>Blog Posts</h1>
 		<thead>
 			<tr>
 				<th style="width: 20px;"></th>
@@ -19,13 +19,13 @@
 
 			<tr data-ng-repeat="blogEntry in blogEntries">
 				<td style="width: 20px;"><input id="selectRow" type="checkbox" /></td>
-				<td style="width: 20px;cursor: pointer;"><a data-toggle="modal" data-target="#updateBlogsModal" ng-click="getBlogByID(blogEntry.blog,blogEntry.createdOn);"><i
+				<td style="width: 20px;cursor: pointer;"><a data-toggle="modal" data-target="#updateBlogsModal" ng-click="getBlogByID(blogEntry.id);"><i
 						class="glyphicon glyphicon-pencil"></i></a></td>
-				<td>{{blogEntry.blog}}_{{blogEntry.createdOn}}</td>
+				<td>{{blogEntry.id}}</td>
 				<td>{{blogEntry.title}}</td>
 				<td>{{blogEntry.createdBy}}</td>
 				<td><a style="cursor: pointer;"
-					ng-click="deleteBlog(blogEntry.blog,blogEntry.createdOn)"><i
+					ng-click="deleteBlog(blogEntry.id)"><i
 						class="glyphicon glyphicon-minus"></i></a></td>
 			</tr>
 		</tbody>

@@ -1,3 +1,3 @@
 var AppConfig = {
-	appUrl : 'localhost:6767/'	 
+	appUrl : 'http://localhost:6767/'	 
 };

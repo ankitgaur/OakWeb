@@ -1,116 +1,67 @@
-	<div class="modal-dialog">
-	
-		<!-- Modal content-->
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
-				<h4 class="modal-title">Update Blog</h4>
-			</div>
-			<div class="modal-body">
-				<form novalidate class="form-horizontal"
-					name="blogCreateForm">
-					
-				<div class="form-group col-sm-12">
-						<label class="control-label" for="blogType">Blog Categories :</label>
-						<div>
-							
-				<select
-					ng-model="blog.category"
-					ng-options="categoryOpt.name as categoryOpt.description for categoryOpt in blogCategories">
-				</select>
-				</div>
-					</div>
-							
-									
-					<div class="form-group col-sm-12">
-					  
-					  <label class="control-label" for="title">Title:</label>
-						<div>
-							<input class="form-control" type="text" 
-								ng-model="blog.title" placeholder="title" />
-						</div>
-					</div>
-					<div class="form-group col-sm-12">
-					  
-					  <label class="control-label" for="description">Description:</label>
 
-						<div>
-							<input class="form-control" type="text" 
-								ng-model="blog.description" placeholder="Description" />
-													
-						</div>
-					</div>
-					
-					
-						<div class="form-group col-sm-12">
-					  <label class="control-label" for="image">DisplayImage:</label>
-						<div>
-							<input class="form-control" type="text" 
-								ng-model="blog.displayimage" placeholder="DisplayImage" />
-						</div>
-					</div>		
-					
-					<div class="form-group col-sm-12">
-					  
-					  <label class="control-label" for="blogHash">BlogHash:</label>
+<div class="modal-dialog">
 
-						<div>
-							<input class="form-control" type="text" 
-								ng-model="blog.blogHash" placeholder="BlogHash" />
-													
-						</div>
-					</div>			
-					
-					<div class="form-group col-sm-12">
-					  
-					  <label class="control-label" for="hits">Hits:</label>
-
-						<div>
-							<input class="form-control" type="text" 
-								ng-model="blog.hits" placeholder="Hits" />
-													
-						</div>
-					</div>
-					
-					<div class="form-group col-sm-12">
-					  
-					  <label class="control-label" for="rating">Rating:</label>
-
-						<div>
-							<input class="form-control" type="text" 
-								ng-model="blog.rating" placeholder="Rating" />
-													
-						</div>
-					</div>	
-				
-					<div class="form-group col-sm-12">
-						<label class="control-label" for="createdBy">Created By:</label>
-
-						<div>
-							<input class="form-control" type="text" id="createdBy"
-								ng-model="blog.createdBy" placeholder="Created By" />
-						</div>
-					</div>
-					
-					<div class="form-group col-sm-12">
-						<label class="control-label" for="updatedBy">Updated By:</label>
-
-						<div>
-							<input class="form-control" type="text" id="updatedBy"
-								ng-model="blog.updatedBy" placeholder="Updated By" />
-						</div>
-					</div>
-					
-					<div class="row">					
-					</div>
-				</form>
-			</div>
-			<div class="modal-footer">
-				<button type="button"ng-click="resetForm(blog)" class="btn btn-default" data-dismiss="modal">Close</button>
-				<button ng-click="resetForm(blog)" type="button" class="btn btn-default">Reset</button>
-				<button	ng-click="updateBlog(blog.category+'_'+blog.createdOn,blog)" type="button" class="btn btn-primary">Update</button>
-				
-			</div>
+	<!-- Modal content-->
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">&times;</button>
+			<h4 class="modal-title">Update Blog</h4>
 		</div>
+		<div class="modal-body">
+			<form novalidate class="form-horizontal" name="blogCreateForm">
 
+				<div class="form-group col-sm-12">
+					<label class="control-label" for="blogType">Blog Categories
+						:</label>
+					<div>
+
+						<select class="form-control" disabled ng-model="blog.category"
+							ng-options="categoryOpt.name as categoryOpt.description for categoryOpt in blogCategories">
+						</select>
+					</div>
+				</div>
+
+
+				<div class="form-group col-sm-12">
+
+					<label class="control-label" for="title">Title:</label>
+					<div>
+						<input class="form-control" type="text" ng-model="blog.title"
+							placeholder="title" />
+					</div>
+				</div>
+				<div class="form-group col-sm-12">
+
+					<label class="control-label" for="description">Description:</label>
+
+					<div>
+						<input class="form-control" type="text"
+							ng-model="blog.description" placeholder="Description" />
+
+					</div>
+				</div>
+
+
+				<div class="form-group col-sm-12">
+					<label class="control-label" for="image">DisplayImage:</label>
+					<div>
+						<input class="form-control" type="text"
+							ng-model="blog.displayimage" placeholder="DisplayImage" />
+					</div>
+				</div>
+
+				<div class="row"></div>
+			</form>
+		</div>
+		<div class="modal-footer">
+			<button type="button" ng-click="resetForm(blog)"
+				class="btn btn-default" data-dismiss="modal">Close</button>
+			<button ng-click="resetForm(blog)" type="button"
+				class="btn btn-default">Reset</button>
+			<button ng-click="updateBlog(blog.category+'_'+blog.createdOn,blog)"
+				type="button" class="btn btn-primary">Update</button>
+
+		</div>
 	</div>
+
+</div>
