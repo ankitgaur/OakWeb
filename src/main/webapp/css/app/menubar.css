@@ -9,8 +9,9 @@
 }
 
 #detail_tree_cell{
-	width: 1em;
+	width: 0em;
 	max-width: 14em;
+	vertical-align: top;
 }
 
 #container-tab{
@@ -27,4 +28,12 @@
 
 #menubar{
 	display: none;
+	width: 100%;
+}
+
+#menubar td a{
+	/* display: none; */
+	width: 100%;
+	overflow: hidden;
+	white-space: nowrap;
 }

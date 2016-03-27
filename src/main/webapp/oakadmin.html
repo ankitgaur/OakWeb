@@ -33,9 +33,42 @@
 		<tr>
 
 				<td id="detail_tree_cell">
-					<div id="menubar">
+				<table class="table table-striped table-bordered" id="menubar">
+					<tr>
+						<td> <a ui-sref="article">&nbsp;&nbsp;&nbsp;&nbsp;Articles</a></td>
+					</tr>
+					<tr>
+						<td> <a ui-sref="articleCategory">&nbsp;&nbsp;&nbsp;&nbsp;Article Categories</a> </td>
+					</tr>
+					<tr>
+						<td> <a ui-sref="blogCategory">&nbsp;&nbsp;&nbsp;&nbsp;Blog Categories</a></td>
+					</tr>	
+					<tr>
+						<td> <a ui-sref="blogEntry">&nbsp;&nbsp;&nbsp;&nbsp;Blog Posts</a></td>
+					</tr>	
+					<tr>
+						<td> <a ui-sref="blogs">&nbsp;&nbsp;&nbsp;&nbsp;Blogs</a> </td>
+					</tr>	
+					<tr>
+						<td> <a ui-sref="state">&nbsp;&nbsp;&nbsp;&nbsp;States</a></td>
+					</tr>	
+					<tr>
+						<td> <a a ui-sref="user">&nbsp;&nbsp;&nbsp;&nbsp;Users</a></td>
+					</tr>	
+					<tr>
+						<td> <a ui-sref="incident">&nbsp;&nbsp;&nbsp;&nbsp;Incidents</a></td>
+					</tr>	
+					<tr>
+						<td> <a ui-sref="placement">&nbsp;&nbsp;&nbsp;&nbsp;Placements</a></td>
+					</tr>	
+					<tr>
+						<td> <a ui-sref="image">&nbsp;&nbsp;&nbsp;&nbsp;Images</a></td>
+					</tr>					
+				</table>
+				
+<!-- 					<div id="menubar">
 						<div class='left_item collapsable'>
-							<a ui-sref="#">&nbsp;&nbsp;&nbsp;&nbsp;Dashboard</a>
+							c
 						</div>
 
 						<div class='left_item collapsable'>
@@ -75,7 +108,7 @@
 						
 						<div class='left_item collapsable'>
 							<a ui-sref="image">&nbsp;&nbsp;&nbsp;&nbsp;Images</a>
-						</div>
+						</div> -->
 
 						<!-- Admin Section Starts 
 						
@@ -105,7 +138,7 @@
 								style="visibility: visible; left: -14px;">	--> <i
 					id="detail_tab" class="glyphicon glyphicon-circle-arrow-right"
 					onclick="MenuBar.barToggle()"
-					style="font-size: 1.8em; left: -20px;"> </i>
+					style="font-size: 1.8em; position: fixed; top: 50%"> </i>
 				</td>
 				<td id="detail_content_cell" >
 					<div id="alertPanel"></div>
