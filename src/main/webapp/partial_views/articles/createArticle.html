@@ -10,16 +10,18 @@
 		</div>
 
 		<div class="modal-body">
-			<form novalidate class="form-horizontal" name="articleCreateForm">
+			<form novalidate class="form-horizontal" name="articleCreateForm">				
 
 				<div class="form-group col-sm-12">
-					<label class="control-label" for="category">Category:</label>
+					<label class="control-label" for="category">Category :</label>
 					<div>
-						<input class="form-control category" type="text"
-							ng-model="article.category" placeholder="Category" />
+
+						<select class="form-control" ng-model="article.category"
+							ng-options="cat.name as cat.name for cat in articleCategories">
+						</select>
+
 					</div>
 				</div>
-
 
 				<div class="form-group col-sm-12">
 					<label class="control-label" for="title">Title:</label>

@@ -1,4 +1,4 @@
-oakAdminApp.controller('articleCtrl',['$scope','$http','$stateParams','$log','articleFactory', function($scope,$http,$stateParams,$log,articleFactory) {
+oakAdminApp.controller('articleCtrl',['$scope','$http','$stateParams','$log','articleFactory','articleCategoryFactory', function($scope,$http,$stateParams,$log,articleFactory,articleCategoryFactory) {
 
 	$scope.currentPage = 1;
 	$scope.pageSize = 10;
@@ -110,6 +110,20 @@ oakAdminApp.controller('articleCtrl',['$scope','$http','$stateParams','$log','ar
 	  }, function error(response) {
 			$log.debug('There is some issue while getting articles from rest service');
 	  });
+		
+		articleCategoryFactory.getArticleCategories().then(function success(response) {
+			setTimeout(function () {
+					$scope.$apply(function () {						
+					$scope.articleCategories = response;
+					  
+			});
+			}, 0);
+			
+	  }, function error(response) {
+			$log.debug('There is some issue while getting articleCategories from rest service');
+	  });
+		
+		
 	}
 
 	
