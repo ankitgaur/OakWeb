@@ -1,141 +1,162 @@
 <div class="container">
-    <div class="row blogpg">
-        <div class="col-lg-9 col-sm-8 col-xs-12 lft-clm">
-            <div class="blog-out-bx">
-                <h2 class="blgpg-titl">Blogs <span class="fnt-siz">
-<a href="#" class="larg" style="font-size:22px;">A</a>
- <a href="#" class="midl" style="font-size:18px;">A</a>
-  <a href="#" class="smal" style="font-size:13px;">A</a> </span></h2>
+	<div class="row blogpg">
+		<div class="col-lg-9 col-sm-8 col-xs-12 lft-clm">
+			<div class="blog-out-bx">
+				<h2 class="blgpg-titl">
+					Blogs <span class="fnt-siz"> <a href="#" class="larg"
+						style="font-size: 22px;">A</a> <a href="#" class="midl"
+						style="font-size: 18px;">A</a> <a href="#" class="smal"
+						style="font-size: 13px;">A</a>
+					</span>
+				</h2>
 
-                <div class="blog-in-bx">
-                    <div class="blog-tools">
-                        <a href="#"><img src="images/rss-icn.png">Subscribe via RSS</a>
-                        <a href="#"><img src="images/mail-icn.png">Subscribe to blog</a>
-                        <div class="ezlog-menu">
-                            <ul class="mnu-nav">
-                                <li><a href="#" class="font-icn" title="Home">&#xf015;</a>
-                                </li>
-                                <li><a href="#" class="font-icn" title="Cetagories">&#xf07c;</a>
-                                </li>
-                                <li><a href="#" class="font-icn" title="Tags">&#xf02c;</a>
-                                </li>
-                                <li><a href="#" class="font-icn" title="Bloggers">&#xf007;</a>
-                                </li>
-                                <li><a href="#" class="font-icn" title="Team Blogs">&#xf0c0;</a>
-                                </li>
-                                <li class="blgSrch">
-                                    <form action="#">
-                                        <input type="text">
-                                        <button type="submit" class="font-icn">&#xf002;</button>
-                                    </form>
-                                </li>
-                                <li class="blgLgn"><a href="#" class="font-icn" title="Login">&#xf023;</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <h3 class="ezblg-titl">Recent blog posts</h3>
-                    <ul class="post-listg">
-                        <li data-ng-repeat="topblog in topblogs">
-                            <div class="post-hedr">
-                                <div class="pst-avatar">
-                                    <a href="#"><img src="images/default_blogger.png">
-                                    </a>
-                                </div>
-                                <h2 class="pst-heading"><a href="#">{{topblog.title}}</a></h2>
-                                <div class="pst-meta">Posted by <a href="#">Web Team</a> on Saturday, 23 November 2013 in <a href="#">{{topblog.blog}}</a> </div>
-                            </div>
-                            <div class="post-cntnt" bind-html-compile="topblog.content">
+				<div class="blog-in-bx">
+					<div class="blog-tools">
+						<a href="#"><img src="images/rss-icn.png">Subscribe via
+							RSS</a> <a href="#"><img src="images/mail-icn.png">Subscribe
+							to blog</a>
+						<div class="ezlog-menu">
+							<ul class="mnu-nav">
+								<li><a href="#" class="font-icn" title="Home">&#xf015;</a>
+								</li>
+								<li><a href="#" class="font-icn" title="Cetagories">&#xf07c;</a>
+								</li>
+								<li><a href="#" class="font-icn" title="Tags">&#xf02c;</a>
+								</li>
+								<li><a href="#" class="font-icn" title="Bloggers">&#xf007;</a>
+								</li>
+								<li><a href="#" class="font-icn" title="Team Blogs">&#xf0c0;</a>
+								</li>
+								<li class="blgSrch">
+									<form action="#">
+										<input type="text">
+										<button type="submit" class="font-icn">&#xf002;</button>
+									</form>
+								</li>
+								<li class="blgLgn"><a data-toggle="modal" data-target="#createBlogsModal" class="font-icn"
+									title="New Blog Post"> <i class="glyphicon glyphicon-edit"></i>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<h3 class="ezblg-titl">Recent blog posts</h3>
+					<ul class="post-listg">
+						<li data-ng-repeat="topblog in topblogs">
+							<div class="post-hedr">
+								<div class="pst-avatar">
+									<a href="#"><img src="images/default_blogger.png"> </a>
+								</div>
+								<h2 class="pst-heading">
+									<a href="#">{{topblog.title}}</a>
+								</h2>
+								<div class="pst-meta">
+									Posted by <a href="#">Web Team</a> on Saturday, 23 November
+									2013 in <a href="#">{{topblog.blog}}</a>
+								</div>
+							</div>
+							<div class="post-cntnt" bind-html-compile="topblog.content">
 
-                            </div>
-                            <div class="post-ftr">
-                                <!-- <div class="pst-tgs"><span class="tag-head">Tagged in:</span>
+							</div>
+							<div class="post-ftr">
+								<!-- <div class="pst-tgs"><span class="tag-head">Tagged in:</span>
                                     <a href="#" class="tags">Alhaji Gambo Salau</a><a href="#" class="tags">Borno state</a> <a href="#" class="tags">Kashim Shettima</a>
                                     <a href="#" class="tags">Alhaji Gambo Salau</a><a href="#" class="tags">Borno state</a> <a href="#" class="tags">Kashim Shettima</a>
                                     <a href="#" class="tags">Alhaji Gambo Salau</a><a href="#" class="tags">Borno state</a> <a href="#" class="tags">Kashim Shettima</a>
                                     <a href="#" class="tags">Alhaji Gambo Salau</a><a href="#" class="tags">Borno state</a> <a href="#" class="tags">Kashim Shettima</a>
                                 </div> -->
-                                <div class="meta-ftr">
-                                    <div class="hits pull-left"><span class="hts">Hits : 592</span> <img src="images/rating.png" style="float:left; margin-top:-2px;">
-                                    </div>
-                                    <div class="redmor pull-right"><a href="#" class="cmnt">0 Comments</a> <a href="#" class="rd-mr">Read More..</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
+								<div class="meta-ftr">
+									<div class="hits pull-left">
+										<span class="hts">Hits : 592</span> <img
+											src="images/rating.png"
+											style="float: left; margin-top: -2px;">
+									</div>
+									<div class="redmor pull-right">
+										<a href="#" class="cmnt">0 Comments</a> <a href="#"
+											class="rd-mr">Read More..</a>
+									</div>
+								</div>
+							</div>
+						</li>
 
-                    </ul>
-                    <ul class="paging">
-                        <li class="dsabl"><a href="#">Prev</a>
-                        </li>
-                        <li class="actv">1</li>
-                        <li><a href="#">2</a>
-                        </li>
-                        <li><a href="#">3</a>
-                        </li>
-                        <li><a href="#">4</a>
-                        </li>
-                        <li><a href="#">5</a>
-                        </li>
-                        <li><a href="#">Next</a> </li>
-                    </ul>
-                </div>
-            </div>
+					</ul>
+					<!--  <ul class="paging">
+						<li class="dsabl"><a href="#">Prev</a></li>
+						<li class="actv">1</li>
+						<li><a href="#">2</a></li>
+						<li><a href="#">3</a></li>
+						<li><a href="#">4</a></li>
+						<li><a href="#">5</a></li>
+						<li><a href="#">Next</a></li>
+					</ul>-->
+				</div>
+			</div>
 
-        </div>
+		</div>
 
-        <div class="col-lg-3 col-sm-4 col-xs-12">
-            <div class="rit-blg-bxs">
-                <a href="http://www.dpbolvw.net/kj122tenkem16258B451328778A6" class="side-add-bnr"><img src="http://www.lduhtrp.net/ko79p59y31NSORUXQRNPOUTTUWS">
-                </a>
-            </div>
-            <div class="rit-blg-bxs">
-                <h3 class="rit-bx-titl">Most Popular Blogs</h3>
-                <ul class="poplr-blgs">
-				
-				<li ng-repeat="blog in blogsCount">
-                        <a ng-if="blog.displayimage" href="#" class="psts-imgs"><img src="{{blog.displayimage}}">
-                        </a>
-						<a ng-if="!blog.displayimage" href="#" class="psts-imgs"><img src="images/no_photo.jpg">
-                        </a>
-                        <h2 class="psts-catg"><a href="#">{{blog.title}} <strong>({{blog.count}})</strong></a></h2>
-                </li>
-				                 
-                </ul>
-                <a href="#" class="red-mors">View All Blogs</a>
-            </div>
-            <div class="rit-blg-bxs">
-                <a href="http://www.kqzyfj.com/r365zw41w3JOKNQTORJLKONOKLO" class="side-add-bnr"><img src="http://www.tqlkg.com/ga106drvjpn8D9CFIDG8A9DCD9AD">
-                </a>
-            </div>
-            <div class="rit-blg-bxs">
-                <h3 class="rit-bx-titl">Most Popular Blog Posts</h3>
-                <ul class="poplr-post">
-                    <li ng-repeat="popularPost in popularBlogsPosts">
-                        <a ng-if="popularPost.displayImage" class="pst-images" href="#"><img src="{{popularPost.displayImage}}">
-                        </a>
-						<a ng-if="!popularPost.displayImage" class="pst-images" href="#"><img ng-src="images/no_photo.jpg">
-                        </a>
-                        <h2 class="pst-heading"><a href="#">{{popularPost.title}}</a></h2>
-                        <!-- <a href="#" class="pst-in">Money Talk</a> -->
-                        <div class="post-cntnt" bind-html-compile="popularPost.content"></div>
-                        <div class="post-ftr">
-                            <div class="meta-ftr">
-                                <div class="hits"><span class="hts"><a href="#">Hits : {{popularPost.hits}}</a></span> <img style="float:left; margin-top:-2px;" src="images/rating.png">
-                                </div>
-                                <div class="redmor"><a class="cmnt" href="#">0 Comments</a> <a class="rd-mr" href="#">Read More..</a>
-                                </div>
-                            </div>
-                            <div class="pst-by">
-                                <div class="pst-avatar">
-                                    <a href="#"><img src="{{popularPost.displayImage}}">
-                                    </a>
-                                </div>
-                                <p class="pst-authr">Posted by <a href="#">{{popularPost.createdBy}}</a> On {{popularPost.createdOnStr}}</p>
-                            </div>
-                        </div>
-                    </li>
-                    <!-- <li>
+		<div class="col-lg-3 col-sm-4 col-xs-12">
+			<div class="rit-blg-bxs">
+				<a href="http://www.dpbolvw.net/kj122tenkem16258B451328778A6"
+					class="side-add-bnr"><img
+					src="http://www.lduhtrp.net/ko79p59y31NSORUXQRNPOUTTUWS"> </a>
+			</div>
+			<div class="rit-blg-bxs">
+				<h3 class="rit-bx-titl">Most Popular Blogs</h3>
+				<ul class="poplr-blgs">
+
+					<li ng-repeat="blog in blogsCount"><a
+						ng-if="blog.displayimage" href="#" class="psts-imgs"><img
+							src="{{blog.displayimage}}"> </a> <a ng-if="!blog.displayimage"
+						href="#" class="psts-imgs"><img src="images/no_photo.jpg">
+					</a>
+						<h2 class="psts-catg">
+							<a href="#">{{blog.title}} <strong>({{blog.count}})</strong></a>
+						</h2></li>
+
+				</ul>
+				<a href="#" class="red-mors">View All Blogs</a>
+			</div>
+			<div class="rit-blg-bxs">
+				<a href="http://www.kqzyfj.com/r365zw41w3JOKNQTORJLKONOKLO"
+					class="side-add-bnr"><img
+					src="http://www.tqlkg.com/ga106drvjpn8D9CFIDG8A9DCD9AD"> </a>
+			</div>
+			<div class="rit-blg-bxs">
+				<h3 class="rit-bx-titl">Most Popular Blog Posts</h3>
+				<ul class="poplr-post">
+					<li ng-repeat="popularPost in popularBlogsPosts"><a
+						ng-if="popularPost.displayImage" class="pst-images" href="#"><img
+							src="{{popularPost.displayImage}}"> </a> <a
+						ng-if="!popularPost.displayImage" class="pst-images" href="#"><img
+							ng-src="images/no_photo.jpg"> </a>
+						<h2 class="pst-heading">
+							<a href="#">{{popularPost.title}}</a>
+						</h2> <!-- <a href="#" class="pst-in">Money Talk</a> -->
+						<div class="post-cntnt" bind-html-compile="popularPost.content"></div>
+						<div class="post-ftr">
+							<div class="meta-ftr">
+								<div class="hits">
+									<span class="hts"><a href="#">Hits :
+											{{popularPost.hits}}</a></span> <img
+										style="float: left; margin-top: -2px;" src="images/rating.png">
+								</div>
+								<div class="redmor">
+									<a class="cmnt" href="#">0 Comments</a> <a class="rd-mr"
+										href="#">Read More..</a>
+								</div>
+							</div>
+							<div class="pst-by">
+								<div class="pst-avatar">
+									<a href="#"><img src="{{popularPost.displayImage}}">
+									</a>
+								</div>
+								<p class="pst-authr">
+									Posted by <a href="#">{{popularPost.createdBy}}</a> On
+									{{popularPost.createdOnStr}}
+								</p>
+							</div>
+						</div></li>
+					<!-- <li>
                         <a class="pst-images" href="#"><img src="images/Dutse_airport.jpg">
                         </a>
                         <h2 class="pst-heading"><a href="#">Story of Gbenga Sesan; CEO Paradigm Initiative.</a></h2>
@@ -158,63 +179,60 @@
                         </div>
                     </li>
                     -->
-                </ul>
-            </div>
-            <div class="rit-blg-bxs">
-                <h3 class="rit-bx-titl">Blog Archive</h3>
-                <ul class="blg-archv">
-                    <li>
-                        <span>2016</span>
-                        <div class="arch-mnth">
-                            <a href="#">Jan</a> <a href="#">Feb</a> <a href="#">Mar</a> <a href="#">Apr</a>
-                            <a href="#">May</a> <a href="#">Jun</a> <a href="#">Jul</a> <a href="#">Aug</a>
-                            <a href="#">Sep</a> <a href="#">Oct</a> <a href="#">Nov</a> <a href="#">Dec</a>
-                        </div>
-                    </li>
-                    <li>
-                        <span>2015</span>
-                        <div class="arch-mnth">
-                            <a href="#">Jan</a> <a href="#">Feb</a> <a href="#">Mar</a> <a href="#">Apr</a>
-                            <a href="#">May</a> <a href="#">Jun</a> <a href="#">Jul</a> <a href="#">Aug</a>
-                            <a href="#">Sep</a> <a href="#">Oct</a> <a href="#">Nov</a> <a href="#">Dec</a>
-                        </div>
-                    </li>
-                    <li>
-                        <span>2014</span>
-                        <div class="arch-mnth">
-                            <a href="#">Jan</a> <a href="#">Feb</a> <a href="#">Mar</a> <a href="#">Apr</a>
-                            <a href="#">May</a> <a href="#">Jun</a> <a href="#">Jul</a> <a href="#">Aug</a>
-                            <a href="#">Sep</a> <a href="#">Oct</a> <a href="#">Nov</a> <a href="#">Dec</a>
-                        </div>
-                    </li>
-                    <li>
-                        <span>2013</span>
-                        <div class="arch-mnth">
-                            <a href="#">Jan</a> <a href="#">Feb</a> <a href="#">Mar</a> <a href="#">Apr</a>
-                            <a href="#">May</a> <a href="#">Jun</a> <a href="#">Jul</a> <a href="#">Aug</a>
-                            <a href="#">Sep</a> <a href="#">Oct</a> <a href="#">Nov</a> <a href="#">Dec</a>
-                        </div>
-                    </li>
-                    <li>
-                        <span>2012</span>
-                        <div class="arch-mnth">
-                            <a href="#">Jan</a> <a href="#">Feb</a> <a href="#">Mar</a> <a href="#">Apr</a>
-                            <a href="#">May</a> <a href="#">Jun</a> <a href="#">Jul</a> <a href="#">Aug</a>
-                            <a href="#">Sep</a> <a href="#">Oct</a> <a href="#">Nov</a> <a href="#">Dec</a>
-                        </div>
-                    </li>
-                    <li>
-                        <span>2011</span>
-                        <div class="arch-mnth">
-                            <a href="#">Jan</a> <a href="#">Feb</a> <a href="#">Mar</a> <a href="#">Apr</a>
-                            <a href="#">May</a> <a href="#">Jun</a> <a href="#">Jul</a> <a href="#">Aug</a>
-                            <a href="#">Sep</a> <a href="#">Oct</a> <a href="#">Nov</a> <a href="#">Dec</a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+				</ul>
+			</div>
+			<div class="rit-blg-bxs">
+				<h3 class="rit-bx-titl">Blog Archive</h3>
+				<ul class="blg-archv">
+					<li><span>2016</span>
+						<div class="arch-mnth">
+							<a href="#">Jan</a> <a href="#">Feb</a> <a href="#">Mar</a> <a
+								href="#">Apr</a> <a href="#">May</a> <a href="#">Jun</a> <a
+								href="#">Jul</a> <a href="#">Aug</a> <a href="#">Sep</a> <a
+								href="#">Oct</a> <a href="#">Nov</a> <a href="#">Dec</a>
+						</div></li>
+					<li><span>2015</span>
+						<div class="arch-mnth">
+							<a href="#">Jan</a> <a href="#">Feb</a> <a href="#">Mar</a> <a
+								href="#">Apr</a> <a href="#">May</a> <a href="#">Jun</a> <a
+								href="#">Jul</a> <a href="#">Aug</a> <a href="#">Sep</a> <a
+								href="#">Oct</a> <a href="#">Nov</a> <a href="#">Dec</a>
+						</div></li>
+					<li><span>2014</span>
+						<div class="arch-mnth">
+							<a href="#">Jan</a> <a href="#">Feb</a> <a href="#">Mar</a> <a
+								href="#">Apr</a> <a href="#">May</a> <a href="#">Jun</a> <a
+								href="#">Jul</a> <a href="#">Aug</a> <a href="#">Sep</a> <a
+								href="#">Oct</a> <a href="#">Nov</a> <a href="#">Dec</a>
+						</div></li>
+					<li><span>2013</span>
+						<div class="arch-mnth">
+							<a href="#">Jan</a> <a href="#">Feb</a> <a href="#">Mar</a> <a
+								href="#">Apr</a> <a href="#">May</a> <a href="#">Jun</a> <a
+								href="#">Jul</a> <a href="#">Aug</a> <a href="#">Sep</a> <a
+								href="#">Oct</a> <a href="#">Nov</a> <a href="#">Dec</a>
+						</div></li>
+					<li><span>2012</span>
+						<div class="arch-mnth">
+							<a href="#">Jan</a> <a href="#">Feb</a> <a href="#">Mar</a> <a
+								href="#">Apr</a> <a href="#">May</a> <a href="#">Jun</a> <a
+								href="#">Jul</a> <a href="#">Aug</a> <a href="#">Sep</a> <a
+								href="#">Oct</a> <a href="#">Nov</a> <a href="#">Dec</a>
+						</div></li>
+					<li><span>2011</span>
+						<div class="arch-mnth">
+							<a href="#">Jan</a> <a href="#">Feb</a> <a href="#">Mar</a> <a
+								href="#">Apr</a> <a href="#">May</a> <a href="#">Jun</a> <a
+								href="#">Jul</a> <a href="#">Aug</a> <a href="#">Sep</a> <a
+								href="#">Oct</a> <a href="#">Nov</a> <a href="#">Dec</a>
+						</div></li>
+				</ul>
+			</div>
 
-        </div>
+		</div>
 
-    </div>
+	</div>
+</div>
+<div id="createBlogsModal" class="modal fade" role="dialog">
+	<div ng-include = "'partial_views/blogEntries/createBlogEntries.html'"></div>
 </div>

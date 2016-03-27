@@ -1,4 +1,4 @@
-oakHomeApp.controller('oakHomeCtrl',['$scope','$rootScope','$http','$stateParams','$log','oakHomeFactory', 
+oakHomeApp.controller('oakHomeCtrl',['$scope','$rootScope','$http','$stateParams','$log','oakHomeFactory',
                                      function($scope,$rootScope,$http,$stateParams,$log,oakHomeFactory) {
   var id="topmain_1";
   getPlacementByID(id);
@@ -8,9 +8,22 @@ oakHomeApp.controller('oakHomeCtrl',['$scope','$rootScope','$http','$stateParams
   getHomeAds();
   getHomeSlider();
   getVideoList();
-  getTopBlogs();
+  getTopBlogPosts();
+  getBlogs();
   getMostPopularBlogCount();
   getMostPopularBlogsPost();
+  
+  $scope.createBlog = function(blogFormObj){
+		blogFormObj.content = CKEDITOR.instances.editor1.getData();
+		oakHomeFactory.createBlogPost(this.blogEntry)
+				.then(function success(response) {
+					getTopBlogPosts();
+					clearBlogForm(blogFormObj);
+					$('#createBlogsModal').modal('hide');
+				}, function error(response) {
+		 $log.debug('There is some issue while creating blogPost');
+	  }); 
+	}
   
   
   function getMostPopularBlogsPost(){
@@ -84,7 +97,22 @@ oakHomeApp.controller('oakHomeCtrl',['$scope','$rootScope','$http','$stateParams
 });
 }
   
-  function getTopBlogs(){
+  
+  function getBlogs(){
+	  oakHomeFactory.getBlogs().then(function success(response) {
+			setTimeout(function () {
+					$scope.$apply(function () {						
+						$scope.blogs = response;
+											
+			});
+			}, 0);
+			
+	  }, function error(response) {
+			$log.debug('There is some issue while getting blogs from rest service');
+	  });
+  }
+  
+  function getTopBlogPosts(){
 		
 		oakHomeFactory.getTopBlogs().then(function success(response) {
 			
@@ -210,6 +238,16 @@ oakHomeApp.controller('oakHomeCtrl',['$scope','$rootScope','$http','$stateParams
  	   
                   
      }
+    
+    function clearBlogForm(blogFormObj){
+		blogFormObj.blog=null;
+		blogFormObj.createdBy=null;
+		blogFormObj.title=null;
+		blogFormObj.displayImage=null;
+		blogFormObj.updatedBy=null;
+		blogFormObj.updatedOn=null;
+		CKEDITOR.instances.editor1.setData("Enter Text");
+}
   
 	
 }]);
