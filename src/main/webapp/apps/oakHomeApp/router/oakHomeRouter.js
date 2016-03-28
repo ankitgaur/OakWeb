@@ -90,9 +90,43 @@ oakHomeApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 
                  return  'partial_views/news.html';
               },
 				 controller: 'oakHomeCtrl'
+          },
+			
+          'news-main-slider@news': {
+				
+				 templateUrl: function ($stateParams) {
+                 return  'partial_views/modules/slider.html';
+              }					
+          },
+			
+          'news-box@news': {
+				
+				 templateUrl: function ($stateParams) {
+                 return  'partial_views/modules/newsbox.html';
+              }					
+          },
+			
+          'news-grid@news': {
+				
+				 templateUrl: function ($stateParams) {
+                 return  'partial_views/modules/gridboxes.html';
+              }					
+          },
+			
+          'news-vertical-list@news': {
+				
+				 templateUrl: function ($stateParams) {
+                 return  'partial_views/modules/verticallist.html';
+              }					
+          },
+			
+          'news-bottom-box@news': {
+				
+				 templateUrl: function ($stateParams) {
+                 return  'partial_views/modules/footerbox.html';
+              }					
           }
-		   
-		  
+		   	  
       }
 }).state('citizenx', {
     url: '/citizenx',		

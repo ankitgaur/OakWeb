@@ -254,6 +254,174 @@ oakHomeApp
 												});
 
 							};
+							
+							oakHomeFactory.getNewsSlider = function() {
+								var url = AppConfig.appUrl
+										+ 'placements/section/newsslider';
+
+								return $http({
+									method : 'GET',
+									url : url,
+									crossDomain : true
+								})
+										.then(
+												function successCallback(
+														response) {
+													return response.data;
+												},
+												function errorCallback(response) {
+													$log
+															.debug('There is some issue while getting data from rest service');
+												});
+
+							};
+							
+							oakHomeFactory.getNewsSpotLight = function() {
+								var url = AppConfig.appUrl
+										+ 'placements/section/newsgrid';
+
+								return $http({
+									method : 'GET',
+									url : url,
+									crossDomain : true
+								})
+										.then(
+												function successCallback(
+														response) {
+													return response.data;
+												},
+												function errorCallback(response) {
+													$log
+															.debug('There is some issue while getting data from rest service');
+												});
+
+							};
+							
+							oakHomeFactory.getLatestNews = function() {
+								var url = AppConfig.appUrl
+										+ 'articles/news/10';
+
+								return $http({
+									method : 'GET',
+									url : url,
+									crossDomain : true
+								})
+										.then(
+												function successCallback(
+														response) {
+													return response.data;
+												},
+												function errorCallback(response) {
+													$log
+															.debug('There is some issue while getting data from rest service');
+												});
+
+							};
+							
+							oakHomeFactory.getPopularNews = function() {
+								var url = AppConfig.appUrl
+										+ 'popular_articles/news/4';
+
+								return $http({
+									method : 'GET',
+									url : url,
+									crossDomain : true
+								})
+										.then(
+												function successCallback(
+														response) {
+													return response.data;
+												},
+												function errorCallback(response) {
+													$log
+															.debug('There is some issue while getting data from rest service');
+												});
+
+							};
+							
+							oakHomeFactory.getHeadlines = function() {
+								var url = AppConfig.appUrl
+										+ 'articles/headlines/5';
+
+								return $http({
+									method : 'GET',
+									url : url,
+									crossDomain : true
+								})
+										.then(
+												function successCallback(
+														response) {
+													return response.data;
+												},
+												function errorCallback(response) {
+													$log
+															.debug('There is some issue while getting data from rest service');
+												});
+
+							};
+							
+							oakHomeFactory.getBusiness = function() {
+								var url = AppConfig.appUrl
+										+ 'articles/business/5';
+
+								return $http({
+									method : 'GET',
+									url : url,
+									crossDomain : true
+								})
+										.then(
+												function successCallback(
+														response) {
+													return response.data;
+												},
+												function errorCallback(response) {
+													$log
+															.debug('There is some issue while getting data from rest service');
+												});
+
+							};
+							
+							oakHomeFactory.getSports = function() {
+								var url = AppConfig.appUrl
+										+ 'articles/sports/5';
+
+								return $http({
+									method : 'GET',
+									url : url,
+									crossDomain : true
+								})
+										.then(
+												function successCallback(
+														response) {
+													return response.data;
+												},
+												function errorCallback(response) {
+													$log
+															.debug('There is some issue while getting data from rest service');
+												});
+
+							};
+							
+							oakHomeFactory.getWorld = function() {
+								var url = AppConfig.appUrl
+										+ 'articles/world/5';
+
+								return $http({
+									method : 'GET',
+									url : url,
+									crossDomain : true
+								})
+										.then(
+												function successCallback(
+														response) {
+													return response.data;
+												},
+												function errorCallback(response) {
+													$log
+															.debug('There is some issue while getting data from rest service');
+												});
+
+							};
 
 							oakHomeFactory.getArticle = function(id) {
 								var url = AppConfig.appUrl + 'articles/' + id;

@@ -1,0 +1,42 @@
+<div class="news-out-bx">
+				<h2 class="bxs-titl">{{newsbox_title}}</h2>
+				<div id="ltstNws" class="carousel slide">
+					<span class="PgContr">Page:<span></span></span>
+
+					<!-- Wrapper for slides -->
+					<div class="carousel-inner" role="listbox">						
+						<div class="item" ng-class='{active:$first}' data-ng-repeat="item in newsbox_topitems">
+							<h4 class="nws-titl">
+								<a href="#">{{item.title}}</a>
+							</h4>
+							<div class="post-cntnt">
+								<a class="pst-images" href="#"><img
+									ng-src="{{item.displayImage}}"></a> {{item.intro}} <a href="#">Read More..</a>
+							</div>
+							<div class="new-ftr">
+								<p class="nsp_info  tleft fleft">
+									<span class="font-icn">&#xf007;</span> Web Team Be the first <a
+										href="#">to comment!</a> {{item.createdOnStr}} | Hits:12 | <!-- <a href="#">Editorial
+										Weekly</a> -->
+								</p>
+							</div>
+						</div>
+					</div>
+					<ul class="nes-lsts">
+						<li data-ng-repeat="item in newsbox_bottomitems">
+							<h4>
+								<a href="#">{{item.title}}</a>
+							</h4>
+							<p>{{item.intro}}</p>
+						</li>						
+					</ul>
+					<!-- Indicators -->
+					<ul class="carousel-indicators">
+						<li data-target="#ltstNws" data-slide-to="0" class="active"></li>
+						<li data-target="#ltstNws" data-slide-to="1"></li>
+						<li data-target="#ltstNws" data-slide-to="2"></li>
+						<li data-target="#ltstNws" data-slide-to="3"></li>
+					</ul>
+
+				</div>
+			</div>

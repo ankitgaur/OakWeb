@@ -62,11 +62,12 @@ oakAdminApp.controller('placementCtrl',['$scope','$http','$stateParams','$log','
 	
 	function clearPlacementForm(placementFormObj){
 			
-		placementFormObj.name=null;
-		placementFormObj.abbr=null;
-		placementFormObj.currGovt=null;
-		placementFormObj.createdBy=null;
-		placementFormObj.updatedBy=null;		
+		placementFormObj.section=null;
+		placementFormObj.position=null;
+		placementFormObj.title=null;
+		placementFormObj.img=null;
+		placementFormObj.link=null;
+		placementFormObj.intro=null;
 	}
 	
 	function getPlacementByID(placementID){

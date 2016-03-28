@@ -1,0 +1,26 @@
+<div class="rit-blg-bxs any-nws">
+				<h3 class="rit-bx-titl">{{vlist_title}}</h3>
+				<div class="nws-pst">
+					<h4 class="nws-titl">
+						<a href="#">{{vlist_topitem.title}}</a>
+					</h4>
+					<a href="#" class="nws-img"><img
+						ng-src="{{vlist_topitem.displayImage}}"></a>
+					<div class="new-ftr">
+						<p>
+							<span class="font-icn">&#xf007;</span> Web Team Be the first <a
+								href="#">to comment!</a> {{item.createdOnStr}} | Hits:12 | <!-- <a href="#">Editorial
+								Weekly</a> -->
+						</p>
+					</div>
+				</div>
+				<ul class="nes-lsts">
+					<li data-ng-repeat="item in vlist_items">
+						<h4>
+							<a href="#">{{item.title}}</a>
+						</h4>
+						<p>{{item.intro}}</p>
+					</li>					
+				</ul>
+			</div>
+		</div>
