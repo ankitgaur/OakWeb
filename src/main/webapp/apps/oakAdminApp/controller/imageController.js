@@ -25,10 +25,14 @@ oakAdminApp.controller('imageCtrl',['$scope','$http','$stateParams','$log','imag
 	 //$( "#uploadImageForm" ).submit();
 	 //action="http://localhost:6767/images/test" method="post"
 	 //enctype="multipart/form-data" accept="image/gif,image/jpeg"
+	 var prefix = $('#prefix').val();
+	 if(!prefix || 0 === prefix.length){
+		 prefix = 'default';
+	 }
 	 var oMyForm = new FormData();
 	 oMyForm.append("file", file.files[0]);
 	 $.ajax({
-	        url:'http://localhost:6767/images/test',
+	        url:AppConfig.appUrl+'images/'+prefix,
 	        type:'post',
 	        contentType: false,
 	        processData: false,

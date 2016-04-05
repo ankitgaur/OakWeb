@@ -24,6 +24,7 @@
 
 #detail_content_cell{
 	vertical-align: top;
+	min-width: 70em;
 }
 
 #menubar{

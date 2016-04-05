@@ -8,8 +8,19 @@
 			<h4 class="modal-title">Upload Image</h4>
 		</div>
 		<div class="modal-body">
+		
+			<div class="form-group col-sm-12">
+					<label class="control-label" for="section">Prefix</label>
+
+					<div>
+						<input class="form-control" type="text" id="prefix"
+							ng-model="prefix" placeholder="prefix" />
+
+					</div>
+				</div>
 			<form novalidate class="form-horizontal" enctype="multipart/form-data"				
 				name="uploadImageForm" id="uploadImageForm">
+				
 
 				<div class="form-group col-sm-12">
 					<label class="control-label" for="section">Select Image</label>
