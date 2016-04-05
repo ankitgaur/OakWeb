@@ -442,6 +442,27 @@ oakHomeApp
 												});
 
 							};
+							
+							
+							oakHomeFactory.getTopBlogsByID = function(blogCategoryID){
+								 var url = AppConfig.appUrl+'blog_entries';
+								 url = url+"/"+blogCategoryID;
+								return $http({
+									  method: 'GET',
+									  url: url,
+									  crossDomain:true
+									  }).then(function successCallback(response) {
+										  return response.data;
+								  }, function errorCallback(response) {
+									  $log.debug('There is some issue while getting blog category from rest service');
+								  }); 
+							  
+							};
+
+							
+							
+							
+							
 
 							return oakHomeFactory;
 

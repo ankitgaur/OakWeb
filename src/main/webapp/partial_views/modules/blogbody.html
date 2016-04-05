@@ -55,7 +55,7 @@
 									2013 in <a href="#">{{topblog.blog}}</a>
 								</div>
 							</div>
-							<div class="post-cntnt" bind-html-compile="topblog.content">
+							<div class="post-cntnt" bind-html-compile="topblog.content | limitTo:500">
 
 							</div>
 							<div class="post-ftr">
@@ -72,8 +72,7 @@
 											style="float: left; margin-top: -2px;">
 									</div>
 									<div class="redmor pull-right">
-										<a href="#" class="cmnt">0 Comments</a> <a href="#"
-											class="rd-mr">Read More..</a>
+										<a href="#" class="cmnt">0 Comments</a> <a ui-sref="blog({blogID: topblog.id})"	class="rd-mr">Read More..</a>
 									</div>
 								</div>
 							</div>

@@ -27,6 +27,30 @@ oakHomeApp
 							getPopularNews();
 							getLatestNews();
 							getNewsSpotLight();
+							
+							$scope.blogID = $stateParams.blogID;
+							if($scope.blogID !="" && $scope.blogID !=undefined && $scope.blogID !='undefined'){
+								getTopBlogPostsByID($scope.blogID); 
+							}else{
+								getTopBlogPosts();
+							}
+							
+							function getTopBlogPostsByID(blogId){
+								
+								oakHomeFactory.getTopBlogsByID(blogId).then(function success(response) {
+								setTimeout(function () {
+										$scope.$apply(function () {
+										$scope.topblogs=[];
+										$scope.topblogs.push(response);
+														
+								});
+								}, 0);
+								
+						  }, function error(response) {
+								$log.debug('There is some issue while getting blogs from rest service');
+						  });
+						  
+						}
 
 							$scope.createBlog = function(blogFormObj) {
 								blogFormObj.content = CKEDITOR.instances.editor1
