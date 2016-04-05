@@ -131,7 +131,7 @@
 						<h2 class="pst-heading">
 							<a href="#">{{popularPost.title}}</a>
 						</h2> <!-- <a href="#" class="pst-in">Money Talk</a> -->
-						<div class="post-cntnt" bind-html-compile="popularPost.content"></div>
+						<div class="post-cntnt" bind-html-compile="popularPost.content  | limitTo:40"></div>
 						<div class="post-ftr">
 							<div class="meta-ftr">
 								<div class="hits">
@@ -180,7 +180,7 @@
                     -->
 				</ul>
 			</div>
-			<div class="rit-blg-bxs">
+			<!-- <div class="rit-blg-bxs">
 				<h3 class="rit-bx-titl">Blog Archive</h3>
 				<ul class="blg-archv">
 					<li><span>2016</span>
@@ -226,7 +226,7 @@
 								href="#">Oct</a> <a href="#">Nov</a> <a href="#">Dec</a>
 						</div></li>
 				</ul>
-			</div>
+			</div> -->
 
 		</div>
 
