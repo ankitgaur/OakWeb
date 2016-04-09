@@ -32,7 +32,7 @@
 				<td>{{page.createdOnStr}}</td>
 				<td>{{page.updatedOnStr}}</td>
 				<td><a style="cursor: pointer;"
-					ng-click="deletePage(page.id)"><i
+					ng-click="deletePage(page.name)"><i
 						class="glyphicon glyphicon-minus"></i></a></td>
 			</tr>
 		</tbody>
@@ -43,9 +43,9 @@
 
 </div>
 
-<div id="#createPageModal" class="modal fade" role="dialog">
+<div id="createPageModal" class="modal fade" role="dialog">
 	<div ng-include ="'partial_views/pages/createPage.html'"></div>
 </div>
-<div id="#updatePageModal" class="modal fade" role="dialog">
-	<div ng-include = "'partial_views/blogCategories/updatePage.html'"></div>
+<div id="updatePageModal" class="modal fade" role="dialog">
+	<div ng-include = "'partial_views/pages/updatePage.html'"></div>
 </div>

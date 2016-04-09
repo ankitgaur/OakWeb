@@ -1,4 +1,4 @@
-oakAdminApp.controller('pagesCtrl',['$scope','$http','$stateParams','$log','pagesFactory', function($scope,$http,$stateParams,$log,pagesFactory) {
+oakAdminApp.controller('pagesCtrl',['$scope','$http','$stateParams','$log','pageFactory', function($scope,$http,$stateParams,$log,pageFactory) {
 
 	$scope.currentPage = 1;	
 	$scope.pageSize = 10;
@@ -16,7 +16,7 @@ oakAdminApp.controller('pagesCtrl',['$scope','$http','$stateParams','$log','page
   
   $scope.getPageByID = function(pageId){
 				
-		pagesFactory.getPageByID(pageId).then(function success(response) {
+		pageFactory.getPageByID(pageId).then(function success(response) {
 		setTimeout(function () {
 				$scope.$apply(function () {
 				$scope.page = response;				
@@ -30,7 +30,7 @@ oakAdminApp.controller('pagesCtrl',['$scope','$http','$stateParams','$log','page
 	
 	$scope.createPage = function(pageFormObj){
 		
-		pagesFactory.createPage(this.page)
+		pageFactory.createPage(this.page)
 				.then(function success(response) {
 									
 					getAllPages();
@@ -42,7 +42,7 @@ oakAdminApp.controller('pagesCtrl',['$scope','$http','$stateParams','$log','page
 	}
 	$scope.updatePage = function(pageId,pageFormObj){
 					
-		pagesFactory.updateBlogCategory($scope.page,pageId)
+		pageFactory.updatePage($scope.page,pageId)
 				.then(function successCallback(response) {
 					getAllPages();
 					clearForm(pageFormObj);
@@ -55,7 +55,7 @@ oakAdminApp.controller('pagesCtrl',['$scope','$http','$stateParams','$log','page
 	
 	$scope.deletePage = function(pageId){
 		
-		pagesFactory.deleteBlogCategoryByID(pageId).then(function success(response) {
+		pageFactory.deletePageByID(pageId).then(function success(response) {
 			
 			getAllPages();
 			
@@ -76,7 +76,7 @@ oakAdminApp.controller('pagesCtrl',['$scope','$http','$stateParams','$log','page
 	
 	function getPageByID(pageID){
 		
-		pagesFactory.getPageByID(pageID).then(function success(response) {
+		pageFactory.getPageByID(pageID).then(function success(response) {
 		setTimeout(function () {
 				$scope.$apply(function () {
 				$scope.page = response;
@@ -91,7 +91,7 @@ oakAdminApp.controller('pagesCtrl',['$scope','$http','$stateParams','$log','page
 		
 	function getAllPages(){
 		
-		pagesFactory.getPages().then(function success(response) {
+		pageFactory.getPages().then(function success(response) {
 			setTimeout(function () {
 					$scope.$apply(function () {						
 					$scope.pages = response;
