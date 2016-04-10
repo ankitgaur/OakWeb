@@ -8,7 +8,7 @@ oakAdminApp.controller('placementCtrl',['$scope','$http','$stateParams','$log','
 	  getAllPlacements();
   }
   
-  $scope.getPlacementByID = function(section,position){
+  $scope.getPlacementByID = function(placementID){
 		var placementID = section+"_"+position;
 		
 		placementFactory.getPlacementByID(placementID).then(function success(response) {
@@ -62,6 +62,7 @@ oakAdminApp.controller('placementCtrl',['$scope','$http','$stateParams','$log','
 	
 	function clearPlacementForm(placementFormObj){
 			
+		placementFormObj.page=null;
 		placementFormObj.section=null;
 		placementFormObj.position=null;
 		placementFormObj.title=null;

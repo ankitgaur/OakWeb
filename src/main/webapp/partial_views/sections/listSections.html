@@ -1,0 +1,51 @@
+<div class="container admin-content">
+	<table class="poctable table table-striped table-bordered">
+		<h1>Sections</h1>
+		<thead>
+			<tr>
+				<th style="width: 20px;"><input id="selectRow" type="checkbox" /></th>
+				<!-- select checkbox -->
+				<!-- <th style="width: 20px;"><i
+						class="glyphicon glyphicon-pencil"></i></th>
+				edit -->
+				<th>Name</th>
+				<th>Page</th>
+									
+				<!-- <th>Created By</th>
+				<th>Updated By</th>
+				<th>Created On</th>
+				<th>Updated On</th> -->								
+				<th>Remove</th>
+			</tr>
+		</thead>
+		<tbody>
+
+			<tr data-ng-repeat="section in sections">
+				<td style="width: 20px;"><input id="selectRow" type="checkbox" /></td>
+				<!-- <td style="width: 20px;cursor: pointer;"><a data-toggle="modal" data-target="#updateSectionModal" ng-click="getSectionByID(section.id);"><i
+						class="glyphicon glyphicon-pencil"></i></a></td> -->
+				<td>{{section.name}}</td>				
+				<td>{{section.page}}</td>			
+				
+				<!-- <td>{{section.createdBy}}</td>
+				<td>{{section.updatedBy}}</td>
+				<td>{{section.createdOnStr}}</td>
+				<td>{{section.updatedOnStr}}</td> -->
+				<td><a style="cursor: pointer;"
+					ng-click="deleteSection(section.id)"><i
+						class="glyphicon glyphicon-minus"></i></a></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<a data-toggle="modal" data-target="#createSectionModal"><i
+		class="glyphicon glyphicon-plus"></i></a>
+
+</div>
+
+<div id="createSectionModal" class="modal fade" role="dialog">
+	<div ng-include ="'partial_views/sections/createSection.html'"></div>
+</div>
+<div id="updateSectionModal" class="modal fade" role="dialog">
+	<div ng-include = "'partial_views/sections/updateSection.html'"></div>
+</div>

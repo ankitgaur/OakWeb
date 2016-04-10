@@ -164,6 +164,20 @@ oakAdminApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
            }
     })
     
+    .state('section', {
+        url: '/sections',
+        views: {
+               'body': {
+				   
+				   templateUrl: function ($stateParams) {
+                      return  'partial_views/sections/listSections.html';
+                   },
+					
+				    controller: 'sectionsCtrl',
+				}
+			  
+           }
+    })
     
     .state('image', {
         url: '/images',
