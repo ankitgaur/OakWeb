@@ -6,28 +6,7 @@ oakHomeApp
 						'$log',
 						function($http, $log) {
 
-							var oakHomeFactory = {};
-
-							oakHomeFactory.getPlacementImgByID = function(
-									placementID) {
-								var url = AppConfig.appUrl + 'placements';
-								url = url + "/" + placementID;
-								return $http({
-									method : 'GET',
-									url : url,
-									crossDomain : true
-								})
-										.then(
-												function successCallback(
-														response) {
-													return response.data;
-												},
-												function errorCallback(response) {
-													$log
-															.debug('There is some issue while getting data from rest service');
-												});
-
-							};
+							var oakHomeFactory = {};							
 
 							oakHomeFactory.createBlogPost = function(blogData) {
 								var url = AppConfig.appUrl + 'blog_entries';
@@ -171,27 +150,6 @@ oakHomeApp
 
 							};
 
-							oakHomeFactory.getTopMid = function() {
-								var url = AppConfig.appUrl
-										+ 'placements/section/topmid';
-
-								return $http({
-									method : 'GET',
-									url : url,
-									crossDomain : true
-								})
-										.then(
-												function successCallback(
-														response) {
-													return response.data;
-												},
-												function errorCallback(response) {
-													$log
-															.debug('There is some issue while getting data from rest service');
-												});
-
-							};
-
 							oakHomeFactory.getVideoList = function() {
 								var url = AppConfig.appUrl
 										+ 'videos/limit/3';
@@ -209,132 +167,6 @@ oakHomeApp
 												function errorCallback(response) {
 													$log
 															.debug('There is some issue while getting videos from rest service');
-												});
-
-							};
-
-							oakHomeFactory.getTopLeft = function() {
-								var url = AppConfig.appUrl
-										+ 'placements/section/topleft';
-
-								return $http({
-									method : 'GET',
-									url : url,
-									crossDomain : true
-								})
-										.then(
-												function successCallback(
-														response) {
-													return response.data;
-												},
-												function errorCallback(response) {
-													$log
-															.debug('There is some issue while getting data from rest service');
-												});
-
-							};
-
-							oakHomeFactory.getHomeAds = function() {
-								var url = AppConfig.appUrl
-										+ 'placements/section/homead';
-
-								return $http({
-									method : 'GET',
-									url : url,
-									crossDomain : true
-								})
-										.then(
-												function successCallback(
-														response) {
-													return response.data;
-												},
-												function errorCallback(response) {
-													$log
-															.debug('There is some issue while getting data from rest service');
-												});
-
-							};
-
-							oakHomeFactory.getHomeSlider = function() {
-								var url = AppConfig.appUrl
-										+ 'placements/section/homeslider';
-
-								return $http({
-									method : 'GET',
-									url : url,
-									crossDomain : true
-								})
-										.then(
-												function successCallback(
-														response) {
-													return response.data;
-												},
-												function errorCallback(response) {
-													$log
-															.debug('There is some issue while getting data from rest service');
-												});
-
-							};
-							
-							oakHomeFactory.getNewsSlider = function() {
-								var url = AppConfig.appUrl
-										+ 'placements/section/news_slider';
-
-								return $http({
-									method : 'GET',
-									url : url,
-									crossDomain : true
-								})
-										.then(
-												function successCallback(
-														response) {
-													return response.data;
-												},
-												function errorCallback(response) {
-													$log
-															.debug('There is some issue while getting data from rest service');
-												});
-
-							};
-							
-							oakHomeFactory.getNewsSpotLight = function() {
-								var url = AppConfig.appUrl
-										+ 'placements/section/newsgrid';
-
-								return $http({
-									method : 'GET',
-									url : url,
-									crossDomain : true
-								})
-										.then(
-												function successCallback(
-														response) {
-													return response.data;
-												},
-												function errorCallback(response) {
-													$log
-															.debug('There is some issue while getting data from rest service');
-												});
-
-							};
-							
-							oakHomeFactory.getLatestNews = function() {
-								var url = AppConfig.appUrl
-										+ 'articles/news/10';
-
-								return $http({
-									method : 'GET',
-									url : url,
-									crossDomain : true
-								})
-										.then(
-												function successCallback(
-														response) {
-													return response.data;
-												},
-												function errorCallback(response) {
-													$log
-															.debug('There is some issue while getting data from rest service');
 												});
 
 							};
@@ -380,91 +212,7 @@ oakHomeApp
 												});
 
 							};
-							
-							oakHomeFactory.getHeadlines = function() {
-								var url = AppConfig.appUrl
-										+ 'articles/headlines/5';
-
-								return $http({
-									method : 'GET',
-									url : url,
-									crossDomain : true
-								})
-										.then(
-												function successCallback(
-														response) {
-													return response.data;
-												},
-												function errorCallback(response) {
-													$log
-															.debug('There is some issue while getting data from rest service');
-												});
-
-							};
-							
-							oakHomeFactory.getBusiness = function() {
-								var url = AppConfig.appUrl
-										+ 'articles/business/5';
-
-								return $http({
-									method : 'GET',
-									url : url,
-									crossDomain : true
-								})
-										.then(
-												function successCallback(
-														response) {
-													return response.data;
-												},
-												function errorCallback(response) {
-													$log
-															.debug('There is some issue while getting data from rest service');
-												});
-
-							};
-							
-							oakHomeFactory.getSports = function() {
-								var url = AppConfig.appUrl
-										+ 'articles/sports/5';
-
-								return $http({
-									method : 'GET',
-									url : url,
-									crossDomain : true
-								})
-										.then(
-												function successCallback(
-														response) {
-													return response.data;
-												},
-												function errorCallback(response) {
-													$log
-															.debug('There is some issue while getting data from rest service');
-												});
-
-							};
-							
-							oakHomeFactory.getWorld = function() {
-								var url = AppConfig.appUrl
-										+ 'articles/world/5';
-
-								return $http({
-									method : 'GET',
-									url : url,
-									crossDomain : true
-								})
-										.then(
-												function successCallback(
-														response) {
-													return response.data;
-												},
-												function errorCallback(response) {
-													$log
-															.debug('There is some issue while getting data from rest service');
-												});
-
-							};
-
+														
 							oakHomeFactory.getArticle = function(id) {
 								var url = AppConfig.appUrl + 'articles/' + id;
 
@@ -500,12 +248,7 @@ oakHomeApp
 								  }); 
 							  
 							};
-
 							
-							
-							
-							
-
 							return oakHomeFactory;
 
 						} ]);
