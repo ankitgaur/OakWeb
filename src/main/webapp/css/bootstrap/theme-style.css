@@ -28,7 +28,7 @@ body { background:url(../../images/main_bg.jpg) 0 0  repeat #fff;}
 .oakk-left {border-bottom:1px solid #ccc;}
 .oak-lft2 { height:486px;border-right:1px solid #ccc;}
 .oak-bottom-left {border-top:1px solid #ccc;}
-.footer {margin-top:25px; background:url(../images/footer.jpg) top center no-repeat #000;}
+.footer {margin-top:25px; background:url(../../images/footer.jpg) top center no-repeat #000;}
 .footer .oak-footer { min-height:150px; color:#fff;}  .oak-footer .cpyrit { float:left; width:100%;  text-align:right; padding:25px 0; font-size:11px; color:#777;}
 .main-meus.fixed { position:fixed; top:0; width:100%; left:0; z-index:99;}
 .main-meus .mob-mnu { float:right; position:relative; width:20px; height:25px; background:none; cursor:pointer; z-index:105; margin:5px 0 10px; display:none}
@@ -111,7 +111,7 @@ body { background:url(../../images/main_bg.jpg) 0 0  repeat #fff;}
 /*-- Blog Pg--*/
 .blogpg { padding:20px 0 0;} .blogpg .lft-clm { padding-right:20px;}
 .blogpg .blog-out-bx { float:left; width:100%; padding:0; background:#fff;}
-.blog-out-bx .blgpg-titl,.rit-blg-bxs .rit-bx-titl,.bxs-titl { text-transform:uppercase;float:left; width:100%; color:#9f9f9f; font-size:15px; margin:0; padding:12px; background:url(../images/moduleH3.png) 0 0 repeat-x #fff; height:40px;}
+.blog-out-bx .blgpg-titl,.rit-blg-bxs .rit-bx-titl,.bxs-titl { text-transform:uppercase;float:left; width:100%; color:#9f9f9f; font-size:15px; margin:0; padding:12px; background:url(../../images/moduleH3.png) 0 0 repeat-x #fff; height:40px;}
 .blgpg-titl .fnt-siz { float:right;} .fnt-siz > a { font-family:"Times New Roman", Times, serif;font-weight:bold; color:#666; float:left; margin-left:5px; height:15px; line-height:15px;}
 .blog-out-bx .blog-in-bx { width:96%; margin:20px 2%; background:#ddd; float:left; padding:10px;}
 .blog-in-bx .blog-tools { float:left; width:100%; margin-top:20px;} .blog-tools > a { float:right; margin-left:15px; font-size:11px; color:#999;}
