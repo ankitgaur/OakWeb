@@ -1,12 +1,8 @@
-<table class="table">
-	<thead>
-			<tr>
-				<td class='module_header_small'>Top Stories</td>			
-			</tr>
-	</thead>
-	<tbody>
-		<tr data-ng-repeat="story in topstories">
-			<td><a ng-click="openModelPopup(story.link)" style='text-decoration:none; color:black' >{{story.title}}</a></td>
-		</tr>		
-	</tbody>
-</table>
+<div class="rit-blg-bxs">
+	<h3 class="rit-bx-titl">Top Stories</h3>
+	<ul class="topstories">
+		<li data-ng-repeat="story in topstories">
+			<a ng-click="openModelPopup(story.id)">{{story.title}}</a>
+		</li>
+	</ul>
+</div>

@@ -1,83 +1,58 @@
-<div class="container" id='oakhomebody'>
-		<div class="row main-oakty-dv">
+<div class="container">
+	<div class="row blogpg">
+		<div class="col-lg-9 col-sm-8 col-xs-12 lft-clm">
 
-			<div id="oakmain"
-				class="col-lg-7 col-md-8 col-sm-12 col-xs-12 oakt-main">
-				  <aside ui-view="placemen"> </aside>
-			</div>
+			<!-- Top Slides sliderwithpointers.html -->
+			<aside ui-view="topslides"></aside>
 
-			<div class="col-lg-2 col-md-3 col-sm-7 col-xs-12 hidden-md rit-3-dvs">
-				<aside ui-view="topmid"> </aside>
-				<!-- Topmid Section -->
-			</div>
+			<!-- Article Grid articlegrid.html -->
+			<aside ui-view="articlegrid"></aside>
 
-			<div id="oaktopright"
-				class="col-lg-3 col-md-4 col-sm-5 col-xs-12 oakto-pright">
-				<!--<span class="img-bx"><img src="images/sample/enugu-airport-1.jpg"></span>-->
-				<div style="padding: 6px">
-				
-				<aside ui-view="topstories"></aside>
-					<!-- topstories.html -->
-				</div>
-			</div>
+			<!-- Video List -->
+			<aside ui-view="videolist"></aside>
+			
+			<!-- Image Gallery -->
+			<aside ui-view="gallery"></aside>
 		</div>
-		<div class="row mid-bdy">
-			<div class="col-lg-9 col-md-8 col-sm-7 col-xs-12 to-pleft">
-				<!--Ankit-->
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 oakk-left"
-					id="topleft">
-					<aside ui-view="topleft"> </aside>
-					<!-- Topleft Section -->
-				</div>
-				<div>
-					<aside id="oakleft" class="col-lg-9 col-md-12 col-sm-12 col-xs-12 oak-lft2" ui-view="oakleft"> </aside>
-					<!-- Oak Left Big Video -->
-				</div>
+		<div class="col-lg-3 col-sm-4 col-xs-12">
 
-				<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 hidden-md oakmide"
-					id="oakmid">
-					<aside ui-view="videolist"> </aside>
-				</div>
+			<!-- topstories.html -->
+			<aside ui-view="topstories"></aside>
 
-				<div
-					class="col-lg-12 col-md-12 col-sm-12 col-xs-12 oak-bottom-left slider-container"
-					style="height: 35.5em" id="oakbottomleft">
-					<aside ui-view="homeslider">
-					</aside>
-					<!-- Home Slider -->
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-4 col-sm-5 col-xs-12 oak-rite ">
-				<!--Ankit -->
-				<table class='table'>
-					<tr>
-						<td><div>
-						<aside ui-view="homead1">
-						</aside>
-						</div></td>
-					</tr>
-					<tr>
-						<td><span class="img-bx"><img
-								src="images/sample/ipledge1.jpg"></span>
-						</td>
-					</tr>
-					<tr>
-						<td><span class="img-bx"><img
-								src="images/sample/poll.PNG"></span>
-						</td>
-					</tr>
-					<tr>
-						<td><div>
-						<aside ui-view="homead2">
-						</aside>
-						</div></td>
-					</tr>
-					<tr>
-						<td><span class="img-bx"><img
-								src="images/sample/pics.PNG"></span></td>
-					</tr>
-				</table>
+			<!-- ad1 -->
+			<aside ui-view="homead1"></aside>
+
+			<div class="rit-blg-bxs">
+				<h3 class="rit-bx-titl">Latest Poll</h3>
+				<form action="#" class="voteus">
+					<p>
+						<strong>Do we need a national dialogue ?</strong>
+					</p>
+					<ul class="topstories">
+						<li><input type="radio" class="rdo" id="yes" name="poll"><label
+							for="yes">Yes</label></li>
+						<li><input type="radio" class="rdo" id="no" name="poll"><label
+							for="no">No</label></li>
+						<li><input type="radio" class="rdo" id="donKw" name="poll"><label
+							for="donKw">Don't Know</label></li>
+					</ul>
+					<div class="frmbtn">
+						<button>VOTE</button>
+						<button>RESULTS</button>
+					</div>
+				</form>
 
 			</div>
+
+			<!-- ad2 -->
+			<aside ui-view="homead2"></aside>
+
+			<!-- Picture Grid -->
+			<aside ui-view="picturegrid"></aside>
+
 		</div>
 	</div>
+
+
+
+</div>

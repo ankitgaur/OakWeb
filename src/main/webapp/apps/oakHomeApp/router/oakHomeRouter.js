@@ -25,10 +25,16 @@ oakHomeApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 
                     return  'partial_views/modules/topstories.html';
                  }					
              },
-             'topmid@home' : {
+             'topslides@home' : {
 					
 				 templateUrl: function ($stateParams) {
-                return  'partial_views/modules/topmid.html';
+                return  'partial_views/modules/topslides.html';
+             }					
+             },
+             'articlegrid@home' : {
+					
+				 templateUrl: function ($stateParams) {
+                return  'partial_views/modules/articlegrid.html';
              }
              },
              'topleft@home' : {
@@ -44,10 +50,22 @@ oakHomeApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 
                 return  'partial_views/modules/ad1.html';
              }				
              },
-             'homeslider@home' : {
+             'homead2@home' : {
 					
 				 templateUrl: function ($stateParams) {
-                return  'partial_views/modules/homeslider.html';
+                return  'partial_views/modules/ad2.html';
+             }				
+             },
+             'picturegrid@home' : {
+					
+				 templateUrl: function ($stateParams) {
+                return  'partial_views/modules/picturegrid.html';
+             }				
+             },
+             'gallery@home' : {
+					
+				 templateUrl: function ($stateParams) {
+                return  'partial_views/modules/gallery.html';
              }				
              },
              'oakleft@home' : {
@@ -109,7 +127,7 @@ oakHomeApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 
           'news-main-slider@news': {
 				
 				 templateUrl: function ($stateParams) {
-                 return  'partial_views/modules/slider.html';
+                 return  'partial_views/modules/gallery.html';
               }					
           },
 			
@@ -142,6 +160,54 @@ oakHomeApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 
           }
 		   	  
       }
+}).state('entertainment', {
+    url: '/entertainment',		
+    views: {
+	
+		'body': {
+			
+			 templateUrl: function ($stateParams) {
+            return  'partial_views/entertainment.html';
+         },
+			 controller: 'oakEntertainmentCtrl'
+     },
+		
+     'entertainment-main-slider@entertainment': {
+			
+			 templateUrl: function ($stateParams) {
+            return  'partial_views/modules/gallery.html';
+         }					
+     },
+		
+     'entertainment-box@entertainment': {
+			
+			 templateUrl: function ($stateParams) {
+            return  'partial_views/modules/newsbox.html';
+         }					
+     },
+		
+     'entertainment-grid@entertainment': {
+			
+			 templateUrl: function ($stateParams) {
+            return  'partial_views/modules/gridboxes.html';
+         }					
+     },
+		
+     'entertainment-vertical-list@entertainment': {
+			
+			 templateUrl: function ($stateParams) {
+            return  'partial_views/modules/verticallist.html';
+         }					
+     },
+		
+     'entertainment-bottom-box@entertainment': {
+			
+			 templateUrl: function ($stateParams) {
+            return  'partial_views/modules/footerbox.html';
+         }					
+     }
+	   	  
+ }
 }).state('citizenx', {
     url: '/citizenx',		
     views: {

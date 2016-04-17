@@ -9,16 +9,53 @@
 		</figure>
 	</a>
 </div> -->
-<table style='height:100%; width:100%'>
+<!-- <table style='height: 100%; width: 100%'>
 	<tr data-ng-repeat="item in videolist">
-		<td style='padding:2px'><a ng-click="openModelPopup(item.link)"
+		<td style='padding: 2px'><a ng-click="openModelPopup(item.link)"
 			style='text-decoration: none'>
 				<figure>
-					<img style='max-height:11.4em; width: 100%;' ng-src="{{item.img}}">
+					<img style='max-height: 11.4em; width: 100%;' ng-src="{{item.img}}">
 					<figcaption class='figcaption_small'>
 						<span>{{item.title}}</span>
 					</figcaption>
 				</figure>
 		</a></td>
 	</tr>
-</table>
+</table> -->
+<div class="news-out-bx">
+	<div id="Newshead" class="carousel slide hmSlidr slid2"
+		data-ride="carousel">
+
+
+		<!-- Wrapper for slides -->
+		<div class="carousel-inner" role="listbox">
+			<div class="item" ng-class='{active:$first}'
+				data-ng-repeat="video in videos" ng-init="vurl=video.videourl">
+				<!-- <iframe width="100%" height="100%" ng-src="{{vurl}}" frameborder="0" allowfullscreen></iframe> -->
+				<!-- <iframe class="ng-scope" width="100%" height="100%" frameborder="0"
+					allowfullscreen="" src="https://youtu.be/dyuOeUd8PKo"></iframe> -->
+				<img src="{{video.videoimgurl}}">
+				<div class="carousel-caption">
+					<h1>
+						<a href="#">{{video.title}}</a>
+					</h1>
+					<!-- <p>
+						<a href="#" class="rd-mor">Rule of law</a>
+					</p> -->
+
+				</div>
+			</div>
+		</div>
+		<!-- Indicators -->
+		<ol class="carousel-indicators thumb">
+			<li data-target=".slid2" data-slide-to="{{$index}}"
+				ng-class='{active:$first}' data-ng-repeat="video in videos"><img
+				width="100%" height="100%" src="{{video.videoimgurl}}">
+				<div class="carousel-caption">
+					<p>
+						<a href="#">{{video.title}}</a>
+					</p>
+				</div></li>
+		</ol>
+	</div>
+</div>

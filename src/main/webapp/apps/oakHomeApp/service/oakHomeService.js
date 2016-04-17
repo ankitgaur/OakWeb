@@ -107,11 +107,32 @@ oakHomeApp
 															.debug('There is some issue while getting data from rest service');
 												});
 
-							}
+							};
 
-							oakHomeFactory.getTopStories = function() {
+							oakHomeFactory.getArticlesByLimit = function(limit) {
 								var url = AppConfig.appUrl
-										+ 'placements/section/topstories';
+										+ 'articles/limit/' + limit;
+
+								return $http({
+									method : 'GET',
+									url : url,
+									crossDomain : true
+								})
+										.then(
+												function successCallback(
+														response) {
+													return response.data;
+												},
+												function errorCallback(response) {
+													$log
+															.debug('There is some issue while getting data from rest service');
+												});
+
+							};
+							
+							oakHomeFactory.getPlacement = function(section) {
+								var url = AppConfig.appUrl
+										+ 'placements/section/' + section;
 
 								return $http({
 									method : 'GET',
@@ -173,7 +194,7 @@ oakHomeApp
 
 							oakHomeFactory.getVideoList = function() {
 								var url = AppConfig.appUrl
-										+ 'placements/section/videolist';
+										+ 'videos/limit/3';
 
 								return $http({
 									method : 'GET',
@@ -187,7 +208,7 @@ oakHomeApp
 												},
 												function errorCallback(response) {
 													$log
-															.debug('There is some issue while getting data from rest service');
+															.debug('There is some issue while getting videos from rest service');
 												});
 
 							};
@@ -257,7 +278,7 @@ oakHomeApp
 							
 							oakHomeFactory.getNewsSlider = function() {
 								var url = AppConfig.appUrl
-										+ 'placements/section/newsslider';
+										+ 'placements/section/news_slider';
 
 								return $http({
 									method : 'GET',
@@ -318,9 +339,9 @@ oakHomeApp
 
 							};
 							
-							oakHomeFactory.getPopularNews = function() {
+							oakHomeFactory.getPopularArticles = function(cat,limit) {
 								var url = AppConfig.appUrl
-										+ 'popular_articles/news/4';
+										+ 'popular_articles/'+cat+'/'+limit;
 
 								return $http({
 									method : 'GET',
@@ -335,6 +356,27 @@ oakHomeApp
 												function errorCallback(response) {
 													$log
 															.debug('There is some issue while getting data from rest service');
+												});
+
+							};
+							
+							oakHomeFactory.getArticleCatByLimit = function(cat,limit) {
+								var url = AppConfig.appUrl
+										+ 'articles/'+cat+'/'+limit;
+
+								return $http({
+									method : 'GET',
+									url : url,
+									crossDomain : true
+								})
+										.then(
+												function successCallback(
+														response) {
+													return response.data;
+												},
+												function errorCallback(response) {
+													$log
+															.debug('There is some issue while getting data from rest service for category '+cat);
 												});
 
 							};
