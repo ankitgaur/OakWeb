@@ -141,7 +141,7 @@ oakHomeApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 
           'news-grid@news': {
 				
 				 templateUrl: function ($stateParams) {
-                 return  'partial_views/modules/gridboxes.html';
+                 return  'partial_views/modules/articlegrid.html';
               }					
           },
 			
@@ -189,7 +189,7 @@ oakHomeApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 
      'entertainment-grid@entertainment': {
 			
 			 templateUrl: function ($stateParams) {
-            return  'partial_views/modules/gridboxes.html';
+            return  'partial_views/modules/articlegrid.html';
          }					
      },
 		

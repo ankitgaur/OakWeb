@@ -235,7 +235,7 @@ oakHomeApp
 																$scope
 																		.$apply(function() {
 
-																			$scope.grid_items = response;
+																			$scope.articlegrid = response;
 																			// $scope.testPlacement
 																			// ={name:"sampmeObj",url:"images/sample/Dutse_airport.jpg",id:"2"};
 
