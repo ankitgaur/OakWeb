@@ -15,19 +15,48 @@ oakHomeApp
 							getMostPopularBlogCount(); // blog
 							getMostPopularBlogsPost(); // blog
 
+							$scope.blogPostID = $stateParams.blogPostID;
 							$scope.blogID = $stateParams.blogID;
-							if ($scope.blogID != ""
-									&& $scope.blogID != undefined
-									&& $scope.blogID != 'undefined') {
-								getTopBlogPostsByID($scope.blogID);
+							
+							if ($scope.blogPostID != ""
+									&& $scope.blogPostID != undefined
+									&& $scope.blogPostID != 'undefined') {
+								getBlogPostByID($scope.blogPostID);
+							} else if($scope.blogID != ""
+								&& $scope.blogID != undefined
+								&& $scope.blogID != 'undefined'){
+								getPostsForBlog($scope.blogID);								
 							} else {
 								getTopBlogPosts();
 							}
 
-							function getTopBlogPostsByID(blogId) {
+							function getPostsForBlog(blogID) {
 
 								oakHomeFactory
-										.getTopBlogsByID(blogId)
+										.getPostsForBlog(blogID)
+										.then(
+												function success(response) {
+
+													setTimeout(
+															function() {
+																$scope
+																		.$apply(function() {
+																			$scope.topblogs = response;											
+
+																		});
+															}, 0);
+
+												},
+												function error(response) {
+													$log
+															.debug('There is some issue while getting topblogs from rest service');
+												});
+							}
+							
+							function getBlogPostByID(blogPostId) {
+
+								oakHomeFactory
+										.getBlogPostByID(blogPostId)
 										.then(
 												function success(response) {
 													setTimeout(

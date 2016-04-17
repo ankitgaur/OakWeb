@@ -85,7 +85,7 @@ oakHomeApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 
            }
     })
 	.state('blogs', {
-        url: '/blog',		
+        url: '/blogs',		
 		     views: {
 			
 				'body': {
@@ -105,13 +105,27 @@ oakHomeApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', 
 				'body': {
 					
 					 templateUrl: function ($stateParams) {
-                      return  'partial_views/singleblog.html';
+                      return  'partial_views/bloglist.html';
                    },
 					 controller: 'oakBlogCtrl'
                }
 			   
 			  
            }
+    }).state('blogPost', {
+        url: '/blogPost/:blogPostID',		
+	     views: {
+		
+			'body': {
+				
+				 templateUrl: function ($stateParams) {
+                 return  'partial_views/blogPost.html';
+              },
+				 controller: 'oakBlogCtrl'
+          }
+		   
+		  
+      }
     }).state('news', {
         url: '/news',		
 	     views: {

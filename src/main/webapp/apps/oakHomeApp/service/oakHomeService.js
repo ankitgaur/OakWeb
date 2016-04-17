@@ -233,10 +233,24 @@ oakHomeApp
 
 							};
 							
-							
-							oakHomeFactory.getTopBlogsByID = function(blogCategoryID){
+							oakHomeFactory.getPostsForBlog = function(blogID){
+								 var url = AppConfig.appUrl+'/blog_entries/blogs';
+								 url = url+"/"+blogID;
+								return $http({
+									  method: 'GET',
+									  url: url,
+									  crossDomain:true
+									  }).then(function successCallback(response) {
+										  return response.data;
+								  }, function errorCallback(response) {
+									  $log.debug('There is some issue while getting blog category from rest service');
+								  }); 
+							  
+							};
+													
+							oakHomeFactory.getBlogPostByID = function(blogPostID){
 								 var url = AppConfig.appUrl+'blog_entries';
-								 url = url+"/"+blogCategoryID;
+								 url = url+"/"+blogPostID;
 								return $http({
 									  method: 'GET',
 									  url: url,

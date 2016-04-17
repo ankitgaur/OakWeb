@@ -48,7 +48,7 @@
 									<a href="#"><img src="images/default_blogger.png"> </a>
 								</div>
 								<h2 class="pst-heading">
-									<a href="#">{{topblog.title}}</a>
+									<a ui-sref="blogPost({blogPostID: topblog.id})">{{topblog.title}}</a>
 								</h2>
 								<div class="pst-meta">
 									Posted by <a href="#">Web Team</a> on Saturday, 23 November
@@ -72,7 +72,7 @@
 											style="float: left; margin-top: -2px;">
 									</div>
 									<div class="redmor pull-right">
-										<a href="#" class="cmnt">0 Comments</a> <!-- <a ui-sref="blog({blogID: topblog.id})"	class="rd-mr">Read More..</a> -->
+										<a href="#" class="cmnt">0 Comments</a> <!-- <a ui-sref="blogPost({blogPostID: topblog.id})"	class="rd-mr">Read More..</a> -->
 									</div>
 								</div>
 							</div>
@@ -124,12 +124,12 @@
 				<h3 class="rit-bx-titl">Most Popular Blog Posts</h3>
 				<ul class="poplr-post">
 					<li ng-repeat="popularPost in popularBlogsPosts"><a
-						ng-if="popularPost.displayImage" class="pst-images" href="#"><img
+						ng-if="popularPost.displayImage" class="pst-images" ui-sref="blogPost({blogPostID: popularPost.id})"><img
 							src="{{popularPost.displayImage}}"> </a> <a
-						ng-if="!popularPost.displayImage" class="pst-images" href="#"><img
+						ng-if="!popularPost.displayImage" class="pst-images" ui-sref="blogPost({blogPostID: popularPost.id})"><img
 							ng-src="images/no_photo.jpg"> </a>
 						<h2 class="pst-heading">
-							<a href="#">{{popularPost.title}}</a>
+							<a ui-sref="blogPost({blogPostID: popularPost.id})">{{popularPost.title}}</a>
 						</h2> <!-- <a href="#" class="pst-in">Money Talk</a> -->
 						<div class="post-cntnt" bind-html-compile="popularPost.content  | limitTo:40"></div>
 						<div class="post-ftr">
