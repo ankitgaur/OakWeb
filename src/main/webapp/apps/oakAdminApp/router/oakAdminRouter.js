@@ -192,6 +192,45 @@ oakAdminApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
 				}
 			  
            }
+    }).state('forumCategory', {
+        url: '/forumCategory',
+        views: {
+               'body': {
+				   
+				   templateUrl: function ($stateParams) {
+                      return  'partial_views/forumCategories/listForumCategories.html';
+                   },
+					
+				    controller: 'forumCategoriesCtrl',
+				}
+			  
+           }
+    }).state('forumTopics', {
+        url: '/forumTopics',
+        views: {
+               'body': {
+				   
+				   templateUrl: function ($stateParams) {
+                      return  'partial_views/forumTopics/listForumTopics.html';
+                   },
+					
+				    controller: 'forumTopicCtrl',
+				}
+			  
+           }
+    }).state('forumPost', {
+        url: '/forumPost',
+        views: {
+               'body': {
+				   
+				   templateUrl: function ($stateParams) {
+                      return  'partial_views/forumPost/listForumPost.html';
+                   },
+					
+				    controller: 'forumPostCtrl',
+				}
+			  
+           }
     });	
 }]);    
 

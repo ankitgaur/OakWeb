@@ -1,0 +1,54 @@
+<div class="container admin-content">
+
+	<dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="dirPagination.tpl.html"></dir-pagination-controls>
+	<table class="poctable table table-striped table-bordered">
+		<h1>Articles</h1>
+		<thead>
+			<tr>
+				<th style="width: 20px;"></th>
+				<!-- select checkbox -->
+				<th style="width: 20px;"></th>
+				<!-- edit -->
+				<th>ID</th>
+				<th>Topic</th>
+				<th>Title</th>
+				<th>Created By</th>
+				<th>Created On</th>
+				<th>Remove</th>
+
+			</tr>
+		</thead>
+		<tbody>
+
+			
+			<tr dir-paginate="forumPost in forumPosts | itemsPerPage: pageSize" current-page="currentPage">
+				<td style="width: 20px;"><input id="selectRow" type="checkbox" /></td>
+				<td style="width: 20px;cursor: pointer;"><a data-toggle="modal" data-target="#updateForumPostModal" ng-click="getForumPostByID(forumPost.topic,forumPost.createdOn);"><i
+						class="glyphicon glyphicon-pencil"></i></a></td>
+				<td>{{forumPost.topic}}_{{forumPost.createdOn}}</td>
+				<td>{{forumPost.category}}</td>
+				<td>{{forumPost.title}}</td>
+				<td>{{forumPost.createdBy}}</td>
+				<td>{{forumPost.createdOnDate}}</td>
+				<td><a style="cursor: pointer;"
+					ng-click="deleteForumPost(forumPost.topic,forumPost.createdOn)"><i
+						class="glyphicon glyphicon-minus"></i></a></td>
+			</tr>
+			
+		</tbody>
+		
+	
+	 
+	</table>
+	<a data-toggle="modal" data-target="#createForumPostModal"><i
+		class="glyphicon glyphicon-plus"></i></a>		
+</div>
+
+
+<div id="createForumPostModal" class="modal fade" role="dialog">
+	<div ng-include = "'partial_views/forumPost/createForumPost.html'"></div>
+</div>
+<div id="updateForumPostModal" class="modal fade" role="dialog">
+	<div ng-include = "'partial_views/forumPost/updateForumPost.html'"></div>
+</div>
+

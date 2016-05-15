@@ -1,0 +1,53 @@
+<div class="container admin-content">
+	<table class="poctable table table-striped table-bordered">
+		<h1>Forum Categories</h1>
+		<thead>
+			<tr>
+				<th style="width: 20px;"><input id="selectRow" type="checkbox" /></th>
+				<!-- select checkbox -->
+				<th style="width: 20px;"><i
+						class="glyphicon glyphicon-pencil"></i></th>
+				<!-- edit -->
+				<th>ID</th>
+				<th>Name</th>
+				<th>Description</th>
+				<th>Image</th>						
+				<th>Created By</th>
+				<th>Updated By</th>
+				<th>Created On</th>
+				<th>Updated On</th>								
+				<th>Remove</th>
+			</tr>
+		</thead>
+		<tbody>
+
+			<tr data-ng-repeat="forumCategory in forumCategories">
+				<td style="width: 20px;"><input id="selectRow" type="checkbox" /></td>
+				<td style="width: 20px;cursor: pointer;"><a data-toggle="modal" data-target="#updateForumCategoryModal" ng-click="getForumCategoryByID(forumCategory.id);"><i
+						class="glyphicon glyphicon-pencil"></i></a></td>
+				<td>{{forumCategory.id}}</td>
+				<td>{{forumCategory.name}}</td>				
+				<td>{{forumCategory.description}}</td>				
+				<td>{{forumCategory.displayimage}}</td>				
+				<td>{{forumCategory.createdBy}}</td>
+				<td>{{forumCategory.updatedBy}}</td>
+				<td>{{forumCategory.createdOnStr}}</td>
+				<td>{{forumCategory.updatedOnStr}}</td>
+				<td><a style="cursor: pointer;"
+					ng-click="deleteForumCategory(forumCategory.id)"><i
+						class="glyphicon glyphicon-minus"></i></a></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<a data-toggle="modal" data-target="#createForumCategoryModal"><i
+		class="glyphicon glyphicon-plus"></i></a>
+
+</div>
+
+<div id="createForumCategoryModal" class="modal fade" role="dialog">
+	<div ng-include ="'partial_views/forumCategories/createForumCategory.html'"></div>
+</div>
+<div id="updateForumCategoryModal" class="modal fade" role="dialog">
+	<div ng-include = "'partial_views/forumCategories/updateForumCategory.html'"></div>
+</div>
