@@ -28,6 +28,26 @@ oakHomeApp
 												});
 							};
 
+							oakHomeFactory.getCategories = function() {
+								var url = AppConfig.appUrl + 'forum_categories';
+
+								return $http({
+									method : 'GET',
+									url : url,
+									crossDomain : true
+								})
+										.then(
+												function successCallback(
+														response) {
+													return response.data;
+												},
+												function errorCallback(response) {
+													$log
+															.debug('There is some issue while getting forum categories from rest service');
+												});
+
+							};
+							
 							oakHomeFactory.getBlogs = function() {
 								var url = AppConfig.appUrl + 'blogs';
 
