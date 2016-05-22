@@ -32,6 +32,8 @@ oakAdminApp.controller('forumPostCtrl',['$scope','$http','$stateParams','$log','
 }
 	
 	$scope.createForumPost = function(forumPostFormObj){
+		
+		forumPostFormObj.content = CKEDITOR.instances.editor1.getData();
 		forumPostFactory.createForumPosts(this.forumPost)
 				.then(function success(response) {
 									

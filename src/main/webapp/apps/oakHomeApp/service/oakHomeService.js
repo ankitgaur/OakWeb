@@ -27,6 +27,67 @@ oakHomeApp
 															.debug('There is some issue while getting data from rest service');
 												});
 							};
+							
+							oakHomeFactory.getPostsForTopic = function(id) {
+								var url = AppConfig.appUrl + 'forum_post/'+id+'/'+100;
+
+								return $http({
+									method : 'GET',
+									url : url,
+									crossDomain : true
+								})
+										.then(
+												function successCallback(
+														response) {
+													return response.data;
+												},
+												function errorCallback(response) {
+													$log
+															.debug('There is some issue while getting forum topics from rest service');
+												});
+
+							};
+							
+							oakHomeFactory.getTopic = function(id) {
+								var url = AppConfig.appUrl + 'forum_topics/'+id;
+
+								return $http({
+									method : 'GET',
+									url : url,
+									crossDomain : true
+								})
+										.then(
+												function successCallback(
+														response) {
+													return response.data;
+												},
+												function errorCallback(response) {
+													$log
+															.debug('There is some issue while getting forum topics from rest service');
+												});
+
+							};
+
+							
+							oakHomeFactory.getTopicsForCategory = function(id) {
+								var url = AppConfig.appUrl + 'forum_topics/'+id+'/'+100;
+
+								return $http({
+									method : 'GET',
+									url : url,
+									crossDomain : true
+								})
+										.then(
+												function successCallback(
+														response) {
+													return response.data;
+												},
+												function errorCallback(response) {
+													$log
+															.debug('There is some issue while getting forum topics from rest service');
+												});
+
+							};
 
 							oakHomeFactory.getCategories = function() {
 								var url = AppConfig.appUrl + 'forum_categories';

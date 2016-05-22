@@ -1,0 +1,135 @@
+<div class="container">
+	<div class="row blogpg">
+		<div class="col-xs-12">
+			<div class="blog-out-bx">
+				<h2 class="blgpg-titl">
+					Forum <span class="fnt-siz"> <a href="#" class="larg"
+						style="font-size: 22px;">A</a> <a href="#" class="midl"
+						style="font-size: 18px;">A</a> <a href="#" class="smal"
+						style="font-size: 13px;">A</a>
+					</span>
+				</h2>
+
+				<div class="blog-in-bx">
+					<div class="blog-tools">
+						<ul class="Bredcrmb">
+							<li><a ui-sref="forum">Discussion Board</a></li>
+							<li><a ui-sref="topics({catID: category})">{{category}}</a></li>
+							<li>{{topic}}</li>
+						</ul>
+						<div class="form-heding-bx">
+							<h4>TOPIC: {{topic}}</h4>
+							<!-- <p>3 years 5 months ago</p> -->
+						</div>
+
+						<div class="formbtns">
+							<button class="buton">
+								<span class="font-icn">&#xf064;</span> Reply Topic
+							</button>
+							<!-- <button class="buton">
+								<span class="font-icn">&#xf127;</span> Unsubscribe
+							</button>
+							<button class="buton">
+								<span class="font-icn">&#xf005;</span> Favorite
+							</button> -->
+							<button class="buton">
+								<span class="font-icn">&#xf00d;</span> Delete Topic
+							</button>
+							<!-- <button class="buton">
+								<span class="font-icn">&#xf0ad;</span> Moderate Topic
+							</button>
+							<button class="buton">
+								<span class="font-icn">&#xf067;</span> Sticky
+							</button>
+							<button class="buton">
+								<span class="font-icn">&#xf023;</span> Lock
+							</button> -->
+						</div>
+
+
+
+						<div class="frmDtlbx" data-ng-repeat="post in posts">
+							<div class="usrinfo">
+								<h4>
+									<a href="#">Web Team</a>
+								</h4>
+								<div class="pst-avatar">
+									<a href="#"><img src="images/default_blogger.png"></a>
+								</div>
+								<p>
+									<a href="#" class="status" style="background: #bbb;">OFFLINE</a>
+								</p>
+								<p>Expert Boarder</p>
+								<p>
+									<img src="images/rank4.gif">
+								</p>
+								<!-- <p>Posts: 101</p>
+								<p>Karma: 0</p> -->
+								<p>
+									<span class="font-icn" title="Female">&#xf182;</span>
+								</p>
+							</div>
+							<h4>
+								{{post.title}}
+								<h4>
+									<span bind-html-compile="post.content"></span>
+									<div class="formbtns">
+										<button class="buton">
+											<span class="font-icn">&#xf087;</span> Thank You
+										</button>
+										<div class="pull-right">
+											<button class="buton">
+												<span class="font-icn">&#xf122;</span> Quick Reply
+											</button>
+											<!-- <button class="buton">
+												<span class="font-icn">&#xf112;</span> Reply
+											</button>
+											<button class="buton">
+												<span class="font-icn">&#xf27a;</span> Quote
+											</button>
+											 <button class="buton">
+												<span class="font-icn">&#xf044;</span> Edit
+											</button>
+											<button class="buton">
+												<span class="font-icn">&#xf0ad;</span> Moderate
+											</button> -->
+											<button class="buton">
+												<span class="font-icn">&#xf00d;</span> Delete
+											</button>
+										</div>
+									</div>
+						</div>
+
+
+						<div class="formbtns">
+							<button class="buton">
+								<span class="font-icn">&#xf064;</span> Reply Topic
+							</button>
+							<!-- <button class="buton">
+								<span class="font-icn">&#xf127;</span> Unsubscribe
+							</button>
+							<button class="buton">
+								<span class="font-icn">&#xf005;</span> Favorite
+							</button> -->
+							<button class="buton">
+								<span class="font-icn">&#xf00d;</span> Delete Topic
+							</button>
+							<!-- <button class="buton">
+								<span class="font-icn">&#xf0ad;</span> Moderate Topic
+							</button>
+							<button class="buton">
+								<span class="font-icn">&#xf067;</span> Sticky
+							</button>
+							<button class="buton">
+								<span class="font-icn">&#xf023;</span> Lock
+							</button> -->
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+</div>

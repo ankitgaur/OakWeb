@@ -12,16 +12,28 @@
 
 				<div class="blog-in-bx">
 					<div class="blog-tools">
-						<ul class="Bredcrmb">							
-							<li>Discussion Board</li>
+						<ul class="Bredcrmb">
+							<li><a ui-sref="forum">Discussion Board</a></li>
+							<li>{{catID}}</li>
 						</ul>
 						<div class="form-heding-bx">
-							<h4>Discussion Board</h4>
-							<p>This is the main forum section. It serves as a container
-								for categories for your topics.</p>
+							<h4>Topics</h4>
+							<p>Topics for Category {{catID}}</p>
 						</div>
+						<div class="formbtns">
+							<button class="buton">
+								<span class="font-icn">&#xf067;</span> New Topic
+							</button>
+							<!-- <button class="buton">
+								<span class="font-icn">&#xf00c;</span> Mark Topics Read
+							</button> -->
+							<button class="buton">
+								<span class="font-icn">&#xf0a6;</span> Subscribe
+							</button>
+						</div>
+
 						<ul class="forum-listg">
-							<li data-ng-repeat="category in categories">
+							<li data-ng-repeat="topic in topics">
 								<div>
 									<div class="sml">
 										<a href="#" class="font-icn">&#xf07c;</a>
@@ -30,9 +42,9 @@
 								<div>
 									<div class="wide">
 										<h4>
-											<a ui-sref="topics({catID: category.name})">{{category.name}}</a>
+											<a ui-sref="forum_posts({topicID: topic.id})">{{topic.title}}</a>
 										</h4>
-										<p>{{category.description}}</p>
+										<p>{{topic.description}}</p>
 									</div>
 								</div>
 								<div>
@@ -57,7 +69,20 @@
 									</div>
 								</div>
 							</li>
+
 						</ul>
+						<div class="formbtns">
+							<button class="buton">
+								<span class="font-icn">&#xf067;</span> New Topic
+							</button>
+							<!-- <button class="buton">
+								<span class="font-icn">&#xf00c;</span> Mark Topics Read
+							</button> -->
+							<button class="buton">
+								<span class="font-icn">&#xf0a6;</span> Subscribe
+							</button>
+						</div>
+
 						<ul class="paging">
 							<li class="dsabl"><a href="#">Prev</a></li>
 							<li class="actv">1</li>
@@ -73,6 +98,5 @@
 			</div>
 
 		</div>
-	</div>	
+	</div>
 </div>
-	

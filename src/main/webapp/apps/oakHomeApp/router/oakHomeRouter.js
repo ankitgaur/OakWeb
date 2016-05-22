@@ -245,13 +245,26 @@ oakHomeApp.config([ '$stateProvider', '$urlRouterProvider',
 
 				}
 			}).state('topics', {
-				url : '/topics/:catID',
+				url : '/forum/:catID',
 				views : {
 
 					'body' : {
 
 						templateUrl : function($stateParams) {
 							return 'partial_views/topics.html';
+						},
+						controller : 'oakForumCtrl'
+					}
+
+				}
+			}).state('forum_posts', {
+				url : '/forum_topic/:topicID',
+				views : {
+
+					'body' : {
+
+						templateUrl : function($stateParams) {
+							return 'partial_views/topic_posts.html';
 						},
 						controller : 'oakForumCtrl'
 					}
