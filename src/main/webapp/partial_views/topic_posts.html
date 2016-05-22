@@ -23,7 +23,8 @@
 						</div>
 
 						<div class="formbtns">
-							<button class="buton">
+							<button class="buton" data-toggle="modal"
+								data-target="#createForumPostModal">
 								<span class="font-icn">&#xf064;</span> Reply Topic
 							</button>
 							<!-- <button class="buton">
@@ -32,7 +33,7 @@
 							<button class="buton">
 								<span class="font-icn">&#xf005;</span> Favorite
 							</button> -->
-							<button class="buton">
+							<button class="buton" ng-click="deleteTopic()">
 								<span class="font-icn">&#xf00d;</span> Delete Topic
 							</button>
 							<!-- <button class="buton">
@@ -69,19 +70,20 @@
 									<span class="font-icn" title="Female">&#xf182;</span>
 								</p>
 							</div>
-							<h4>
-								{{post.title}}
-								<h4>
-									<span bind-html-compile="post.content"></span>
-									<div class="formbtns">
-										<button class="buton">
+							<div class="postdata" style="min-height: 240px;">
+								<h4>{{post.title}}</h4>
+								<span bind-html-compile="post.content"></span>
+							</div>
+							<div class="formbtns">
+								<!-- <button class="buton">
 											<span class="font-icn">&#xf087;</span> Thank You
-										</button>
-										<div class="pull-right">
-											<button class="buton">
-												<span class="font-icn">&#xf122;</span> Quick Reply
-											</button>
-											<!-- <button class="buton">
+										</button> -->
+								<div class="pull-right">
+									<button class="buton" data-toggle="modal"
+								data-target="#createForumPostModal">
+										<span class="font-icn">&#xf122;</span> Quick Reply
+									</button>
+									<!-- <button class="buton">
 												<span class="font-icn">&#xf112;</span> Reply
 											</button>
 											<button class="buton">
@@ -93,16 +95,17 @@
 											<button class="buton">
 												<span class="font-icn">&#xf0ad;</span> Moderate
 											</button> -->
-											<button class="buton">
-												<span class="font-icn">&#xf00d;</span> Delete
-											</button>
-										</div>
-									</div>
+									<button class="buton" ng-click="deletePost(post.id)">
+										<span class="font-icn">&#xf00d;</span> Delete
+									</button>
+								</div>
+							</div>
 						</div>
 
 
 						<div class="formbtns">
-							<button class="buton">
+							<button class="buton" data-toggle="modal"
+								data-target="#createForumPostModal">
 								<span class="font-icn">&#xf064;</span> Reply Topic
 							</button>
 							<!-- <button class="buton">
@@ -111,7 +114,7 @@
 							<button class="buton">
 								<span class="font-icn">&#xf005;</span> Favorite
 							</button> -->
-							<button class="buton">
+							<button class="buton" ng-click="deleteTopic()">
 								<span class="font-icn">&#xf00d;</span> Delete Topic
 							</button>
 							<!-- <button class="buton">
@@ -132,4 +135,7 @@
 
 		</div>
 	</div>
+</div>
+<div id="createForumPostModal" class="modal fade" role="dialog">
+	<div ng-include="'partial_views/modals/createForumPost.html'"></div>
 </div>
