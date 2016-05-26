@@ -58,7 +58,7 @@
 							<div class="post-cntnt">
 								<a ng-if="topblog.displayImage" ui-sref="blogPost({blogPostID: topblog.id})" class="pst-images"><img src="{{topblog.displayImage}}"> </a>
 								 <!-- <a	ng-if="!topblog.displayImage" class="pst-images" href="#"><img ng-src="images/no_photo.jpg"> </a> -->
-								<aside bind-html-compile="topblog.content | limitTo:800"></aside>								
+								<aside class="no-img" bind-html-compile="topblog.content | limitTo:800"></aside>								
 							</div>
 							<div class="post-ftr">
 								<!-- <div class="pst-tgs"><span class="tag-head">Tagged in:</span>

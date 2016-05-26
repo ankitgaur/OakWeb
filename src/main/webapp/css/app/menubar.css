@@ -4,7 +4,11 @@
 	padding-top: 10px;
 }
 
-.collapsable a {
+#menubar a {
+    text-decoration: none;    
+}
+
+#menubar a:hover {
     text-decoration: none;    
 }
 
