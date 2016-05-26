@@ -24,6 +24,7 @@ oakAdminApp.controller('blogEntryCtrl',['$scope','$http','$stateParams','$log','
 }
 	
 	$scope.createBlog = function(blogFormObj){
+		blogFormObj.blogname = $("#blogdd option:selected").text();
 		blogFormObj.content = CKEDITOR.instances.editor1.getData();
 		blogEntriesFactory.createBlogs(this.blogEntry)
 				.then(function success(response) {
@@ -35,7 +36,7 @@ oakAdminApp.controller('blogEntryCtrl',['$scope','$http','$stateParams','$log','
 	  }); 
 	}
 	$scope.updateBlog = function(blogEntryID,blogFormObj){
-		
+		blogFormObj.blogname = $("#blogdd option:selected").text();
 		blogEntriesFactory.updateBlogs($scope.blogEntry,blogEntryID)
 				.then(function successCallback(response) {
 					getAllBlogs();
@@ -56,8 +57,13 @@ oakAdminApp.controller('blogEntryCtrl',['$scope','$http','$stateParams','$log','
 			$log.debug('There is some issue while getting blogEntries from rest service');
 	  });
 	}
+	
 	$scope.resetForm = function(blogFormObj){
 		clearBlogForm(blogFormObj);
+	}
+	
+	$scope.setBlogName= function(){
+		$scope.bname = $("#blogdd option:selected").text();
 	}
 	
 	function clearBlogForm(blogFormObj){
