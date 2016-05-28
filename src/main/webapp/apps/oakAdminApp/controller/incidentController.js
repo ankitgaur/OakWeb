@@ -1,5 +1,6 @@
 oakAdminApp.controller('incidentCtrl',['$scope','$http','$stateParams','$log','incidentFactory', function($scope,$http,$stateParams,$log,incidentFactory) {
-
+	$scope.currentPage = 1;
+	$scope.pageSize = 10;
 	$scope.incidents  = [];
 	$scope.incidentId = $stateParams.incidentID;
   if($scope.incidentId !="" && $scope.incidentId !=undefined && $scope.incidentId !='undefined'){
@@ -7,7 +8,9 @@ oakAdminApp.controller('incidentCtrl',['$scope','$http','$stateParams','$log','i
   }else{
 	  getAllIncidents();
   }
-  
+  $scope.pageChangeHandler = function(num) {
+	    console.log('going to page ' + num);
+	  };
   $scope.getIncidentByID = function(incidentID){
 		incidentFactory.getIncidentByID(incidentID).then(function success(response) {
 		setTimeout(function () {

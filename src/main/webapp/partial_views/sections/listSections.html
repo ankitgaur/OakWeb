@@ -1,4 +1,5 @@
-<div class="container admin-content">
+<div class="container admin-content"><dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" 
+											template-url="dirPagination.tpl.html"></dir-pagination-controls>
 	<table class="poctable table table-striped table-bordered">
 		<h1>Sections</h1>
 		<thead>
@@ -20,7 +21,7 @@
 		</thead>
 		<tbody>
 
-			<tr data-ng-repeat="section in sections">
+			<tr data-ng-repeat="section in sections | itemsPerPage: pageSize" current-page="currentPage" >
 				<td style="width: 20px;"><input id="selectRow" type="checkbox" /></td>
 				<!-- <td style="width: 20px;cursor: pointer;"><a data-toggle="modal" data-target="#updateSectionModal" ng-click="getSectionByID(section.id);"><i
 						class="glyphicon glyphicon-pencil"></i></a></td> -->

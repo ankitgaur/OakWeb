@@ -1,5 +1,7 @@
 oakAdminApp.controller('placementCtrl',['$scope','$http','$stateParams','$log','placementFactory', function($scope,$http,$stateParams,$log,placementFactory) {
 
+	$scope.currentPage = 1;	
+	$scope.pageSize = 10;
 	$scope.placements  = [];
 	$scope.placementId = $stateParams.placementID;
   if($scope.placementId !="" && $scope.placementId !=undefined && $scope.placementId !='undefined'){
@@ -7,7 +9,9 @@ oakAdminApp.controller('placementCtrl',['$scope','$http','$stateParams','$log','
   }else{
 	  getAllPlacements();
   }
-  
+  $scope.pageChangeHandler = function(num) {
+	    console.log('going to page ' + num);
+	  };
   $scope.getPlacementByID = function(placementID){
 				
 		placementFactory.getPlacementByID(placementID).then(function success(response) {

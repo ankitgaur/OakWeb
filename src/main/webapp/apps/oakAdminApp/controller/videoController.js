@@ -1,5 +1,6 @@
 oakAdminApp.controller('videoCtrl',['$scope','$http','$stateParams','$log','videoFactory', function($scope,$http,$stateParams,$log,videoFactory) {
-
+	$scope.currentPage = 1;	
+	$scope.pageSize = 10;
 	$scope.videos  = [];
 	$scope.videoId = $stateParams.videoID;
   if($scope.videoId !="" && $scope.videoId !=undefined && $scope.videoId !='undefined'){
@@ -7,6 +8,10 @@ oakAdminApp.controller('videoCtrl',['$scope','$http','$stateParams','$log','vide
   }else{
 	  getAllVideos();
   }
+  
+  $scope.pageChangeHandler = function(num) {
+	    console.log('going to page ' + num);
+	  };
   
   $scope.getVideoByID = function(category,createdOn){
 		var videoID = category+"_"+createdOn;

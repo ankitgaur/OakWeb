@@ -1,4 +1,5 @@
-<div class="container admin-content">
+<div class="container admin-content"><dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" 
+											template-url="dirPagination.tpl.html"></dir-pagination-controls>
 
 	<table class="poctable table table-striped table-bordered">
 		<h1>States</h1>
@@ -23,7 +24,7 @@
 		</thead>
 		<tbody>
 
-			<tr data-ng-repeat="state in states">
+			<tr data-ng-repeat="state in states | itemsPerPage: pageSize" current-page="currentPage">
 				<td style="width: 20px;"><input id="selectRow" type="checkbox" /></td>
 				<td style="width: 20px;cursor: pointer;"><a data-toggle="modal" data-target="#updateStateModal" ng-click="getStateByID(state.id);"><i
 						class="glyphicon glyphicon-pencil"></i></a></td>

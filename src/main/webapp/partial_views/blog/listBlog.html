@@ -1,4 +1,6 @@
 <div class="container admin-content">
+<dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" 
+											template-url="dirPagination.tpl.html"></dir-pagination-controls>
 	<table class="poctable table table-striped table-bordered">
 		<h1>Blogs</h1>
 		<thead>
@@ -24,7 +26,7 @@
 		</thead>
 		<tbody>
 
-			<tr data-ng-repeat="blog in blogs">
+			<tr data-ng-repeat="blog in blogs |itemsPerPage: pageSize" current-page="currentPage">
 				<td style="width: 20px;"><input id="selectRow" type="checkbox" /></td>
 				<td style="width: 20px;cursor: pointer;"><a data-toggle="modal" data-target="#updateBlogModal" ng-click="getBlogByID(blog.category+'_'+blog.createdOn);"><i
 						class="glyphicon glyphicon-pencil"></i></a></td>

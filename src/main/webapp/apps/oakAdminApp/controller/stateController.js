@@ -1,5 +1,6 @@
 oakAdminApp.controller('stateCtrl',['$scope','$compile','$http','$stateParams','$log','stateFactory', function($scope,$compile,$http,$stateParams,$log,stateFactory) {
-
+	$scope.currentPage = 1;	
+	$scope.pageSize = 10;
 	$scope.states  = [];	
 	$scope.stateId = $stateParams.stateID;
   if($scope.stateId !="" && $scope.stateId !=undefined && $scope.stateId !='undefined'){
@@ -7,7 +8,9 @@ oakAdminApp.controller('stateCtrl',['$scope','$compile','$http','$stateParams','
   }else{
 	  getAllStates();
   }
-  
+  $scope.pageChangeHandler = function(num) {
+	    console.log('going to page ' + num);
+	  };
   $scope.getStateByID = function(id){
 		var stateID = id;
 		

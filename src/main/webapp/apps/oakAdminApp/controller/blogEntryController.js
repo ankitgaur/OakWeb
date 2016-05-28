@@ -1,5 +1,6 @@
 oakAdminApp.controller('blogEntryCtrl',['$scope','$http','$stateParams','$log','blogEntriesFactory','blogFactory', function($scope,$http,$stateParams,$log,blogEntriesFactory,blogFactory) {
-
+	$scope.currentPage = 1;	
+	$scope.pageSize = 10;
 	$scope.blogEntries  = [];
 	$scope.blogEntryId = $stateParams.blogID;
   if($scope.blogEntryId !="" && $scope.blogEntryId !=undefined && $scope.blogEntryId !='undefined'){
@@ -7,6 +8,10 @@ oakAdminApp.controller('blogEntryCtrl',['$scope','$http','$stateParams','$log','
   }else{
 	  getAllBlogs();
   }
+  
+  $scope.pageChangeHandler = function(num) {
+	    console.log('going to page ' + num);
+	  };
   
   $scope.getBlogByID = function(blogEntryID){
 	  		

@@ -1,12 +1,16 @@
 oakAdminApp.controller('userCtrl',['$scope','$http','$stateParams','$log','userFactory', function($scope,$http,$stateParams,$log,userFactory) {
 	$scope.users  = [];
+	$scope.currentPage = 1;	
+	$scope.pageSize = 10;
 	$scope.userId = $stateParams.userID;
   if($scope.userId !="" && $scope.userId !=undefined && $scope.userId !='undefined'){
 	 getUserByID($scope.userId); 
   }else{
 	  getAllUsers();
   }
-  
+  $scope.pageChangeHandler = function(num) {
+	    console.log('going to page ' + num);
+	  };
   $scope.getUserByID = function(email){
 		var userID = email;
 		

@@ -1,9 +1,10 @@
-<div class="container admin-content">
+<div class="container admin-content"><dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" 
+											template-url="dirPagination.tpl.html"></dir-pagination-controls>
     <h1>Images <a data-toggle="modal" data-target="#uploadImageModal"><i
 		class="glyphicon glyphicon-plus"></i></a></h1>
 	
 	<div class="row">
-		<div data-ng-repeat="image in images" class="col-sm-2" style="margin:5px">
+		<div data-ng-repeat="image in images | itemsPerPage: pageSize" current-page="currentPage" class="col-sm-2" style="margin:5px">
 			<img src="{{appUrl}}image/{{image.id}}" style="width:100%">		
 		</div>
 	</div>
