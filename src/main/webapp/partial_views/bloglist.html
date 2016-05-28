@@ -41,8 +41,9 @@
 						</div>
 					</div>
 					<h3 class="ezblg-titl">Recent blog posts</h3>
+					<dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="dirPagination.tpl.html"></dir-pagination-controls>
 					<ul class="post-listg">
-						<li data-ng-repeat="topblog in topblogs">
+						<li dir-paginate="topblog in topblogs|itemsPerPage: pageSize" current-page="currentPage">
 							<div class="post-hedr">
 								<div class="pst-avatar">
 									<a href="#"><img src="images/default_blogger.png"> </a>

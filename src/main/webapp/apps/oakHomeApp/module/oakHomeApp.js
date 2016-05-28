@@ -1,4 +1,4 @@
-var oakHomeApp = angular.module('oakHomeApp', ['ui.router']);
+var oakHomeApp = angular.module('oakHomeApp', ['ui.router','angularUtils.directives.dirPagination']);
 oakHomeApp.config(['$httpProvider', function ($httpProvider) {
 	
 	if (!$httpProvider.defaults.headers.get) {

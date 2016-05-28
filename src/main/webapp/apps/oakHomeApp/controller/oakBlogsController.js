@@ -10,6 +10,12 @@ oakHomeApp
 						'oakHomeFactory',
 						function($scope, $rootScope, $http, $stateParams, $log,
 								oakHomeFactory) {
+							
+							$scope.currentPage = 1;
+							$scope.pageSize = 3;
+							$scope.pageChangeHandler = function(num) {
+								console.log('going to page ' + num);
+							  };
 
 							getBlogs(); // blog
 							getMostPopularBlogCount(); // blog
