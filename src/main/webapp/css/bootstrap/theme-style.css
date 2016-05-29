@@ -313,6 +313,17 @@ box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.5);}
 
 /*-- forum Pg end--*/ 
 
+/*-- Blog Update 27-05-16 -- */
+.rit-blg-bxs .blgsetng {float:left;width:100%; margin:10px 0; padding-left:75px; overflow:hidden;}
+.blgsetng .pst-avatar {margin-left:-75px; float:left;}
+.blgsetng > h4 {float:left;width:100%; margin:10px 0 0; font-size:13px; font-weight:bold;}
+.blgsetng > p {float:left;width:100%; font-size:12px; margin:3px 0 0;}
+.rit-blg-bxs .usrTols {float:left;width:100%;padding:0;margin:0; list-style:none; border-top:1px dotted #ccc;}
+.usrTols > li { float:left; width:100%; padding-left:25px; font-size:12px; border-bottom:1px dotted #ccc;}
+.usrTols > li > a { float:left; width:100%; padding:5px 0;}
+.usrTols > li > a .font-icn { float:left; margin-left:-25px; width:15px; margin-right:10px; font-size:14px; margin-top:-2px;}
+/*-- Blog Update end -- */
+
 @media only screen and (min-width:993px) and (max-width:1350px) {
 .heads {background-size:1240px auto; height:200px;}.hdr-rit-bx { margin:130px 20px 10px;}
 .oak-lft2 { border-right:none;} .main-oakty-dv { height:386px;} .oak-lft2 { height:415px;} .mid-bdy { height:1130px;}
