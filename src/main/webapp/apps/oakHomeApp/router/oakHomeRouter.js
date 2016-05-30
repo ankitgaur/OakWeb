@@ -231,6 +231,19 @@ oakHomeApp.config([ '$stateProvider', '$urlRouterProvider',
 					}
 
 				}
+			}).state('citizenxstate', {
+				url : '/citizenx/:stateId',
+				views : {
+
+					'body' : {
+
+						templateUrl : function($stateParams) {
+							return 'partial_views/state.html';
+						},
+						controller : 'oakHomeCtrl'
+					}
+
+				}
 			}).state('forum', {
 				url : '/forum',
 				views : {
