@@ -33,7 +33,7 @@
 						</div>
 
 						<ul class="forum-listg">
-							<li data-ng-repeat="topic in topics">
+							<li dir-paginate="topic in topics  |itemsPerPage: pageSize" current-page="currentPage">
 								<div>
 									<div class="sml">
 										<a href="#" class="font-icn">&#xf07c;</a>
@@ -84,13 +84,7 @@
 						</div>
 
 						<ul class="paging">
-							<li class="dsabl"><a href="#">Prev</a></li>
-							<li class="actv">1</li>
-							<!-- <li><a href="#">2</a></li>
-							<li><a href="#">3</a></li>
-							<li><a href="#">4</a></li>
-							<li><a href="#">5</a></li>
-							<li><a href="#">Next</a></li> -->
+							<dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="dirPagination.tpl.html"></dir-pagination-controls>
 						</ul>
 					</div>
 				</div>

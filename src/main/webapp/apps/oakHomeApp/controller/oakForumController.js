@@ -10,10 +10,13 @@ oakHomeApp
 						'oakHomeFactory',
 						function($scope, $rootScope, $http, $stateParams, $log,
 								oakHomeFactory) {
-
+							
+							$scope.currentPage = 1;
 							$scope.catID = $stateParams.catID;
 							$scope.topicID = $stateParams.topicID;
-
+							$scope.pageChangeHandler = function(num) {
+								console.log('going to page ' + num);
+							  };
 							if ($scope.catID != "" && $scope.catID != undefined
 									&& $scope.catID != 'undefined') {
 								getTopics($scope.catID);
