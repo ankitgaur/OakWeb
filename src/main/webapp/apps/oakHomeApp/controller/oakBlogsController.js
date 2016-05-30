@@ -12,7 +12,7 @@ oakHomeApp
 								oakHomeFactory) {
 							
 							$scope.currentPage = 1;
-							$scope.pageSize = 3;
+							$scope.pageSize = 10;
 							$scope.pageChangeHandler = function(num) {
 								console.log('going to page ' + num);
 							  };
