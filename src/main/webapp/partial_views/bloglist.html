@@ -54,8 +54,7 @@
 									<a ui-sref="blogPost({blogPostID: topblog.id})">{{topblog.title}}</a>
 								</h2>
 								<div class="pst-meta">
-									Posted by <a href="#">Web Team</a> on Saturday, 23 November
-									2013 in <a href="#">{{topblog.blogname}}</a>
+									Posted by <a href="#">{{topblog.createdBy}}</a> on {{topblog.createdOnStr}} in <a href="#">{{topblog.blogname}}</a>
 								</div>
 							</div>
 							<div class="post-cntnt">
@@ -116,9 +115,9 @@
 							Quick Post</a></li>
 					<li><a href="#"><span class="font-icn">&#xf040;</span>
 							Start New Blog</a></li>
-					<li><a href="#"><span class="font-icn">&#xf0a1;</span> My
+					<!--<li><a href="#"><span class="font-icn">&#xf0a1;</span> My
 							Blog Posts</a></li>
-					<!-- <li><a href="#"><span class="font-icn">&#xf03b;</span> My
+					 <li><a href="#"><span class="font-icn">&#xf03b;</span> My
 							Blogs</a></li>
 					<li><a href="#"><span class="font-icn">&#xf0f6;</span> My
 							Drafts</a></li>

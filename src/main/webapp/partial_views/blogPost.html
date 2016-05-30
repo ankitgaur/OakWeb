@@ -51,8 +51,7 @@
 									<a ui-sref="blogPost({blogPostID: topblog.id})">{{topblog.title}}</a>
 								</h2>
 								<div class="pst-meta">
-									Posted by <a href="#">Web Team</a> on Saturday, 23 November
-									2013 in <a href="#">{{topblog.blogname}}</a>
+									Posted by <a href="#">{{topblog.createdBy}}</a> on {{topblog.createdOnStr}} in <a href="#">{{topblog.blogname}}</a>
 								</div>
 							</div>
 							<div class="post-cntnt" bind-html-compile="topblog.content">
