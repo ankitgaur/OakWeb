@@ -12,6 +12,7 @@ oakHomeApp
 								oakHomeFactory) {
 							
 							$scope.currentPage = 1;
+							$scope.pageSize = 3;
 							$scope.catID = $stateParams.catID;
 							$scope.topicID = $stateParams.topicID;
 							$scope.pageChangeHandler = function(num) {
