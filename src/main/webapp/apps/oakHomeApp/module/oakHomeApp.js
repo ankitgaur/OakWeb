@@ -1,4 +1,4 @@
-var oakHomeApp = angular.module('oakHomeApp', ['ui.router','angularUtils.directives.dirPagination','ngCookies']);
+var oakHomeApp = angular.module('oakHomeApp', ['ui.router','angularUtils.directives.dirPagination']);
 oakHomeApp.config(['$httpProvider', function ($httpProvider) {
 	
 	if (!$httpProvider.defaults.headers.get) {
@@ -15,7 +15,7 @@ oakHomeApp.config(['$httpProvider', function ($httpProvider) {
 	
 }]);
 
-oakHomeApp.run(function($http,$cookies,$rootSscope) {
+oakHomeApp.run(function($http) {
 	delete $http.defaults.headers.common['X-Requested-With']; 
 	$http.defaults.headers.put = {
         'Access-Control-Allow-Origin': '*',
@@ -23,10 +23,10 @@ oakHomeApp.run(function($http,$cookies,$rootSscope) {
         'Access-Control-Allow-Headers': 'Content-Type, X-Requested-With'
     };
 	$http.defaults.useXDomain = true;
-	$cookies.testCookie = 'I\'m a test cookie';
-    var testCookie = $cookies.testCookie;
-    $rootSscope.name = testCookie;
-    console.log( $rootSscope.name);
+	//$cookies.testCookie = 'I\'m a test cookie';
+    //var testCookie = $cookies.testCookie;
+    //$rootSscope.name = testCookie;
+    //console.log( $rootSscope.name);
 	//delete $http.defaults.headers.common['X-Requested-With']; 
 });
 
