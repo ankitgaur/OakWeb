@@ -4,7 +4,7 @@
 		class="glyphicon glyphicon-plus"></i></a></h1>
 	
 	<div class="row">
-		<div data-ng-repeat="image in images | itemsPerPage: pageSize" current-page="currentPage" class="col-sm-2" style="margin:5px">
+		<div dir-paginate="image in images | itemsPerPage: pageSize" current-page="currentPage" class="col-sm-2" style="margin:5px">
 			<img src="{{appUrl}}image/{{image.id}}" style="width:100%">		
 		</div>
 	</div>

@@ -23,7 +23,7 @@
 		</thead>
 		<tbody>
 
-			<tr data-ng-repeat="blogCategory in blogCategories | itemsPerPage: pageSize" current-page="currentPage">
+			<tr dir-paginate="blogCategory in blogCategories | itemsPerPage: pageSize" current-page="currentPage">
 				<td style="width: 20px;"><input id="selectRow" type="checkbox" /></td>
 				<td style="width: 20px;cursor: pointer;"><a data-toggle="modal" data-target="#updateBlogCategoryModal" ng-click="getBlogCategoryByID(blogCategory.id);"><i
 						class="glyphicon glyphicon-pencil"></i></a></td>
