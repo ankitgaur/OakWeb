@@ -22,7 +22,7 @@
 							<!-- <p>3 years 5 months ago</p> -->
 						</div>
 
-						<div class="formbtns">
+						<div ng-if="userName" class="formbtns">
 							<button class="buton" data-toggle="modal"
 								data-target="#createForumPostModal">
 								<span class="font-icn">&#xf064;</span> Reply Topic
@@ -74,7 +74,7 @@
 								<h4>{{post.title}}</h4>
 								<span bind-html-compile="post.content"></span>
 							</div>
-							<div class="formbtns">
+							<div ng-if="userName" class="formbtns">
 								<!-- <button class="buton">
 											<span class="font-icn">&#xf087;</span> Thank You
 										</button> -->
@@ -103,7 +103,7 @@
 						</div>
 
 
-						<div class="formbtns">
+						<div ng-if="userName" class="formbtns">
 							<button class="buton" data-toggle="modal"
 								data-target="#createForumPostModal">
 								<span class="font-icn">&#xf064;</span> Reply Topic

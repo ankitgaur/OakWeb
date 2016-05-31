@@ -19,6 +19,26 @@ userFactory.createUsers = function(userData){
   
 }
 
+userFactory.login = function(user){
+	var url = AppConfig.appUrl+'login';
+	var key = btoa(user.id + ":" + user.password);
+	var req = {
+			method: 'POST',
+			url: url,
+			headers : {			          
+			      Authorization: 'Basic '+ key
+			 }
+		}
+
+return $http(req).then(function success(response) {
+		$log.debug('user successfully logged in ');	
+		return response.data;
+	},function error(response) {		
+	$log.debug('user unable to log in');
+});
+
+}
+
 	return userFactory;
 
 }]);

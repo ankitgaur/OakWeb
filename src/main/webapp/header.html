@@ -8,9 +8,9 @@
 				</div>
 				<div
 					class="col-lg-3 col-md-4  col-sm-5 col-xs-12 pull-right hdr-rit-bx">
-					<div class="login-links">
-						<a data-toggle="modal" href="#" data-target="#Login">Login</a> | <a
-							data-toggle="modal" href="#" data-target="#Signup">Singup</a>
+					<div ng-controller="userCtrl" class="login-links">
+						<a ng-if="!userName" data-toggle="modal" href="#" data-target="#Login">Login</a> <a ng-if="userName" href="#">Welcome {{userName}}</a>| 
+						<a ng-if="!userName" data-toggle="modal" href="#" data-target="#Signup">Signup</a> <a ng-if="userName" ng-click="logout()">Logout</a>						 | 
 					</div>
 
 				</div>

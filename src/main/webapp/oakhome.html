@@ -37,7 +37,7 @@
 	
 	
 		<!-- Login Popup -->
-		<div class="modal fade" id="Login" tabindex="-1" role="dialog"
+		<div ng-controller="userCtrl" class="modal fade" id="Login" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
@@ -54,13 +54,13 @@
 							<div class="row">
 								<div class="col-sm-5 col-xs-12">
 									<div class="form-group col-xs-12">
-										<label for="exampleInputEmail1">Email ID / User Name</label> <input
-											type="text" class="form-control"
-											placeholder="Enter Email ID / User Name">
+										<label for="exampleInputEmail1">Email ID</label> <input
+											type="text" class="form-control" ng-model="user.id"
+											placeholder="Enter Email ID">
 									</div>
 									<div class="form-group col-xs-12">
 										<label for="exampleInputEmail1">Password</label> <input
-											type="password" class="form-control"
+											type="password" class="form-control" ng-model="user.password"
 											placeholder="Enter Password">
 									</div>
 								</div>
@@ -76,7 +76,7 @@
 											data-target="#Signup" class="btn btn-success" type="button">Join
 											Now!</button>
 									</div>
-									<div class="form-group col-xs-12">
+									<!-- <div class="form-group col-xs-12">
 										<button class="btn btn-primary" type="button">
 											<span
 												style="padding-right: 10px; margin-right: 10px; border-right: 1px solid #fff;"><img
@@ -91,7 +91,7 @@
 												src="images/sample/g-pls.png" align="left"></span>Sign in with
 											Google
 										</button>
-									</div>
+									</div> -->
 
 
 								</div>
@@ -100,7 +100,7 @@
 					<div class="modal-footer">
 						<div class="row">
 							<div class="col-sm-6 col-xs-12">
-								<button type="button" class="btn btn-warning pull-left">
+								<button ng-click="login(user)" data-dismiss="modal" type="button" class="btn btn-warning pull-left">
 									Sign In <span aria-hidden="true"
 										class="glyphicon glyphicon-triangle-right"></span>
 								</button>
@@ -139,39 +139,33 @@
 					<div class="modal-body signup-frm">
 
 						<form>
-							<div class="row">
-								<div class="form-group col-sm-6 col-xs-12">
-									<label for="exampleInputEmail1">First Name</label> <input
-										ng-model="user.firstname" type="text" class="form-control"
-										placeholder="Enter First Name">
-								</div>
-								<div class="form-group col-sm-6 col-xs-12">
-									<label for="exampleInputPassword1">Last Name</label> <input
-										ng-model="user.lastname" type="text" class="form-control"
-										placeholder="Enter Last Name">
-								</div>
-							</div>
+							
 
 							<div class="row">
 								<div class="form-group col-sm-12">
-									<label for="exampleInputEmail1">Email Address</label> <input
+									<label for="exampleInputEmail1">Name</label> <input
+										ng-model="user.name" type="text" class="form-control"
+										placeholder="Enter Name">
+								</div>
+								<div class="form-group col-sm-12">
+									<label for="email">Email Address</label> <input
 										ng-model="user.email" type="email" class="form-control"
 										placeholder="Enter Email ID">
 								</div>
 								<div class="form-group col-sm-12">
-									<label for="exampleInputEmail1">Choose a username</label> <input
+									<label for="username">Choose a username</label> <input
 										type="text" ng-model="user.username" class="form-control"
 										placeholder="Choose username">
 								</div>
 								<div class="form-group col-sm-12">
-									<label for="exampleInputEmail1">Choose a Password</label> <input
+									<label for="password">Choose a Password</label> <input
 										ng-model="user.password" type="password" class="form-control"
 										placeholder="Enter Password">
 								</div>
 
-								<div class="form-group col-md-12">
+								<!-- <div class="form-group col-md-12">
 									<img src="images/sample/capture-code.png" align="left">
-								</div>
+								</div> -->
 							</div>
 					</div>
 					<div class="modal-footer">

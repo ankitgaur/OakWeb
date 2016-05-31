@@ -20,7 +20,7 @@
 							<h4>Topics</h4>
 							<p>Topics for Category {{catID}}</p>
 						</div>
-						<div class="formbtns">
+						<div ng-if="userName" class="formbtns">
 							<button class="buton"  data-toggle="modal" data-target="#createForumTopicModal">
 								<span class="font-icn">&#xf067;</span> New Topic
 							</button>
@@ -71,7 +71,7 @@
 							</li>
 
 						</ul>
-						<div class="formbtns">
+						<div ng-if="userName" class="formbtns">
 							<button class="buton" data-toggle="modal" data-target="#createForumTopicModal">
 								<span class="font-icn">&#xf067;</span> New Topic
 							</button>

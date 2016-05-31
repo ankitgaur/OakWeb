@@ -10,7 +10,7 @@ oakHomeApp
 						'oakHomeFactory',
 						function($scope, $rootScope, $http, $stateParams, $log,
 								oakHomeFactory) {
-							
+							document.cookie = "JSESSIONID=null;Path=/;";											
 							getTopStories(); // home
 							getArticleGrid(); // home							
 							getTopSlides();
