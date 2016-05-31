@@ -35,7 +35,7 @@
 								</li>-->
 								
 								<li class="blgLgn"><a data-toggle="modal"
-									data-target="#createBlogsModal" class="font-icn"
+									data-target="#createBlogEntriesModal" class="font-icn"
 									title="New Blog Post"> <i class="glyphicon glyphicon-edit"></i>
 									</a>
 								</li>
@@ -111,9 +111,9 @@
 					
 				</div>
 				<ul class="usrTols">
-					<li><a data-toggle="modal" data-target="#createBlogsModal"><span class="font-icn">&#xf1d9;</span>
+					<li><a data-toggle="modal" data-target="#createBlogEntriesModal"><span class="font-icn">&#xf1d9;</span>
 							Quick Post</a></li>
-					<li><a href="#"><span class="font-icn">&#xf040;</span>
+					<li><a data-toggle="modal" data-target="#createBlogsModal"><span class="font-icn">&#xf040;</span>
 							Start New Blog</a></li>
 					<!--<li><a href="#"><span class="font-icn">&#xf0a1;</span> My
 							Blog Posts</a></li>
@@ -265,6 +265,9 @@
 
 	</div>
 </div>
+<div id="createBlogEntriesModal" class="modal fade" role="dialog">
+	<div ng-include = "'partial_views/modals/createBlogEntries.html'"></div>
+</div>
 <div id="createBlogsModal" class="modal fade" role="dialog">
-	<div ng-include = "'partial_views/blogEntries/createBlogEntries.html'"></div>
+	<div ng-include = "'partial_views/modals/createBlog.html'"></div>
 </div>

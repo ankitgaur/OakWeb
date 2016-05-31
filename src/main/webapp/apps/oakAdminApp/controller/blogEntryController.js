@@ -29,17 +29,18 @@ oakAdminApp.controller('blogEntryCtrl',['$scope','$http','$stateParams','$log','
 }
 	
 	$scope.createBlog = function(blogFormObj){
-		blogFormObj.blogname = $("#blogdd option:selected").text();
-		blogFormObj.content = CKEDITOR.instances.editor1.getData();
-		blogEntriesFactory.createBlogs(this.blogEntry)
+		console.log(this.blog);
+		blogFactory.createBlog(this.blog)
 				.then(function success(response) {
+									
 					getAllBlogs();
-					clearBlogForm(blogFormObj);
-					$('#createBlogsModal').modal('hide');
+					clearForm(blogFormObj);
+					$('#createBlogModal').modal('hide');
 				}, function error(response) {
-		 $log.debug('There is some issue while crating blogEntry');
+		 $log.debug('There is some issue while crating  blogCategory');
 	  }); 
 	}
+	
 	$scope.updateBlog = function(blogEntryID,blogFormObj){
 		blogFormObj.blogname = $("#blogdd option:selected").text();
 		blogEntriesFactory.updateBlogs($scope.blogEntry,blogEntryID)

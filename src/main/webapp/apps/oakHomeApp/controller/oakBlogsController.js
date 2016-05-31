@@ -175,5 +175,56 @@ oakHomeApp
 															.debug('There is some issue while getting topblogs from rest service');
 												});
 							}
+							
+							$scope.createBlog = function(blog){
+								console.log(this.blog);
+								blogFactory.createBlog(this.blog)
+										.then(function success(response) {
+															
+											getAllBlogs();
+											clearForm(blogFormObj);
+											$('#createBlogModal').modal('hide');
+										}, function error(response) {
+								 $log.debug('There is some issue while crating  blogCategory');
+							  }); 
+							}
+							
+							$scope.resetBEForm = function(blogFormObj){
+								clearBlogForm(blogFormObj);
+							}
+							
+							$scope.resetBForm = function(blogFormObj){
+								clearForm(blogFormObj);
+							}
+							
+							$scope.createBlogEntry= function(blogFormObj){
+								blogFormObj.blogname = $("#blogdd option:selected").text();
+								blogFormObj.content = CKEDITOR.instances.editor1.getData();
+								blogEntriesFactory.createBlogs(this.blogEntry)
+										.then(function success(response) {
+											getAllBlogs();
+											clearBlogForm(blogFormObj);
+											$('#createBlogsModal').modal('hide');
+										}, function error(response) {
+								 $log.debug('There is some issue while crating blogEntry');
+							  }); 
+							}
+							
+							function clearForm(blogFormObj){
+								blogFormObj.rating=null;
+								blogFormObj.hits=null;
+								blogFormObj.description=null;
+								blogFormObj.displayimage=null;		
+							}
+							
+							function clearBlogForm(blogFormObj){
+								blogFormObj.blog=null;
+								blogFormObj.createdBy=null;
+								blogFormObj.title=null;
+								blogFormObj.displayImage=null;
+								blogFormObj.updatedBy=null;
+								blogFormObj.updatedOn=null;
+								CKEDITOR.instances.editor2.setData("Enter Text");
+						}
 
 						} ]);
