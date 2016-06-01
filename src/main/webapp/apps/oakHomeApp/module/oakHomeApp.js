@@ -23,11 +23,11 @@ oakHomeApp.run(function($http) {
         'Access-Control-Allow-Headers': 'Content-Type, X-Requested-With'
     };
 	$http.defaults.useXDomain = true;
-	//$cookies.testCookie = 'I\'m a test cookie';
-    //var testCookie = $cookies.testCookie;
-    //$rootSscope.name = testCookie;
-    //console.log( $rootSscope.name);
-	//delete $http.defaults.headers.common['X-Requested-With']; 
+
+	angular.element("#Login,#Signup,#Forgetpass").on("click", function(){
+		angular.element(".test").css("padding-right", "");
+	});
+	
 });
 
 oakHomeApp.directive('bindHtmlCompile', ['$compile', function ($compile) {
