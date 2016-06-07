@@ -49,6 +49,7 @@ blogEntriesFactory.deleteBlogByID = function(blogID){
 
 
 blogEntriesFactory.createBlogs = function(blogData){
+	    console.log(AppConfig.key);
 		var url = AppConfig.appUrl+'blog_entries';
 		var req = {
 				method: 'POST',

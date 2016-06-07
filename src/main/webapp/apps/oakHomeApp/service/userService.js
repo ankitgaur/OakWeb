@@ -22,6 +22,7 @@ userFactory.createUsers = function(userData){
 userFactory.login = function(user){
 	var url = AppConfig.appUrl+'login';
 	var key = btoa(user.id + ":" + user.password);
+	AppConfig.key = key;
 	var req = {
 			method: 'POST',
 			url: url,

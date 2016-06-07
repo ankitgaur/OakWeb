@@ -37,6 +37,9 @@ oakAdminApp.controller('imageCtrl',['$scope','$http','$stateParams','$log','imag
 	        contentType: false,
 	        processData: false,
 	        data:oMyForm,
+	        xhrFields: {
+	            withCredentials: true
+	         },
 	        success:function(){
 	            //whatever you wanna do after the form is successfully submitted
 	        	getRecentImages();

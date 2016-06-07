@@ -29,8 +29,8 @@ oakAdminApp.controller('blogEntryCtrl',['$scope','$http','$stateParams','$log','
 }
 	
 	$scope.createBlog = function(blogFormObj){
-		console.log(this.blog);
-		blogFactory.createBlog(this.blog)
+		console.log(blogFormObj);
+		blogEntriesFactory.createBlogs(blogFormObj)
 				.then(function success(response) {
 									
 					getAllBlogs();
