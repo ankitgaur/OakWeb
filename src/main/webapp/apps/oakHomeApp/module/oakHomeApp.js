@@ -24,7 +24,7 @@ oakHomeApp.run(function($http) {
     };
 	$http.defaults.useXDomain = true;
 
-	angular.element("#Login,#Signup,#Forgetpass").on("click", function(){
+	angular.element("#Login,#Signup,#Forgetpass,#loginSignUP").on("click", function(){
 		angular.element(".oakHomeBody").css("padding-right", "");
 	});
 	
