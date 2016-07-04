@@ -23,15 +23,15 @@
 			
 			<tr dir-paginate="forumTopic in forumTopics | itemsPerPage: pageSize" current-page="currentPage">
 				<td style="width: 20px;"><input id="selectRow" type="checkbox" /></td>
-				<td style="width: 20px;cursor: pointer;"><a data-toggle="modal" data-target="#updateForumTopicModal" ng-click="getForumTopicByID(forumTopic.category,forumTopic.updatedOn);"><i
+				<td style="width: 20px;cursor: pointer;"><a data-toggle="modal" data-target="#updateForumTopicModal" ng-click="getForumTopicByID(forumTopic.id);"><i
 						class="glyphicon glyphicon-pencil"></i></a></td>
-				<td>{{forumTopic.category}}_{{forumTopic.createdOn}}</td>
+				<td>{{forumTopic.id}}</td>
 				<td>{{forumTopic.category}}</td>
 				<td>{{forumTopic.title}}</td>
 				<td>{{forumTopic.createdBy}}</td>
 				<td>{{forumTopic.createdOnDate}}</td>
 				<td><a style="cursor: pointer;"
-					ng-click="deleteForumTopic(forumTopic.category,forumTopic.createdOn)"><i
+					ng-click="deleteForumTopic(forumTopic.id)"><i
 						class="glyphicon glyphicon-minus"></i></a></td>
 			</tr>
 			

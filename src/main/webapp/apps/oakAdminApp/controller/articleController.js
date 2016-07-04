@@ -15,9 +15,8 @@ oakAdminApp.controller('articleCtrl',['$scope','$http','$stateParams','$log','ar
     console.log('going to page ' + num);
   };
   
-  $scope.getArticleByID = function(category,updatedOn){
-		var articleID = category+"_"+updatedOn;
-		
+  $scope.getArticleByID = function(articleID){
+				
 		articleFactory.getArticleByID(articleID).then(function success(response) {
 		setTimeout(function () {
 				$scope.$apply(function () {
@@ -44,10 +43,8 @@ oakAdminApp.controller('articleCtrl',['$scope','$http','$stateParams','$log','ar
 		 $log.debug('There is some issue while crating  article ');
 	  }); 
 	}
-	$scope.updateArticle = function(category,updatedOn,articleFormObj){
-		var articleID = category+"_"+updatedOn;
-		console.log($scope.article);
-		
+	$scope.updateArticle = function(articleID,articleFormObj){
+		articleFormObj.content = CKEDITOR.instances.editor2.getData();
 		articleFactory.updateArticles($scope.article,articleID)
 				.then(function successCallback(response) {
 					getAllArticles();
@@ -59,8 +56,8 @@ oakAdminApp.controller('articleCtrl',['$scope','$http','$stateParams','$log','ar
 	  });
 	}
 	
-	$scope.deleteArticle= function(category,updatedOn){
-		var articleID = category+"_"+updatedOn;
+	$scope.deleteArticle= function(articleID){
+		
 		articleFactory.deleteArticleByID(articleID).then(function success(response) {
 			$log.debug("article deleted successfully");
 			getAllArticles();

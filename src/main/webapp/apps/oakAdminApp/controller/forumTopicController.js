@@ -15,9 +15,8 @@ oakAdminApp.controller('forumTopicCtrl',['$scope','$http','$stateParams','$log',
     console.log('going to page ' + num);
  };
   
-  $scope.getForumTopicByID = function(category,updatedOn){
-		var forumTopicID = category+"_"+updatedOn;
-		
+  $scope.getForumTopicByID = function(forumTopicID){
+				
 		forumTopicFactory.getForumTopicByID(forumTopicID).then(function success(response) {
 		setTimeout(function () {
 				$scope.$apply(function () {
@@ -43,8 +42,8 @@ oakAdminApp.controller('forumTopicCtrl',['$scope','$http','$stateParams','$log',
 		 $log.debug('There is some issue while crating  forumTopic ');
 	  }); 
 	}
-	$scope.updateForumTopic = function(category,updatedOn,forumTopicObj){
-		var forumTopicID = category+"_"+updatedOn;
+	$scope.updateForumTopic = function(forumTopicID,forumTopicObj){
+		
 		console.log($scope.forumTopic);
 		
 		forumTopicFactory.updateForumTopic($scope.forumTopic,forumTopicID)
@@ -58,8 +57,8 @@ oakAdminApp.controller('forumTopicCtrl',['$scope','$http','$stateParams','$log',
 	  });
 	}
 	
-	$scope.deleteForumTopic= function(category,updatedOn){
-		var forumTopicID = category+"_"+updatedOn;
+	$scope.deleteForumTopic= function(forumTopicID){
+		
 		forumTopicFactory.deleteForumTopicByID(forumTopicID).then(function success(response) {
 			$log.debug("article deleted successfully");
 			getAllForumTopics();

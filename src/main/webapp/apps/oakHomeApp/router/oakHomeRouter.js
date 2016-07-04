@@ -227,21 +227,29 @@ oakHomeApp.config([ '$stateProvider', '$urlRouterProvider',
 						templateUrl : function($stateParams) {
 							return 'partial_views/citizenx.html';
 						},
-						controller : 'oakHomeCtrl'
-					}
-
-				}
-			}).state('citizenxstate', {
-				url : '/citizenx/:stateId',
-				views : {
-
-					'body' : {
+						controller : 'oakCitizenxCtrl'
+					},					
+					
+					'citizenx-box@citizenx' : {
 
 						templateUrl : function($stateParams) {
-							return 'partial_views/state.html';
-						},
-						controller : 'oakHomeCtrl'
-					}
+							return 'partial_views/modules/newsbox.html';
+						}
+					},
+
+					'citizenx-grid@citizenx' : {
+
+						templateUrl : function($stateParams) {
+							return 'partial_views/modules/articlegrid.html';
+						}
+					},
+
+					'citizenx-vertical-list@citizenx' : {
+
+						templateUrl : function($stateParams) {
+							return 'partial_views/modules/verticallist.html';
+						}
+					}				
 
 				}
 			}).state('forum', {

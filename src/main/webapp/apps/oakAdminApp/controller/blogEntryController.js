@@ -28,8 +28,8 @@ oakAdminApp.controller('blogEntryCtrl',['$scope','$http','$stateParams','$log','
   });
 }
 	
-	$scope.createBlog = function(blogFormObj){
-		console.log(blogFormObj);
+	$scope.createBlog = function(blogFormObj){		
+		blogFormObj.content = CKEDITOR.instances.editor1.getData();
 		blogEntriesFactory.createBlogs(blogFormObj)
 				.then(function success(response) {
 									
@@ -42,6 +42,7 @@ oakAdminApp.controller('blogEntryCtrl',['$scope','$http','$stateParams','$log','
 	}
 	
 	$scope.updateBlog = function(blogEntryID,blogFormObj){
+		blogFormObj.content = CKEDITOR.instances.editor2.getData();
 		blogFormObj.blogname = $("#blogdd option:selected").text();
 		blogEntriesFactory.updateBlogs($scope.blogEntry,blogEntryID)
 				.then(function successCallback(response) {

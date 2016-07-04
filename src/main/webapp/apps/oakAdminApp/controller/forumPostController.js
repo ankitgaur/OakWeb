@@ -15,13 +15,14 @@ oakAdminApp.controller('forumPostCtrl',['$scope','$http','$stateParams','$log','
     console.log('going to page ' + num);
   };
   
-  $scope.getForumPostByID = function(topic,updatedOn){
-		var forumPostID = topic+"_"+updatedOn;
+  $scope.getForumPostByID = function(forumPostID){
+		
 		
 		forumPostFactory.getForumPostByID(forumPostID).then(function success(response) {
 		setTimeout(function () {
 				$scope.$apply(function () {
 				$scope.forumPost = response;
+				CKEDITOR.instances.editor2.setData(response.content);
 				
 		});
 		}, 0);
@@ -44,11 +45,11 @@ oakAdminApp.controller('forumPostCtrl',['$scope','$http','$stateParams','$log','
 		 $log.debug('There is some issue while crating  article ');
 	  }); 
 	}
-	$scope.updateForumPost = function(topic,updatedOn,forumPostFormObj){
-		var forumPostID = topic+"_"+updatedOn;
-		console.log($scope.forumPost);
+	$scope.updateForumPost = function(forumPostID,forumPostFormObj){
+		forumPostFormObj.content = CKEDITOR.instances.editor2.getData();
+		console.log(forumPostFormObj);
 		
-		forumPostFactory.updateForumPosts($scope.forumPost,forumPostID)
+		forumPostFactory.updateForumPosts(forumPostFormObj,forumPostID)
 				.then(function successCallback(response) {
 					getAllForumPosts();
 					clearForumPostForm(forumPostFormObj);
@@ -58,8 +59,8 @@ oakAdminApp.controller('forumPostCtrl',['$scope','$http','$stateParams','$log','
 	  });
 	}
 	
-	$scope.deleteForumPost= function(topic,updatedOn){
-		var forumPostID = topic+"_"+updatedOn;
+	$scope.deleteForumPost= function(forumPostID){
+		
 		forumPostFactory.deleteForumPostByID(forumPostID).then(function success(response) {
 			$log.debug("article deleted successfully");
 			getAllForumPosts();

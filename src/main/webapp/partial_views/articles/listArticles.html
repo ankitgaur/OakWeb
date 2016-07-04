@@ -23,15 +23,15 @@
 			
 			<tr dir-paginate="article in articles | itemsPerPage: pageSize" current-page="currentPage">
 				<td style="width: 20px;"><input id="selectRow" type="checkbox" /></td>
-				<td style="width: 20px;cursor: pointer;"><a data-toggle="modal" data-target="#updateArticleModal" ng-click="getArticleByID(article.category,article.updatedOn);"><i
+				<td style="width: 20px;cursor: pointer;"><a data-toggle="modal" data-target="#updateArticleModal" ng-click="getArticleByID(article.id);"><i
 						class="glyphicon glyphicon-pencil"></i></a></td>
-				<td>{{article.category}}_{{article.createdOn}}</td>
+				<td>{{article.id}}</td>
 				<td>{{article.category}}</td>
 				<td>{{article.title}}</td>
 				<td>{{article.createdBy}}</td>
 				<td>{{article.createdOnDate}}</td>
 				<td><a style="cursor: pointer;"
-					ng-click="deleteArticle(article.category,article.createdOn)"><i
+					ng-click="deleteArticle(article.id)"><i
 						class="glyphicon glyphicon-minus"></i></a></td>
 			</tr>
 			
