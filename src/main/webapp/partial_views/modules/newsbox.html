@@ -7,11 +7,11 @@
 					<div class="carousel-inner" role="listbox">						
 						<div class="item" ng-class='{active:$first}' data-ng-repeat="item in newsbox_topitems">
 							<h4 class="nws-titl">
-								<a href="#">{{item.title}}</a>
+								<a ng-click="openArticlePopup(item.id)">{{item.title}}</a>
 							</h4>
 							<div class="post-cntnt">
-								<a class="pst-images" href="#"><img
-									ng-src="{{item.displayImage}}"></a> {{item.intro}} <a href="#">Read More..</a>
+								<a class="pst-images" ng-click="openArticlePopup(item.id)"><img
+									ng-src="{{item.displayImage}}"></a> {{item.intro}} <a ng-click="openArticlePopup(item.id)">Read More..</a>
 							</div>
 							<div class="new-ftr">
 								<p class="nsp_info  tleft fleft">
@@ -25,7 +25,7 @@
 					<ul class="nes-lsts">
 						<li data-ng-repeat="item in newsbox_bottomitems">
 							<h4>
-								<a href="#">{{item.title}}</a>
+								<a ng-click="openArticlePopup(item.id)">{{item.title}}</a>
 							</h4>
 							<p>{{item.intro}}</p>
 						</li>						

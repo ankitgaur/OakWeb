@@ -154,6 +154,33 @@ oakHomeApp
 
 							$scope.openModelPopup = function(link) {
 								oakHomeFactory
+										.getContent(link)
+										.then(
+												function success(response) {
+													setTimeout(
+															function() {
+																$scope
+																		.$apply(function() {
+																			$rootScope.articleData = response;
+
+																			$(
+																					'#articlePopup')
+																					.modal(
+																							'show');
+
+																		});
+															}, 0);
+
+												},
+												function error(response) {
+													$log
+															.debug('There is some issue while getting topmid from rest service');
+												});
+
+							}
+							
+							$scope.openArticlePopup = function(link) {
+								oakHomeFactory
 										.getArticle(link)
 										.then(
 												function success(response) {

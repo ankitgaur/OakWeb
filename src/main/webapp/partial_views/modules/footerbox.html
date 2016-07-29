@@ -4,7 +4,7 @@
 				<h2 class="bxs-titl">{{footerbox1_title}}</h2>
 				<ul class="list">
 					<li data-ng-repeat="item in footerbox1_items"><h4>
-							<a href="#">{{item.title}}</a>
+							<a ng-click="openArticlePopup(item.id)">{{item.title}}</a>
 						</h4></li>					
 				</ul>
 			</li>
@@ -12,7 +12,7 @@
 				<h2 class="bxs-titl">{{footerbox2_title}}</h2>
 				<ul class="list">
 					<li data-ng-repeat="item in footerbox2_items"><h4>
-							<a href="#">{{item.title}}</a>
+							<a ng-click="openArticlePopup(item.id)">{{item.title}}</a>
 						</h4></li>					
 				</ul>
 			</li>
@@ -20,7 +20,7 @@
 				<h2 class="bxs-titl">{{footerbox3_title}}</h2>
 				<ul class="list">
 					<li data-ng-repeat="item in footerbox3_items"><h4>
-							<a href="#">{{item.title}}</a>
+							<a ng-click="openArticlePopup(item.id)">{{item.title}}</a>
 						</h4></li>					
 				</ul>
 			</li>
@@ -28,7 +28,7 @@
 				<h2 class="bxs-titl">{{footerbox4_title}}</h2>
 				<ul class="list">
 					<li data-ng-repeat="item in footerbox4_items"><h4>
-							<a href="#">{{item.title}}</a>
+							<a ng-click="openArticlePopup(item.id)">{{item.title}}</a>
 						</h4></li>					
 				</ul>
 			</li>

@@ -2,9 +2,9 @@
 				<h3 class="rit-bx-titl">{{vlist_title}}</h3>
 				<div class="nws-pst">
 					<h4 class="nws-titl">
-						<a href="#">{{vlist_topitem.title}}</a>
+						<a ng-click="openArticlePopup(vlist_topitem.id)">{{vlist_topitem.title}}</a>
 					</h4>
-					<a href="#" class="nws-img"><img
+					<a ng-click="openArticlePopup(vlist_topitem.id)" class="nws-img"><img
 						ng-src="{{vlist_topitem.displayImage}}"></a>
 					<div class="new-ftr">
 						<p>
@@ -17,7 +17,7 @@
 				<ul class="nes-lsts">
 					<li data-ng-repeat="item in vlist_items">
 						<h4>
-							<a href="#">{{item.title}}</a>
+							<a ng-click="openArticlePopup(item.id)">{{item.title}}</a>
 						</h4>
 						<p>{{item.intro}}</p>
 					</li>					

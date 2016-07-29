@@ -10,7 +10,7 @@
 				<img src="{{slide.img}}">
 				<div class="carousel-caption">
 					<h1>
-						<a ng-click="openModelPopup(slide.id)">{{slide.title}}</a>
+						<a ng-click="openModelPopup(slide.link)">{{slide.title}}</a>
 					</h1>
 					<!-- <p>
 						<a href="#" class="rd-mor">CBN</a>
@@ -24,7 +24,7 @@
 				data-ng-repeat="slide in topslides"><img src="{{slide.img}}">
 				<div class="carousel-caption">
 					<p>
-						<a ng-click="openModelPopup(story.id)">{{slide.title}}</a>
+						<a ng-click="openModelPopup(slide.link)">{{slide.title}}</a>
 					</p>
 				</div></li>
 		</ol>

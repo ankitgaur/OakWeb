@@ -16,10 +16,10 @@
 				<img ng-src="{{slide.img}}">
 				<div class="carousel-caption">
 					<h1>
-						<a href="#">{{slide.title}}</a>
+						<a ng-click="openModelPopup(slide.link)">{{slide.title}}</a>
 					</h1>
 					<p>
-						{{slide.intro}}<a href="#" class="rd-mor">More...</a>
+						{{slide.intro}}<a ng-click="openModelPopup(slide.link)" class="rd-mor">More...</a>
 					</p>
 				</div>
 			</div>

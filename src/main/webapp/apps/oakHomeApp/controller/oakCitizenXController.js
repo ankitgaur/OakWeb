@@ -18,9 +18,9 @@ oakHomeApp
 							getLatestIncidents();
 							
 							function getCitizenXWriteUps() {
-								$scope.vlist_title = "Most Popular";
+								$scope.vlist_title = "Featured";
 								oakHomeFactory
-										.getArticleCatByLimit('news', 5)
+										.getArticleCatByLimit('incidents', 5)
 										.then(
 												function success(response) {
 
@@ -44,9 +44,9 @@ oakHomeApp
 							}	
 							
 							function getLatestIncidents() {
-								$scope.newsbox_title = "Latest Incidents";
+								$scope.newsbox_title = "From the Grass root";
 								oakHomeFactory
-								.getArticleCatByLimit('news',10)
+								.getArticleCatByLimit('incidents',10)
 										.then(
 												function success(response) {
 
@@ -108,6 +108,60 @@ oakHomeApp
 													$log
 															.debug('There is some issue while getting news slider from rest service');
 												});
+							}
+							
+							$scope.openArticlePopup = function(link) {
+								oakHomeFactory
+										.getArticle(link)
+										.then(
+												function success(response) {
+													setTimeout(
+															function() {
+																$scope
+																		.$apply(function() {
+																			$rootScope.articleData = response;
+
+																			$(
+																					'#articlePopup')
+																					.modal(
+																							'show');
+
+																		});
+															}, 0);
+
+												},
+												function error(response) {
+													$log
+															.debug('There is some issue while getting topmid from rest service');
+												});
+
+							}
+							
+							$scope.openModelPopup = function(link) {
+								oakHomeFactory
+										.getContent(link)
+										.then(
+												function success(response) {
+													setTimeout(
+															function() {
+																$scope
+																		.$apply(function() {
+																			$rootScope.articleData = response;
+
+																			$(
+																					'#articlePopup')
+																					.modal(
+																							'show');
+
+																		});
+															}, 0);
+
+												},
+												function error(response) {
+													$log
+															.debug('There is some issue while getting topmid from rest service');
+												});
+
 							}
 
 						} ]);

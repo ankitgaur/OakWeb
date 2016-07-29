@@ -393,6 +393,15 @@ oakHomeApp
 												});
 
 							};
+							
+							oakHomeFactory.getContent = function(link) {	
+								if(link.indexOf("http")==0){
+									window.location.href = link;
+								}
+								else{
+									return oakHomeFactory.getArticle(link);
+								}
+							};
 
 							oakHomeFactory.getPostsForBlog = function(blogID) {
 								var url = AppConfig.appUrl
