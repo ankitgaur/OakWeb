@@ -274,6 +274,12 @@ oakHomeApp
 
 							}
 							
+//							$scope.slideup = function(el){
+//								console.log("Slide up");
+//								   $('.gridbox-text').animate({position: absolute; top: 120px; },500);
+//								
+//							}
+							
 							$scope.openModelPopup = function(link) {
 								oakHomeFactory
 										.getContent(link)

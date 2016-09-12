@@ -1,6 +1,6 @@
 <div class="rit-blg-bxs any-nws">
 				<h3 class="rit-bx-titl">{{vlist_title}}</h3>
-				<div class="nws-pst">
+				<div data-ng-repeat="vlist_topitem in vlist_items" class="nws-pst">
 					<h4 class="nws-titl">
 						<a ng-click="openArticlePopup(vlist_topitem.id)">{{vlist_topitem.title}}</a>
 					</h4>
@@ -14,13 +14,13 @@
 						</p>
 					</div>
 				</div>
-				<ul class="nes-lsts">
+				<!-- <ul class="nes-lsts">
 					<li data-ng-repeat="item in vlist_items">
 						<h4>
 							<a ng-click="openArticlePopup(item.id)">{{item.title}}</a>
 						</h4>
 						<p>{{item.intro}}</p>
 					</li>					
-				</ul>
+				</ul> -->
 			</div>
 		</div>

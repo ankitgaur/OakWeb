@@ -3,31 +3,8 @@
 
 
 	<ul class="latstBlogPcs">
-		<li><a href="#" class="nws-imgs"><img
-				src="images/enugu-airport-1.jpg"></a></li>
-		<li><a href="#" class="nws-imgs"><img
-				src="images/Dutse_airport-2.jpg"></a></li>
-		<li><a href="#" class="nws-imgs"><img
-				src="images/Dutse_airport-4.jpg"></a></li>
-		<li><a href="#" class="nws-imgs"><img
-				src="images/Dutse_airport-3.jpg"></a></li>
-		<li><a href="#" class="nws-imgs"><img
-				src="images/Dutse_airport.jpg"></a></li>
-		<li><a href="#" class="nws-imgs"><img
-				src="images/default_frontpage.jpg"></a></li>
-		<li><a href="#" class="nws-imgs"><img
-				src="images/enugu-airport-1.jpg"></a></li>
-		<li><a href="#" class="nws-imgs"><img
-				src="images/Dutse_airport-2.jpg"></a></li>
-		<li><a href="#" class="nws-imgs"><img
-				src="images/Dutse_airport-4.jpg"></a></li>
-		<li><a href="#" class="nws-imgs"><img
-				src="images/Dutse_airport-3.jpg"></a></li>
-		<li><a href="#" class="nws-imgs"><img
-				src="images/Dutse_airport.jpg"></a></li>
-		<li><a href="#" class="nws-imgs"><img
-				src="images/default_frontpage.jpg"></a></li>
-
+		<li ng-repeat="blog in blogImgs"><a ui-sref="blogPost({blogPostID: blog.id})" class="nws-imgs"><img
+				src="{{blog.displayImage}}"></a></li>
 	</ul>
 
 </div>

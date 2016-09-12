@@ -17,9 +17,33 @@ oakHomeApp
 							getHomeAds(); // home
 							getGallery(); // home
 							getVideos(); // home
+							getBlogImgs();
 		
 							$scope.stateId = 'NG-BA';
 							$scope.iframeurl = "http://www.ipledge2nigeria.com/state.html#NG-BA";
+							
+							function getBlogImgs() {
+
+								oakHomeFactory
+									.getTopBlogs()
+										.then(
+												function success(response) {
+
+													setTimeout(
+															function() {
+																$scope
+																		.$apply(function() {
+																			$scope.blogImgs = response
+																			.slice(0,8);
+																		});
+															}, 0);
+
+												},
+												function error(response) {
+													$log
+															.debug('There is some issue while getting topstories from rest service');
+												});
+							}
 							
 							function getTopStories() {
 
