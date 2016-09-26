@@ -34,8 +34,19 @@ oakAdminApp.controller('blogCtrl',['$scope','$http','$stateParams','$log','blogF
 }
 	
 	$scope.createBlog = function(blogFormObj){
-		console.log(this.blog);
-		blogFactory.createBlog(this.blog)
+		var file =  $("#displayImage").get(0).files[0];
+		var bdata = new FormData();
+		
+		bdata.append('category','ip2n');
+		bdata.append('title',blog.title);
+		bdata.append('description',blog.description);
+		bdata.append('displayImage', file);
+		
+		//blog.category = 'ip2n';
+		//blog.displayImage=file;
+		
+		//console.log(this.blog);
+		oakHomeFactory.createBlog(bdata)
 				.then(function success(response) {
 									
 					getAllBlogs();

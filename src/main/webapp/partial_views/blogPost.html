@@ -51,7 +51,7 @@
 									<a ui-sref="blogPost({blogPostID: topblog.id})">{{topblog.title}}</a>
 								</h2>
 								<div class="pst-meta">
-									Posted by <a href="#">{{topblog.author}}</a> on {{topblog.createdOnStr}} in <a href="#">{{topblog.blogname}}</a>
+									Posted by <a class="cmnt" style="cursor: default;color: black;">{{topblog.author}}</a> on {{topblog.createdOnStr}} in <a ui-sref="blog({blogID: topblog.blog})">{{topblog.blogname}}</a>
 								</div>
 							</div>
 							<div class="post-cntnt" bind-html-compile="topblog.content">
@@ -71,7 +71,7 @@
 											style="float: left; margin-top: -2px;">
 									</div>
 									<div class="redmor pull-right">
-										<a href="#" class="cmnt">0 Comments</a> <!-- <a ui-sref="blogPost({blogPostID: topblog.id})"	class="rd-mr">Read More..</a> -->
+										<a class="cmnt" style="cursor: default;color: black;">0 Comments</a> <!-- <a ui-sref="blogPost({blogPostID: topblog.id})"	class="rd-mr">Read More..</a> -->
 									</div>
 								</div>
 							</div>
@@ -93,7 +93,7 @@
 		</div>
 
 		<div class="col-lg-3 col-sm-4 col-xs-12">
-			<div class="rit-blg-bxs">
+			<div class="rit-blg-bxs" ng-if="userName">
 				<h3 class="rit-bx-titl">Welcome to Blog Section</h3>
 				<div class="blgsetng">
 					<div class="pst-avatar">
@@ -101,18 +101,18 @@
 							src="images/default_blogger.png"></a>
 					</div>
 					<h4>
-						<a href="#">Ankit Gaur</a>
+						<a href="#">{{userName}}</a>
 					</h4>
 					
 				</div>
 				<ul class="usrTols">
 					<li><a data-toggle="modal" data-target="#createBlogEntriesModal"><span class="font-icn">&#xf1d9;</span>
 							Quick Post</a></li>
-					<li><a href="#"><span class="font-icn">&#xf040;</span>
+					<li><a data-toggle="modal" data-target="#createBlogsModal"><span class="font-icn">&#xf040;</span>
 							Start New Blog</a></li>
-					<li><a href="#"><span class="font-icn">&#xf0a1;</span> My
+					<li><a ui-sref="myblogs"><span class="font-icn">&#xf0a1;</span> My
 							Blog Posts</a></li>
-					<!-- <li><a href="#"><span class="font-icn">&#xf03b;</span> My
+					 <!--<li><a href="#"><span class="font-icn">&#xf03b;</span> My
 							Blogs</a></li>
 					<li><a href="#"><span class="font-icn">&#xf0f6;</span> My
 							Drafts</a></li>
@@ -130,17 +130,18 @@
 				<h3 class="rit-bx-titl">Most Popular Blogs</h3>
 				<ul class="poplr-blgs">
 
-					<li ng-repeat="blog in blogsCount"><a
-						ng-if="blog.displayimage" href="#" class="psts-imgs"><img
-							src="{{blog.displayimage}}"> </a> <a ng-if="!blog.displayimage"
-						href="#" class="psts-imgs"><img src="images/no_photo.jpg">
-					</a>
+					<li ng-repeat="blog in blogsCount">
+						<a ng-if="blog.displayimage" ui-sref="blog({blogID: blog.id})" class="psts-imgs">
+							<img src="{{blog.displayimage}}"> 
+						</a> 
+						<a ng-if="!blog.displayimage" ui-sref="blog({blogID: blog.id})" class="psts-imgs"><img src="images/no_photo.jpg">
+						</a>
 						<h2 class="psts-catg">
-							<a href="#">{{blog.title}} <strong>({{blog.count}})</strong></a>
+							<a ui-sref="blog({blogID: blog.id})">{{blog.title}} <strong>({{blog.count}})</strong></a>
 						</h2></li>
 
 				</ul>
-				<a href="#" class="red-mors">View All Blogs</a>
+				<!-- <a href="#" class="red-mors">View All Blogs</a> -->
 			</div>
 			<div class="rit-blg-bxs">
 				<a href="http://www.kqzyfj.com/r365zw41w3JOKNQTORJLKONOKLO"
@@ -162,12 +163,12 @@
 						<div class="post-ftr">
 							<div class="meta-ftr">
 								<div class="hits">
-									<span class="hts"><a href="#">Hits :
+									<span class="hts"><a class="cmnt" style="cursor: default;color: black;">Hits :
 											{{popularPost.hits}}</a></span> <img
 										style="float: left; margin-top: -2px;" src="images/rating.png">
 								</div>
 								<div class="redmor">
-									<a class="cmnt" href="#">0 Comments</a> <a class="rd-mr"
+									<a class="cmnt" style="cursor: default;color: black;">0 Comments</a> <a class="rd-mr"
 										href="#">Read More..</a>
 								</div>
 							</div>
@@ -177,7 +178,7 @@
 									</a>
 								</div>
 								<p class="pst-authr">
-									Posted by <a href="#">{{popularPost.author}}</a> On
+									Posted by <a class="cmnt" style="cursor: default;color: black;">{{popularPost.author}}</a> On
 									{{popularPost.createdOnStr}}
 								</p>
 							</div>
@@ -260,5 +261,8 @@
 	</div>
 </div>
 <div id="createBlogEntriesModal" class="modal fade" role="dialog">
-	<div ng-include = "'partial_views/blogEntries/createBlogEntries.html'"></div>
+	<div ng-include = "'partial_views/modals/createBlogEntries.html'"></div>
+</div>
+<div id="createBlogsModal" class="modal fade" role="dialog">
+	<div ng-include = "'partial_views/modals/createBlog.html'"></div>
 </div>

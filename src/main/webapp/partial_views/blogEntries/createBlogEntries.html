@@ -52,7 +52,13 @@
 				</div>
 
 				<script>
-					CKEDITOR.replace('editor1');
+					CKEDITOR
+							.replace(
+									'editor1',
+									{
+										filebrowserBrowseUrl : 'imgbrowse.php',
+										filebrowserUploadUrl : 'imgupload.php'
+									});
 				</script>
 
 

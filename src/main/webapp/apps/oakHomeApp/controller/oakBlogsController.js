@@ -4,38 +4,73 @@ oakHomeApp
 				[
 						'$scope',
 						'$rootScope',
+						'$state',
 						'$http',
 						'$stateParams',
 						'$log',
 						'oakHomeFactory',
-						function($scope, $rootScope, $http, $stateParams, $log,
+						function($scope, $rootScope, $state, $http, $stateParams, $log,
 								oakHomeFactory) {
 							
 							$scope.currentPage = 1;
 							$scope.pageSize = 10;
+							
+							//popsize=7;
+							
 							$scope.pageChangeHandler = function(num) {
 								console.log('going to page ' + num);
 							  };
 
 							getBlogs(); // blog
+							getMyBlogs();
 							getMostPopularBlogCount(); // blog
-							getMostPopularBlogsPost(); // blog
+							//getMostPopularBlogsPost(); // blog
 
 							$scope.blogPostID = $stateParams.blogPostID;
 							$scope.blogID = $stateParams.blogID;
 							
-							if ($scope.blogPostID != ""
+							if($state.current.name == 'myblogs'){
+								
+								getMyBlogPosts();
+								
+							} else if ($scope.blogPostID != ""
 									&& $scope.blogPostID != undefined
 									&& $scope.blogPostID != 'undefined') {
+								getMostPopularBlogsPost(2);
 								getBlogPostByID($scope.blogPostID);
 							} else if($scope.blogID != ""
 								&& $scope.blogID != undefined
 								&& $scope.blogID != 'undefined'){
-								getPostsForBlog($scope.blogID);								
+								getPostsForBlog($scope.blogID);	
+								getMostPopularBlogsPost(7);
 							} else {
 								getTopBlogPosts();
+								getMostPopularBlogsPost(7);
 							}
 
+							function getMyBlogPosts() {
+
+								oakHomeFactory
+										.getMyBlogPosts()
+										.then(
+												function success(response) {
+													$scope.title = 'My blog posts';
+													setTimeout(
+															function() {
+																$scope
+																		.$apply(function() {
+																			$scope.topblogs = response;											
+
+																		});
+															}, 0);
+
+												},
+												function error(response) {
+													$log
+															.debug('There is some issue while getting myblogs from rest service');
+												});
+							}
+							
 							function getPostsForBlog(blogID) {
 
 								oakHomeFactory
@@ -72,6 +107,8 @@ oakHomeApp
 																			$scope.topblogs = [];
 																			$scope.topblogs
 																					.push(response);
+																			$scope.title = $scope.topblogs[0].blogname;
+																			
 
 																		});
 															}, 0);
@@ -84,7 +121,7 @@ oakHomeApp
 
 							}
 
-							function getMostPopularBlogsPost() {
+							function getMostPopularBlogsPost(popsize) {
 								oakHomeFactory
 										.getMostPopularBlogsPost()
 										.then(
@@ -93,7 +130,7 @@ oakHomeApp
 															function() {
 																$scope
 																		.$apply(function() {
-																			$scope.popularBlogsPosts = response;
+																			$scope.popularBlogsPosts = response.slice(0,popsize);
 
 																		});
 															}, 0);
@@ -129,6 +166,27 @@ oakHomeApp
 												});
 							}
 
+							function getMyBlogs() {
+								oakHomeFactory
+										.getMyBlogs()
+										.then(
+												function success(response) {
+													setTimeout(
+															function() {
+																$scope
+																		.$apply(function() {
+																			$scope.myblogs = response;
+
+																		});
+															}, 0);
+
+												},
+												function error(response) {
+													$log
+															.debug('There is some issue while getting blogs from rest service');
+												});
+							}
+							
 							function getBlogs() {
 								oakHomeFactory
 										.getBlogs()
@@ -156,7 +214,7 @@ oakHomeApp
 										.getTopBlogs()
 										.then(
 												function success(response) {
-
+													$scope.title = 'Most recent blog posts';
 													setTimeout(
 															function() {
 																$scope
@@ -177,13 +235,29 @@ oakHomeApp
 							}
 							
 							$scope.createBlog = function(blog){
-								console.log(this.blog);
-								blogFactory.createBlog(this.blog)
+								
+								var file =  $("#displayImage").get(0).files[0];
+								var bdata = new FormData();
+								
+								bdata.append('category','ip2n');
+								bdata.append('title',blog.title);
+								bdata.append('description',blog.description);
+								bdata.append('displayImage', file);
+								
+								//blog.category = 'ip2n';
+								//blog.displayImage=file;
+								
+								//console.log(this.blog);
+								oakHomeFactory.createBlog(bdata)
 										.then(function success(response) {
 															
-											getAllBlogs();
-											clearForm(blogFormObj);
-											$('#createBlogModal').modal('hide');
+											getBlogs(); // blog
+											getMyBlogs();
+											getMostPopularBlogCount(); // blog
+											getMostPopularBlogsPost(); // blog
+											
+											clearForm(blog);
+											$('#createBlogsModal').modal('hide');
 										}, function error(response) {
 								 $log.debug('There is some issue while crating  blogCategory');
 							  }); 
@@ -200,11 +274,15 @@ oakHomeApp
 							$scope.createBlogEntry= function(blogFormObj){
 								blogFormObj.blogname = $("#blogdd option:selected").text();
 								blogFormObj.content = CKEDITOR.instances.editor1.getData();
-								blogEntriesFactory.createBlogs(this.blogEntry)
+								oakHomeFactory.createBlogPost(this.blogEntry)
 										.then(function success(response) {
-											getAllBlogs();
+											
+											getBlogs(); // blog
+											getMyBlogs();
+											getMostPopularBlogCount(); // blog
+											getMostPopularBlogsPost(); // blog
 											clearBlogForm(blogFormObj);
-											$('#createBlogsModal').modal('hide');
+											$('#createBlogEntriesModal').modal('hide');
 										}, function error(response) {
 								 $log.debug('There is some issue while crating blogEntry');
 							  }); 
@@ -224,7 +302,7 @@ oakHomeApp
 								blogFormObj.displayImage=null;
 								blogFormObj.updatedBy=null;
 								blogFormObj.updatedOn=null;
-								CKEDITOR.instances.editor2.setData("Enter Text");
+								CKEDITOR.instances.editor.setData("Enter Text");
 						}
 
 						} ]);

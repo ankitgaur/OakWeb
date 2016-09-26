@@ -12,9 +12,9 @@ userFactory.createUsers = function(userData){
 			}
 
 	return $http(req).then(function success(response) {
-			$log.debug('user created successfully ');			
+		showSuccessAlert("Please check your mailbox for an Activation mail.");			
 		},function error(response) {
-		$log.debug('There is some issue while getting data from rest service');
+			showErrorAlert('There was some issue while creating  user');
 	});
   
 }
@@ -32,10 +32,10 @@ userFactory.login = function(user){
 		}
 
 return $http(req).then(function success(response) {
-		$log.debug('user successfully logged in ');	
+	    showSuccessAlert("You were able to log in successfully.");	
 		return response.data;
 	},function error(response) {		
-	$log.debug('user unable to log in');
+		showErrorAlert("Please enter a valid username and password. Please activate your account if you have not done that already.");
 });
 
 }

@@ -66,22 +66,23 @@ blogFactory.deleteBlogByID = function(blogCategoryID){
 };
 
 
-blogFactory.createBlog = function(blogCategoryData){
-		var url = AppConfig.appUrl+'blogs';
-		var req = {
-				method: 'POST',
-				url: url,
-				data:blogCategoryData
-		};
-
-	return $http(req).then(function success(response) {
-			$log.debug('blog created successfully ');			
-		},function error(response) {
-			$log.debug('There is some issue while getting blog category from rest service');
-	});
-  
+blogFactory.createBlog = function(bdata){
+	var url = AppConfig.appUrl+'blogs';
+	  
+	$http.post(url, bdata, {
+          transformRequest: angular.identity,
+          headers: {'Content-Type': undefined}
+       })
+    
+       .success(function(){
+    	   $log.debug('blog created successfully ');	
+       })
+    
+       .error(function(){
+    	   $log.debug('There is some issue while getting blog category from rest service');
+       });
 	
-};
+	};
 
 blogFactory.updateBlog = function(blogCategoryData,blogCategoryID){
 		var url = AppConfig.appUrl+'blogs';

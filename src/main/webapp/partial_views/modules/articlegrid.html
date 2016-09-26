@@ -1,11 +1,12 @@
 <div class="news-out-bx">
 	<ul class="spotlits hmes" style="margin: 0;">
-		<li class="gridbox-item" data-ng-repeat="item in articlegrid">
-			
-		    <img src="{{item.img}}" ng-mouseover="slideup(this)">
-			<!-- <a ng-click="openModelPopup(item.link)">{{item.title}}</a> -->
-			<h4 class="gridbox-text"><a ng-click="openModelPopup(item.link)">{{item.title}}</a></h4>
-			
+		<li class="gridbox-item" data-ng-repeat="item in articlegrid"><a
+			ng-click="openModelPopup(item.link)" class="nws-imgs"> <img
+				src="{{item.img}}">
+		</a>
+			<h4 class="nws-tle">
+				<a ng-click="openModelPopup(item.link)">{{item.title}}</a> -
+			</h4>
 		</li>
 	</ul>
 </div>

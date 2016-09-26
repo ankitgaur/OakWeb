@@ -83,6 +83,24 @@ oakHomeApp
 							  
 							}
 
+							oakHomeFactory.createBlog = function(bdata){
+								var url = AppConfig.appUrl+'blogs';
+						  
+							$http.post(url, bdata, {
+				                  transformRequest: angular.identity,
+				                  headers: {'Content-Type': undefined}
+				               })
+				            
+				               .success(function(){
+				            	   showSuccessAlert("Blog was created successfully.");	
+				               })
+				            
+				               .error(function(){
+				            	   showErrorAlert('There were some issues while creating your blog. Please contact your System Administrator');
+				               });
+							
+							};
+							
 							oakHomeFactory.createBlogPost = function(blogData) {
 								var url = AppConfig.appUrl + 'blog_entries';
 								var req = {
@@ -94,12 +112,10 @@ oakHomeApp
 								return $http(req)
 										.then(
 												function success(response) {
-													$log
-															.debug('blog entry created successfully ');
+													showSuccessAlert("Blog Post was created successfully.");
 												},
 												function error(response) {
-													$log
-															.debug('There is some issue while getting data from rest service');
+													showErrorAlert('There were some issues while creating your blog post. Please contact your System Administrator');
 												});
 							};
 
@@ -288,6 +304,46 @@ oakHomeApp
 
 							};
 
+							oakHomeFactory.getMyBlogs = function() {
+								var url = AppConfig.appUrl + '/myblogs';
+
+								return $http({
+									method : 'GET',
+									url : url,
+									crossDomain : true
+								})
+										.then(
+												function successCallback(
+														response) {
+													return response.data;
+												},
+												function errorCallback(response) {
+													$log
+															.debug('There is some issue while getting data from rest service');
+												});
+
+							};
+							
+							oakHomeFactory.getMyBlogPosts = function() {
+								var url = AppConfig.appUrl + 'blog_entries/user';
+
+								return $http({
+									method : 'GET',
+									url : url,
+									crossDomain : true
+								})
+										.then(
+												function successCallback(
+														response) {
+													return response.data;
+												},
+												function errorCallback(response) {
+													$log
+															.debug('There is some issue while getting data from rest service');
+												});
+
+							};
+							
 							oakHomeFactory.getTopBlogs = function() {
 								var url = AppConfig.appUrl + 'blog_entries';
 

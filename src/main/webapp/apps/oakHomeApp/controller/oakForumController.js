@@ -135,6 +135,19 @@ oakHomeApp
 												});
 							};
 
+							$scope.quickReply = function(forumPostFormObj){
+								forumPostFormObj.topic = $scope.topicID; 
+								oakHomeFactory.createForumPosts(forumPostFormObj)
+										.then(function success(response) {
+															
+											getPosts($scope.topicID);
+											clearForumPostForm(forumPostFormObj);
+											$('#createForumPostModal').modal('hide');
+										}, function error(response) {
+								 $log.debug('There is some issue while crating  article ');
+							  }); 
+							}
+							
 							$scope.createForumPost = function(forumPostFormObj){
 								forumPostFormObj.topic = $scope.topicID; 
 								forumPostFormObj.content = CKEDITOR.instances.editor1.getData();

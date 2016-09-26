@@ -96,6 +96,19 @@ oakHomeApp.config([ '$stateProvider', '$urlRouterProvider',
 					}
 
 				}
+			}).state('myblogs', {
+				url : '/myblogs',
+				views : {
+
+					'body' : {
+
+						templateUrl : function($stateParams) {
+							return 'partial_views/bloglist.html';
+						},
+						controller : 'oakBlogCtrl'
+					}
+
+				}
 			}).state('blog', {
 				url : '/blog/:blogID',
 				views : {

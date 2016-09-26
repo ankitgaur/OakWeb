@@ -10,16 +10,24 @@ oakHomeApp
 						'userFactory',
 						function($scope, $rootScope, $http, $stateParams, $log, userFactory) {
 
+							
 							$scope.createUser = function(userFormObj) {
+							
+								userFormObj.grecaptcharesponse=grecaptcha.getResponse();
 								userFactory
-										.createUsers(this.user)
+										.createUsers(userFormObj)
 										.then(
 												function success(response) {
 													$('#Signup').modal('hide');
+													
+													
+													
+													
+													
 												},
 												function error(response) {
-													$log
-															.debug('There is some issue while creating  user');
+													
+													
 												});
 							}
 
@@ -38,14 +46,15 @@ oakHomeApp
 																function() {
 																	$scope
 																			.$apply(function() {
-																				$rootScope.userName = response.name;																				
+																				$rootScope.userName = response.name;	
+																				$state.reload();
 																			});
 																}, 0); 
 													}
 												},
 												function error(response) {
-													$log
-															.debug('User loginunsuccessful');
+													
+															
 												});
 
 							}
