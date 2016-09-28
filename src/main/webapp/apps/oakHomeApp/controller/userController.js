@@ -6,9 +6,9 @@ oakHomeApp
 						'$rootScope',
 						'$http',
 						'$stateParams',
-						'$log',
+						'$log','$state',
 						'userFactory',
-						function($scope, $rootScope, $http, $stateParams, $log, userFactory) {
+						function($scope, $rootScope, $http, $stateParams, $log,$state, userFactory) {
 
 							
 							$scope.createUser = function(userFormObj) {

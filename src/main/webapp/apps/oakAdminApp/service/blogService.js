@@ -69,18 +69,17 @@ blogFactory.deleteBlogByID = function(blogCategoryID){
 blogFactory.createBlog = function(bdata){
 	var url = AppConfig.appUrl+'blogs';
 	  
-	$http.post(url, bdata, {
+	return $http.post(url, bdata, {
           transformRequest: angular.identity,
           headers: {'Content-Type': undefined}
-       })
+       }).then(function success(response) {
+		   return response.data;
+			$log.debug('blog updated successfully ');
+		},function error(response) {
+			$log.debug('There is some issue while getting blog category from rest service');
+	});
     
-       .success(function(){
-    	   $log.debug('blog created successfully ');	
-       })
-    
-       .error(function(){
-    	   $log.debug('There is some issue while getting blog category from rest service');
-       });
+       
 	
 	};
 

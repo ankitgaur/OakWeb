@@ -302,7 +302,7 @@ oakHomeApp
 								blogFormObj.displayImage=null;
 								blogFormObj.updatedBy=null;
 								blogFormObj.updatedOn=null;
-								CKEDITOR.instances.editor.setData("Enter Text");
+								CKEDITOR.instances.editor1.setData("Enter Text");
 						}
 
 						} ]);

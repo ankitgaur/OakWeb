@@ -38,23 +38,26 @@ oakAdminApp.controller('blogCtrl',['$scope','$http','$stateParams','$log','blogF
 		var bdata = new FormData();
 		
 		bdata.append('category','ip2n');
-		bdata.append('title',blog.title);
-		bdata.append('description',blog.description);
+		bdata.append('title',blogFormObj.title);
+		bdata.append('description',blogFormObj.description);
 		bdata.append('displayImage', file);
 		
 		//blog.category = 'ip2n';
 		//blog.displayImage=file;
 		
+		
+		
+					
+		
 		//console.log(this.blog);
-		oakHomeFactory.createBlog(bdata)
-				.then(function success(response) {
-									
+		blogFactory.createBlog(bdata).then(function success(response) {
 					getAllBlogs();
 					clearForm(blogFormObj);
 					$('#createBlogModal').modal('hide');
-				}, function error(response) {
-		 $log.debug('There is some issue while crating  blogCategory');
-	  }); 
+			$log.debug('blog created successfully ');
+		},function error(response) {
+			$log.debug('There is some issue while getting blog category from rest service');
+	});
 	}
 	$scope.updateBlog = function(blogId,blogFormObj){
 					
