@@ -51,17 +51,16 @@ articleCategoryFactory.deleteArticleCategoryByID = function(articleCategoryID){
 
 articleCategoryFactory.createArticleCategory = function(articleCategoryData){
 		var url = AppConfig.appUrl+'article_categories';
-		var req = {
-				method: 'POST',
-				url: url,
-				data:articleCategoryData
-			};
-
-	return $http(req).then(function success(response) {
-			$log.debug('article created successfully ');			
-		},function error(response) {
-			$log.debug('There is some issue while getting article category from rest service');
-	});
+		
+		return $http.post(url, articleCategoryData, {
+	          transformRequest: angular.identity,
+	          headers: {'Content-Type': undefined}
+	       }).then(function success(response) {
+			   return response.data;
+				$log.debug('blog updated successfully ');
+			},function error(response) {
+				$log.debug('There is some issue while getting blog category from rest service');
+		});
   
 	
 };

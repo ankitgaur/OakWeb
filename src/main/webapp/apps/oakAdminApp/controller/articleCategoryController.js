@@ -31,7 +31,15 @@ oakAdminApp.controller('articleCategoryCtrl',['$scope','$http','$stateParams','$
 	
 	$scope.createArticleCategory = function(articleCategoryFormObj){
 		
-		articleCategoryFactory.createArticleCategory(this.articleCategory)
+		var file =  $("#displayImage").get(0).files[0];
+		var bdata = new FormData();
+		
+		bdata.append('category','ip2n');
+		bdata.append('name',articleCategoryFormObj.name);
+		bdata.append('description',articleCategoryFormObj.description);
+		bdata.append('displayImage', file);
+		
+		articleCategoryFactory.createArticleCategory(bdata)
 				.then(function success(response) {
 									
 					getAllArticleCategories();
