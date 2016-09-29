@@ -32,8 +32,17 @@ oakAdminApp.controller('articleCtrl',['$scope','$http','$stateParams','$log','ar
 }
 	
 	$scope.createArticle = function(articleFormObj){
-		articleFormObj.content = CKEDITOR.instances.editor1.getData();
-		articleFactory.createArticles(this.article)
+		
+		var file =  $("#displayImage").get(0).files[0];
+		var bdata = new FormData();
+		
+		bdata.append('category',articleFormObj.category);
+		bdata.append('title',articleFormObj.title);
+		bdata.append('intro',articleFormObj.intro);
+		bdata.append('displayImage', file);
+		bdata.append('content', CKEDITOR.instances.editor1.getData());
+		
+		articleFactory.createArticles(bdata)
 				.then(function success(response) {
 									
 					getAllArticles();

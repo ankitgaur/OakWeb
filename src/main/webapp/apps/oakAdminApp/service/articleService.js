@@ -51,17 +51,15 @@ articleFactory.deleteArticleByID = function(articleID){
 
 articleFactory.createArticles = function(articleData){
 		var url = AppConfig.appUrl+'articles';
-		var req = {
-				method: 'POST',
-				url: url,
-				data:articleData
-			}
-
-	return $http(req).then(function success(response) {
-			$log.debug('article created successfully ');			
-		},function error(response) {
-		$log.debug('There is some issue while getting data from rest service');
-	});
+		return $http.post(url, articleData, {
+	          transformRequest: angular.identity,
+	          headers: {'Content-Type': undefined}
+	       }).then(function success(response) {
+			   return response.data;
+				$log.debug('blog updated successfully ');
+			},function error(response) {
+				$log.debug('There is some issue while getting blog category from rest service');
+		});
   
 	
 }
