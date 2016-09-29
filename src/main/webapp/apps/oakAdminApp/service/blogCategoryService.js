@@ -52,17 +52,17 @@ blogCategoryFactory.deleteBlogCategoryByID = function(blogCategoryID){
 
 blogCategoryFactory.createBlogCategory = function(blogCategoryData){
 		var url = AppConfig.appUrl+'blog_categories';
-		var req = {
-				method: 'POST',
-				url: url,
-				data:blogCategoryData
-			};
-
-	return $http(req).then(function success(response) {
-			$log.debug('blog created successfully ');			
-		},function error(response) {
-			$log.debug('There is some issue while getting blog category from rest service');
-	});
+		
+		
+		return $http.post(url, blogCategoryData, {
+	          transformRequest: angular.identity,
+	          headers: {'Content-Type': undefined}
+	       }).then(function success(response) {
+			   return response.data;
+				$log.debug('blog updated successfully ');
+			},function error(response) {
+				$log.debug('There is some issue while getting blog category from rest service');
+		});
   
 	
 };

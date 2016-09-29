@@ -29,13 +29,23 @@ oakAdminApp.controller('blogCategoryCtrl',['$scope','$http','$stateParams','$log
   });
 }
 	
-	$scope.createBlogCategory = function(blogCategoryFormObj){
+	$scope.createBlogCategory = function(blogCategoryObj){
 		
-		blogCategoryFactory.createBlogCategory(this.blogCategory)
+		
+		var file =  $("#displayImage").get(0).files[0];
+		var bdata = new FormData();
+		
+		bdata.append('category','ip2n');
+		bdata.append('name',blogCategoryObj.name);
+		bdata.append('description',blogCategoryObj.description);
+		bdata.append('displayImage', file);
+		
+				
+		blogCategoryFactory.createBlogCategory(bdata)
 				.then(function success(response) {
 									
 					getAllBlogCategories();
-					clearForm(blogCategoryFormObj);
+					clearForm(blogCategoryObj);
 					$('#createBlogCategoryModal').modal('hide');
 				}, function error(response) {
 		 $log.debug('There is some issue while crating  blogCategory');
