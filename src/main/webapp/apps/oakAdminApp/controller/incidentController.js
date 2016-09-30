@@ -25,9 +25,21 @@ oakAdminApp.controller('incidentCtrl',['$scope','$http','$stateParams','$log','i
 }
 	
 	$scope.createIncident = function(incidentFormObj){
-		incidentFactory.createIncidents(this.incident)
+		var file =  $("#image").get(0).files[0];
+		var bdata = new FormData();
+		
+		bdata.append('type',incidentFormObj.type);
+		bdata.append('state',incidentFormObj.state);
+		bdata.append('govt',incidentFormObj.govt);
+		bdata.append('category',incidentFormObj.category);
+		bdata.append('description',incidentFormObj.description);
+		bdata.append('questions',incidentFormObj.questions);
+		bdata.append('status',incidentFormObj.status);
+		bdata.append('reportDate',incidentFormObj.reportDate);
+		bdata.append('displayImage', file);
+	
+		incidentFactory.createIncidents(bdata)
 				.then(function success(response) {
-				
 					getAllIncidents();
 					clearIncidentForm(incidentFormObj);
 					$('#createIncidentModal').modal('hide');

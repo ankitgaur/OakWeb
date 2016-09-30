@@ -51,17 +51,16 @@ incidentFactory.deleteIncidentByID = function(incidentID){
 
 incidentFactory.createIncidents = function(incidentData){
 		var url = AppConfig.appUrl+'incidents';
-		var req = {
-				method: 'POST',
-				url: url,
-				data:incidentData
-			}
-
-	return $http(req).then(function success(response) {
-			$log.debug('Incident created successfully ');			
-		},function error(response) {
-		$log.debug('There is some issue while getting data from rest service');
-	});
+		
+		return $http.post(url, incidentData, {
+	          transformRequest: angular.identity,
+	          headers: {'Content-Type': undefined}
+	       }).then(function success(response) {
+			   return response.data;
+				$log.debug('blog updated successfully ');
+			},function error(response) {
+				$log.debug('There is some issue while getting blog category from rest service');
+		});
   
 	
 }
