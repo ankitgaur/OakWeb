@@ -32,7 +32,14 @@ oakAdminApp.controller('forumTopicCtrl',['$scope','$http','$stateParams','$log',
 	
 	$scope.createForumTopic = function(forumTopicObj){
 		
-		forumTopicFactory.createForumTopic(this.forumTopic)
+		var file =  $("#displayImage").get(0).files[0];
+		var bdata = new FormData();
+		
+		bdata.append('category',forumTopicObj.category);
+		bdata.append('title',forumTopicObj.title);
+		bdata.append('displayImage', file);
+		
+		forumTopicFactory.createForumTopic(bdata)
 				.then(function success(response) {
 									
 					getAllForumTopics();

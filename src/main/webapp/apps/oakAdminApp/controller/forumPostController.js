@@ -34,8 +34,16 @@ oakAdminApp.controller('forumPostCtrl',['$scope','$http','$stateParams','$log','
 	
 	$scope.createForumPost = function(forumPostFormObj){
 		
-		forumPostFormObj.content = CKEDITOR.instances.editor1.getData();
-		forumPostFactory.createForumPosts(this.forumPost)
+		var file =  $("#displayImage").get(0).files[0];
+		var bdata = new FormData();
+		
+		bdata.append('topic',forumPostFormObj.topic);
+		bdata.append('title',forumPostFormObj.title);
+		bdata.append('displayImage', file);
+		bdata.append('content', CKEDITOR.instances.editor1.getData());
+		
+		
+		forumPostFactory.createForumPosts(bdata)
 				.then(function success(response) {
 									
 					getAllForumPosts();

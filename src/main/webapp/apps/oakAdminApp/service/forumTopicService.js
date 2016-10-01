@@ -51,17 +51,15 @@ forumTopicFactory.deleteForumTopicByID = function(forumTopicID){
 
 forumTopicFactory.createForumTopic = function(forumTopicData){
 		var url = AppConfig.appUrl+'forum_topics';
-		var req = {
-				method: 'POST',
-				url: url,
-				data:forumTopicData
-			}
-
-	return $http(req).then(function success(response) {
-			$log.debug('forumTopic created successfully ');			
-		},function error(response) {
-		$log.debug('There is some issue while getting data from rest service');
-	});
+		return $http.post(url, forumTopicData, {
+	          transformRequest: angular.identity,
+	          headers: {'Content-Type': undefined}
+	       }).then(function success(response) {
+			   return response.data;
+				$log.debug('blog updated successfully ');
+			},function error(response) {
+				$log.debug('There is some issue while getting blog category from rest service');
+		});
   
 	
 }

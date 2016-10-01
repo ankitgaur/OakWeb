@@ -31,7 +31,14 @@ oakAdminApp.controller('forumCategoriesCtrl',['$scope','$http','$stateParams','$
 	
 	$scope.createForumCategory = function(forumCategoryFormObj){
 		
-		forumCategoriesFactory.createForumCategory(this.forumCategory)
+		var file =  $("#displayImage").get(0).files[0];
+		var bdata = new FormData();
+		
+		bdata.append('name',forumCategoryFormObj.name);
+		bdata.append('description',forumCategoryFormObj.description);
+		bdata.append('displayImage', file);
+		
+		forumCategoriesFactory.createForumCategory(bdata)
 				.then(function success(response) {
 									
 					getAllForumCategories();

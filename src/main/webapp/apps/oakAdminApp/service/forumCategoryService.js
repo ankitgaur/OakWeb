@@ -51,17 +51,15 @@ forumCategoryFactory.deleteForumCategoryByID = function(forumCategoryID){
 
 forumCategoryFactory.createForumCategory = function(forumCategoryData){
 		var url = AppConfig.appUrl+'forum_categories';
-		var req = {
-				method: 'POST',
-				url: url,
-				data:forumCategoryData
-			};
-
-	return $http(req).then(function success(response) {
-			$log.debug('forum created successfully ');			
-		},function error(response) {
-			$log.debug('There is some issue while getting forum category from rest service');
-	});
+		return $http.post(url, forumCategoryData, {
+	          transformRequest: angular.identity,
+	          headers: {'Content-Type': undefined}
+	       }).then(function success(response) {
+			   return response.data;
+				$log.debug('blog updated successfully ');
+			},function error(response) {
+				$log.debug('There is some issue while getting blog category from rest service');
+		});
   
 	
 };

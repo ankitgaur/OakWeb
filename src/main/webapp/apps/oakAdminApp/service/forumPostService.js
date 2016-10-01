@@ -39,7 +39,6 @@ forumPostFactory.deleteForumPostByID = function(forumPostID){
 		  method: 'DELETE',
 		  url: url,
 		  crossDomain:true
-		  
 	 }).then(function successCallback(response) {
 		 return response.data;
 	  }, function errorCallback(response) {
@@ -51,19 +50,15 @@ forumPostFactory.deleteForumPostByID = function(forumPostID){
 
 forumPostFactory.createForumPosts = function(ForumPostData){
 		var url = AppConfig.appUrl+'forum_post';
-		var req = {
-				method: 'POST',
-				url: url,
-				data:ForumPostData
-			}
-
-	return $http(req).then(function success(response) {
-			$log.debug('article created successfully ');			
-		},function error(response) {
-		$log.debug('There is some issue while getting data from rest service');
-	});
-  
-	
+		return $http.post(url, ForumPostData, {
+	          transformRequest: angular.identity,
+	          headers: {'Content-Type': undefined}
+	       }).then(function success(response) {
+			   return response.data;
+				$log.debug('blog updated successfully ');
+			},function error(response) {
+				$log.debug('There is some issue while getting blog category from rest service');
+		});
 }
 
 forumPostFactory.updateForumPosts = function(ForumPostData,forumPostID){
