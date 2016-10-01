@@ -42,14 +42,6 @@ oakAdminApp.controller('blogCtrl',['$scope','$http','$stateParams','$log','blogF
 		bdata.append('description',blogFormObj.description);
 		bdata.append('displayImage', file);
 		
-		//blog.category = 'ip2n';
-		//blog.displayImage=file;
-		
-		
-		
-					
-		
-		//console.log(this.blog);
 		blogFactory.createBlog(bdata).then(function success(response) {
 					getAllBlogs();
 					clearForm(blogFormObj);
