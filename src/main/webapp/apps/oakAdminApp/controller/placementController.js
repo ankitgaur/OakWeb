@@ -27,7 +27,20 @@ oakAdminApp.controller('placementCtrl',['$scope','$http','$stateParams','$log','
 }
 	
 	$scope.createPlacement = function(placementFormObj){
-		placementFactory.createPlacement(this.placement)
+		
+		var file =  $("#image").get(0).files[0];
+		var bdata = new FormData();
+		
+		bdata.append('page',placementFormObj.page);
+		bdata.append('section',placementFormObj.section);
+		bdata.append('position',placementFormObj.position);
+		bdata.append('title',placementFormObj.title);
+		bdata.append('link',placementFormObj.link);
+		bdata.append('intro',placementFormObj.intro);
+		bdata.append('displayImage', file);
+		
+			
+		placementFactory.createPlacement(bdata)
 				.then(function success(response) {
 									
 					getAllPlacements();

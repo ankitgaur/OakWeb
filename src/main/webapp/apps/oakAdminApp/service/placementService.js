@@ -51,17 +51,15 @@ placementFactory.deletePlacementByID = function(placementID){
 
 placementFactory.createPlacement = function(placementData){
 		var url = AppConfig.appUrl+'placements';
-		var req = {
-				method: 'POST',
-				url: url,
-				data:placementData
-			}
-
-	return $http(req).then(function success(response) {
-			$log.debug('placement created successfully ');			
-		},function error(response) {
-		$log.debug('There is some issue while getting data from rest service');
-	});
+		return $http.post(url, placementData, {
+	          transformRequest: angular.identity,
+	          headers: {'Content-Type': undefined}
+	       }).then(function success(response) {
+			   return response.data;
+				$log.debug('blog updated successfully ');
+			},function error(response) {
+				$log.debug('There is some issue while getting blog category from rest service');
+		});
   
 	
 }
