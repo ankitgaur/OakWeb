@@ -271,10 +271,20 @@ oakHomeApp
 								clearForm(blogFormObj);
 							}
 							
-							$scope.createBlogEntry= function(blogFormObj){
-								blogFormObj.blogname = $("#blogdd option:selected").text();
-								blogFormObj.content = CKEDITOR.instances.editor1.getData();
-								oakHomeFactory.createBlogPost(this.blogEntry)
+							$scope.createBlogEntry= function(blog){
+								blog.blogname = $("#blogdd option:selected").text();
+								blog.content = CKEDITOR.instances.editor1.getData();
+								
+								var file =  $("#displayImage").get(0).files[0];
+								var bdata = new FormData();
+								
+								bdata.append('blog',blog.blog);
+								bdata.append('blogname',blog.blogname);
+								bdata.append('title',blog.title);
+								bdata.append('content',blog.content);
+								bdata.append('displayImage', file);
+								
+								oakHomeFactory.createBlogPost(bdata)
 										.then(function success(response) {
 											
 											getBlogs(); // blog

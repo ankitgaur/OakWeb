@@ -28,9 +28,21 @@ oakAdminApp.controller('blogEntryCtrl',['$scope','$http','$stateParams','$log','
   });
 }
 	
-	$scope.createBlog = function(blogFormObj){		
-		blogFormObj.content = CKEDITOR.instances.editor1.getData();
-		blogEntriesFactory.createBlogs(blogFormObj)
+	$scope.createBlog = function(blog){		
+		
+		blog.blogname = $("#blogdd option:selected").text();
+		blog.content = CKEDITOR.instances.editor1.getData();
+		
+		var file =  $("#displayImage").get(0).files[0];
+		var bdata = new FormData();
+		
+		bdata.append('blog',blog.blog);
+		bdata.append('blogname',blog.blogname);
+		bdata.append('title',blog.title);
+		bdata.append('content',blog.content);
+		bdata.append('displayImage', file);
+		
+		blogEntriesFactory.createBlogs(bdata)
 				.then(function success(response) {
 									
 					getAllBlogs();

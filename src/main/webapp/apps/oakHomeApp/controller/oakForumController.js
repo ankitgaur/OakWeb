@@ -117,10 +117,18 @@ oakHomeApp
 							}
 
 							$scope.createTopic = function(forumTopicObj) {
-
+								
+								//var file =  $("#displayImage").get(0).files[0];
 								forumTopicObj.category = $scope.catID;
+								var bdata = new FormData();
+								
+								bdata.append('category',forumTopicObj.category);
+								bdata.append('title',forumTopicObj.title);
+								//bdata.append('displayImage', file);
+								
+								
 								oakHomeFactory
-										.createTopic(forumTopicObj)
+										.createTopic(bdata)
 										.then(
 												function success(response) {
 

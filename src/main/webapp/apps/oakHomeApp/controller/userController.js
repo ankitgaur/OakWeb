@@ -31,6 +31,19 @@ oakHomeApp
 												});
 							}
 
+							$scope.forgotPassword= function(email){
+								userFactory
+								.forgotPassword(email)
+								.then(
+										function success(response) {
+											
+										},
+										function error(response) {
+											
+													
+										});
+							}
+							
 							$scope.logout= function(){
 								location.reload();
 							}

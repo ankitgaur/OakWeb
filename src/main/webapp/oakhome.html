@@ -216,7 +216,7 @@
 
 	<!-- Forgot-Pass popup -->
 	<div class="modal fade" id="Forgetpass" tabindex="-1" role="dialog"
-		aria-labelledby="myModalLabel">
+		aria-labelledby="myModalLabel" ng-controller="userCtrl">
 		<div class="modal-dialog modal-sm" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -232,12 +232,12 @@
 						<div class="row">
 							<div class="form-group col-xs-12">
 								<label for="exampleInputEmail1">Enter Email ID</label> <input
-									type="text" class="form-control" placeholder="Enter Email ID ">
+									type="text" class="form-control" placeholder="Enter Email ID " ng-model="fp.email">
 							</div>
 						</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-warning pull-left">
+					<button type="button" ng-click="forgotPassword(fp.email)" class="btn btn-warning pull-left" data-dismiss="modal">
 						Submit <span aria-hidden="true"
 							class="glyphicon glyphicon-triangle-right"></span>
 					</button>

@@ -32,23 +32,16 @@ oakHomeApp
 								
 							oakHomeFactory.createTopic = function(
 									forumTopicData) {
-								var url = AppConfig.appUrl + 'forum_topics';
-								var req = {
-									method : 'POST',
-									url : url,
-									data : forumTopicData
-								}
-
-								return $http(req)
-										.then(
-												function success(response) {
-													$log
-															.debug('forumTopic created successfully ');
-												},
-												function error(response) {
-													$log
-															.debug('There is some issue while getting data from rest service');
-												});
+								var url = AppConfig.appUrl+'forum_topics';
+								return $http.post(url, forumTopicData, {
+							          transformRequest: angular.identity,
+							          headers: {'Content-Type': undefined}
+							       }).then(function success(response) {
+									   return response.data;
+									   showSuccessAlert('Forum Topic was created.');
+									},function error(response) {
+										showErrorAlert('There was some issue while creating Forum Topic. Please contact your System Administrator.');
+								});
 							}
 							
 							oakHomeFactory.deleteTopicByID = function(forumTopicID){
@@ -101,22 +94,20 @@ oakHomeApp
 							
 							};
 							
-							oakHomeFactory.createBlogPost = function(blogData) {
+							oakHomeFactory.createBlogPost = function(bdata) {
 								var url = AppConfig.appUrl + 'blog_entries';
-								var req = {
-									method : 'POST',
-									url : url,
-									data : blogData
-								}
-
-								return $http(req)
-										.then(
-												function success(response) {
-													showSuccessAlert("Blog Post was created successfully.");
-												},
-												function error(response) {
-													showErrorAlert('There were some issues while creating your blog post. Please contact your System Administrator');
-												});
+								$http.post(url, bdata, {
+					                  transformRequest: angular.identity,
+					                  headers: {'Content-Type': undefined}
+					               })
+					            
+					               .success(function(){
+					            	   showSuccessAlert("Blog Post was created successfully.");	
+					               })
+					            
+					               .error(function(){
+					            	   showErrorAlert('There were some issues while creating your blog post. Please contact your System Administrator');
+					               });
 							};
 
 							oakHomeFactory.getPostsForTopic = function(id) {

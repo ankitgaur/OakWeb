@@ -47,22 +47,21 @@ blogEntriesFactory.deleteBlogByID = function(blogID){
   
 }
 
-
-blogEntriesFactory.createBlogs = function(blogData){
-	    console.log(AppConfig.key);
-		var url = AppConfig.appUrl+'blog_entries';
-		var req = {
-				method: 'POST',
-				url: url,
-				data:blogData
-			}
-
-	return $http(req).then(function success(response) {
-			$log.debug('blog entry created successfully ');			
-		},function error(response) {
-		$log.debug('There is some issue while getting data from rest service');
-	});	
-}
+blogEntriesFactory.createBlogs = function(bdata) {
+	var url = AppConfig.appUrl + 'blog_entries';
+	$http.post(url, bdata, {
+          transformRequest: angular.identity,
+          headers: {'Content-Type': undefined}
+       })
+    
+       .success(function(){
+    	   showSuccessAlert("Blog Post was created successfully.");	
+       })
+    
+       .error(function(){
+    	   showErrorAlert('There were some issues while creating your blog post. Please contact your System Administrator');
+       });
+};
 
 blogEntriesFactory.updateBlogs = function(blogData,blogID){
 		var url = AppConfig.appUrl+'blog_entries';
