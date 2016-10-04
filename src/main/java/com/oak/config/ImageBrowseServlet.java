@@ -26,7 +26,7 @@ public class ImageBrowseServlet  extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		String url = "http://dev.insodel.com:6767/images";
+		String url = "http://www.ipledge2nigeria.com/service/images";
 
 		String funcNum = request.getParameter("CKEditorFuncNum");
 		
@@ -76,7 +76,7 @@ public class ImageBrowseServlet  extends HttpServlet{
 		htmlBuilder.append("</script></head><body>");
 		
 		for(Image img : images){
-			String imgurl = "http://dev.insodel.com:6767/image/"+img.getId();
+			String imgurl = "http://www.ipledge2nigeria.com/service/image/"+img.getId();
 			htmlBuilder.append("<div><a onclick='returnFileUrl(\""+imgurl+"\")'><figure><img src='"+imgurl+"' style='width: 300px;'></figure></a></div>");
 			
 		}

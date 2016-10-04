@@ -1,4 +1,4 @@
 var AppConfig = {
-	appUrl : 'http://dev.insodel.com:6767/'
+	appUrl : 'service/'
 	//appUrl : 'http://localhost:6767/'
 };

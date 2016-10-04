@@ -46,7 +46,7 @@ public class ImageUploadServlet extends HttpServlet{
 		}
 		
 		System.out.println("Inside");
-		String url = "http://dev.insodel.com:6767/ckimages/blogs";
+		String url = "http://www.ipledge2nigeria.com/service/ckimages/blogs";
 		
 		
 		String ctype = request.getHeader("Content-Type");
