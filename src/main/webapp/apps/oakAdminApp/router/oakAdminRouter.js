@@ -95,7 +95,34 @@ oakAdminApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
 			  
            }
     })
-	
+	.state('groups', {
+        url: '/groups',
+        views: {
+               'body': {
+				   
+				   templateUrl: function ($stateParams) {
+                      return  'partial_views/groups/listGroups.html';
+                   },
+					
+				    controller: 'groupsCtrl',
+				}
+			  
+           }
+    })
+    .state('roles', {
+        url: '/roles',
+        views: {
+               'body': {
+				   
+				   templateUrl: function ($stateParams) {
+                      return  'partial_views/roles/listRoles.html';
+                   },
+					
+				    controller: 'rolesCtrl',
+				}
+			  
+           }
+    })
 	.state('blogEntry', {
         url: '/blogEntries',
         views: {

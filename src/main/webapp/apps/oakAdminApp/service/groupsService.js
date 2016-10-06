@@ -1,9 +1,9 @@
-oakAdminApp.factory('userFactory',['$http','$log',function($http,$log){
+oakAdminApp.factory('groupFactory',['$http','$log',function($http,$log){
 	
-var userFactory = {};
+var groupFactory = {};
 
-userFactory.getUsers = function(){
-	  var url = AppConfig.appUrl+'users';
+groupFactory.getGroups = function(){
+	  var url = AppConfig.appUrl+'groups';
 	return $http({
 		  method: 'GET',
 		  url: url,
@@ -16,9 +16,9 @@ userFactory.getUsers = function(){
   
 }
 
-userFactory.getUserByID = function(userID){
-	  var url = AppConfig.appUrl+'users';
-	  url = url+"/"+userID;
+groupFactory.getGroupByID = function(groupID){
+	  var url = AppConfig.appUrl+'groups';
+	  url = url+"/"+groupID;
 	return $http({
 		  method: 'GET',
 		  url: url,
@@ -31,9 +31,9 @@ userFactory.getUserByID = function(userID){
   
 }
 
-userFactory.deleteUserByID = function(userID){
-	  var url = AppConfig.appUrl+'users';
-	  url = url+"/"+userID;
+groupFactory.deleteGroupByID = function(groupID){
+	  var url = AppConfig.appUrl+'groups';
+	  url = url+"/"+groupID;
 	return $http({
 		  method: 'DELETE',
 		  url: url,
@@ -48,16 +48,16 @@ userFactory.deleteUserByID = function(userID){
 }
 
 
-userFactory.createUsers = function(userData){
-		var url = AppConfig.appUrl+'usersadmin';
+groupFactory.createGroups = function(groupData){
+		var url = AppConfig.appUrl+'groups';
 		var req = {
 				method: 'POST',
 				url: url,
-				data:userData
+				data:groupData
 			}
 
 	return $http(req).then(function success(response) {
-			$log.debug('user created successfully ');			
+			$log.debug('group created successfully ');			
 		},function error(response) {
 		$log.debug('There is some issue while getting data from rest service');
 	});
@@ -65,17 +65,17 @@ userFactory.createUsers = function(userData){
 	
 }
 
-userFactory.updateUsers = function(userData,userID){
-		var url = AppConfig.appUrl+'users';
-		url = url+"/"+userID;
+groupFactory.updateGroups = function(groupData,groupID){
+		var url = AppConfig.appUrl+'groups';
+		url = url+"/"+groupID;
 		var req = {
 				method: 'PUT',
 				url: url,
-				data:userData
+				data:groupData
 		   }
 	
 	return $http(req).then(function success(response) {
-			$log.debug('user updated successfully ');
+			$log.debug('group updated successfully ');
 		},function error(response) {
 		$log.debug('There is some issue while getting data from rest service');
 	});
@@ -83,6 +83,6 @@ userFactory.updateUsers = function(userData,userID){
 	
 }
 
-	return userFactory;
+	return groupFactory;
 
 }]);

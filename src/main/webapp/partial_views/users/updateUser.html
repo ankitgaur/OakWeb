@@ -1,118 +1,92 @@
 
-	<div class="modal-dialog">
+<div class="modal-dialog">
 
-		<!-- Modal content-->
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal">&times;</button>				
-				<h4 class="modal-title">Update User</h4>
-			</div>
-			<div class="modal-body">
-				<form novalidate class="form-horizontal"
-					name="userCreateForm">
-					<div class="form-group col-sm-12">					
-						<label class="control-label" for="email">Email:</label>
+	<!-- Modal content-->
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">&times;</button>
+			<h4 class="modal-title">Update User</h4>
+		</div>
+		<div class="modal-body">
+			<form novalidate class="form-horizontal" name="userCreateForm">
+				<div class="form-group col-sm-12">
+					<label class="control-label" for="email">Email:</label>
 
-						<div>											
-							<input ng-disabled="user.email" class="form-control" type="text" id="email"
-								ng-model="user.email" placeholder="Email" />
-						</div>
+					<div>
+						<input ng-disabled="user.email" class="form-control" type="text"
+							id="email" ng-model="user.email" placeholder="Email" />
 					</div>
-					
-					<div class="form-group col-sm-12">
-						<label class="control-label" for="name">Name:</label>
+				</div>
 
-						<div>
-							<input class="form-control" type="text" id="name"
-								ng-model="user.name" placeholder="Name" />
-						</div>
+				<div class="form-group col-sm-12">
+					<label class="control-label" for="name">Name:</label>
+
+					<div>
+						<input class="form-control" type="text" id="name"
+							ng-model="user.name" placeholder="Name" />
 					</div>
-					
-					<div class="form-group col-sm-12">
-						<label class="control-label" for="username">Username:</label>
+				</div>
 
-						<div>
-							<input class="form-control" type="text" id="username"
-								ng-model="user.username" placeholder="Username" />
-						</div>
+				<div class="form-group col-sm-12">
+					<label class="control-label" for="username">Username:</label>
+
+					<div>
+						<input class="form-control" type="text" id="username"
+							ng-model="user.username" placeholder="Username" />
 					</div>
-					
-					<div class="form-group col-sm-12">
-						<label class="control-label" for="password">Password:</label>
+				</div>
 
-						<div>
-							<input class="form-control" type="text" id="password"
-								ng-model="user.password" placeholder="Password" />
-						</div>
+				<div class="form-group col-sm-12">
+					<label class="control-label" for="password">Password:</label>
+
+					<div>
+						<input class="form-control" type="text" id="password"
+							ng-model="user.password" placeholder="Password" />
 					</div>
-					
-					<div class="form-group col-sm-12">
-						<label class="control-label" for="groups">Groups:</label>
+				</div>
 
-						<div>
-							<input class="form-control" type="text" id="groups"
-								ng-model="user.groups" placeholder="Groups" />
-						</div>
+				<div class="form-group col-sm-12">
+
+
+					<div>
+
+						<label class="form-control"><input type="checkbox"
+							id="activated" ng-checked="user.activated"
+							placeholder="Activated" /> Activated?</label>
 					</div>
+				</div>
 
-					<div class="form-group col-sm-12">
-						<label class="control-label" for="activated">Activated:</label>
-
-						<div>
-							<input class="form-control" type="text" id="activated"
-								ng-model="user.activated" placeholder="Activated" />
-						</div>
-					</div>
-					
-					<div class="form-group col-sm-12">
-						<label class="control-label" for="forgotpassword">Forgot Password:</label>
-
-						<div>
-							<input class="form-control" type="text" id="forgotpassword"
-								ng-model="user.forgotpassword" placeholder="ForgotPassword" />
-						</div>
-					</div>
-					
-					<div class="form-group col-sm-12">
-						<label class="control-label" for="sendemail">Send Email:</label>
-
-						<div>
-							<input class="form-control" type="text" id="sendemail"
-								ng-model="user.sendemail" placeholder="SendEmail" />
-						</div>
+				<div class="form-group col-sm-12">
+					<label class="control-label">Groups:</label>
+					<div>
+						<label class="checkbox-inline" data-ng-repeat="group in groups">
+							<input type="checkbox" ng-checked="userGroups.{{group.name}}" value="{{group.name}}" name="groups[]">{{group.name}}
+						</label>
 					</div>
 
-					<div class="form-group col-sm-12">
-						<label class="control-label" for="createdBy">Created By:</label>
+				</div>
 
-						<div>
-							<input class="form-control" type="text" id="createdby"
-								ng-model="user.createdby" placeholder="Created By" />
-						</div>
-					</div>
 
-					<div class="form-group col-sm-12">
-						<label class="control-label" for="updatedby">Updated By:</label>
 
-						<div>
-							<input class="form-control" type="text" id="updatedBy"
-								ng-model="user.updatedby" placeholder="Updated By" />
-						</div>
-					</div>
+				<div class="row"></div>
 
-					<div class="row">					
+			</form>
+		</div>
+		<div class="modal-footer">
+			<button type="button" ng-click="resetForm(user)"
+				class="btn btn-default" data-dismiss="modal">Close</button>
+			<button ng-click="resetForm(user)" type="button"
+				class="btn btn-default">Reset</button>
 
-					</div>
+			<button ng-if="user.email" ng-click="updateUser(user.email,user)"
+				type="button" class="btn btn-primary">Update</button>
 
-				</form>
-			</div>
-			<div class="modal-footer">
-				<button type="button"ng-click="resetForm(user)" class="btn btn-default" data-dismiss="modal">Close</button>
-				<button ng-click="resetForm(user)" type="button" class="btn btn-default">Reset</button>
-							
-				<button ng-if="user.email"	ng-click="updateUser(user.email,user)" type="button" class="btn btn-primary">Update</button>
-				
-			</div>
 		</div>
 
+
 	</div>
+
+</div>
+<script>
+	$("#activated").prop("checked", true);
+</script>

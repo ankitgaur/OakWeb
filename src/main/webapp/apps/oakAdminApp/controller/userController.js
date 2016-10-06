@@ -1,13 +1,12 @@
-oakAdminApp.controller('userCtrl',['$scope','$http','$stateParams','$log','userFactory', function($scope,$http,$stateParams,$log,userFactory) {
+oakAdminApp.controller('userCtrl',['$scope','$http','$stateParams','$log','userFactory','groupFactory', function($scope,$http,$stateParams,$log,userFactory,groupFactory) {
 	$scope.users  = [];
 	$scope.currentPage = 1;	
 	$scope.pageSize = 10;
 	$scope.userId = $stateParams.userID;
-  if($scope.userId !="" && $scope.userId !=undefined && $scope.userId !='undefined'){
-	 getUserByID($scope.userId); 
-  }else{
-	  getAllUsers();
-  }
+ 
+  getAllGroups();	
+  getAllUsers();
+  
   $scope.pageChangeHandler = function(num) {
 	    console.log('going to page ' + num);
 	  };
@@ -18,6 +17,16 @@ oakAdminApp.controller('userCtrl',['$scope','$http','$stateParams','$log','userF
 		setTimeout(function () {
 				$scope.$apply(function () {
 				$scope.user = response;
+				
+				userGroups = {};
+				if(response.groups){
+					groups = response.groups.split(",");
+					for(i=0;i<groups.length;i++){
+						userGroups[groups[i].trim()] = true;
+					}
+				}
+				
+				$scope["userGroups"]=userGroups;
 		});
 		}, 0);
 		
@@ -27,7 +36,15 @@ oakAdminApp.controller('userCtrl',['$scope','$http','$stateParams','$log','userF
 }
 	
 	$scope.createUser = function(userFormObj){
-		userFactory.createUsers(this.user)
+		groups="";
+		$( "input[name='groups[]']:checked" ).each(function() {
+			  groups= groups + $( this ).val()+", ";
+		});
+		groups = groups.slice(0,-2);
+		
+		userFormObj.groups = groups;
+		
+		userFactory.createUsers(userFormObj)
 				.then(function success(response) {
 									
 					getAllUsers();
@@ -39,7 +56,23 @@ oakAdminApp.controller('userCtrl',['$scope','$http','$stateParams','$log','userF
 	}
 	$scope.updateUser = function(email,userFormObj){
 		var userID = email;
-		userFactory.updateUsers($scope.user,userID)
+		
+		if($('#activated').is(':checked')) { 
+			userFormObj.activated = true;
+		}
+		else{
+			userFormObj.activated = false;
+		}
+		
+		groups="";
+		$( "input[name='groups[]']:checked" ).each(function() {
+			  groups= groups + $( this ).val()+", ";
+		});
+		groups = groups.slice(0,-2);
+		
+		userFormObj.groups = groups;
+		
+		userFactory.updateUsers(userFormObj,userID)
 				.then(function successCallback(response) {
 					getAllUsers();
 					clearUserForm(userFormObj);				
@@ -82,6 +115,7 @@ oakAdminApp.controller('userCtrl',['$scope','$http','$stateParams','$log','userF
 		setTimeout(function () {
 				$scope.$apply(function () {
 				$scope.user = response;
+				
 		});
 		}, 0);
 		
@@ -101,6 +135,20 @@ oakAdminApp.controller('userCtrl',['$scope','$http','$stateParams','$log','userF
 			
 	  }, function error(response) {
 			$log.debug('There is some issue while getting users from rest service');
+	  });
+	}
+	
+	function getAllGroups(){
+		
+		groupFactory.getGroups().then(function success(response) {
+			setTimeout(function () {
+					$scope.$apply(function () {
+					$scope.groups = response;
+			});
+			}, 0);
+			
+	  }, function error(response) {
+			$log.debug('There is some issue while getting groups from rest service');
 	  });
 	}
 

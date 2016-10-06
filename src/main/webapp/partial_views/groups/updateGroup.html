@@ -1,0 +1,49 @@
+
+<div class="modal-dialog">
+
+	<!-- Modal content-->
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">&times;</button>
+			<h4 class="modal-title">Update Group</h4>
+		</div>
+		<div class="modal-body">
+			<form novalidate class="form-horizontal" name="groupUpdateForm">
+
+				<div class="form-group col-sm-12">
+					<label class="control-label" for="name">Name:</label>
+
+					<div>
+						<input class="form-control" type="text" id="name"
+							ng-model="group.name" placeholder="Name" />
+					</div>
+				</div>
+
+				<div class="form-group col-sm-12">
+					<label class="control-label">Roles:</label>
+					<div>
+					<label class="checkbox-inline" data-ng-repeat="role in roles"> <input type="checkbox"
+						ng-checked="groupRoles.{{role.name}}" value="{{role.name}}" name="roles[]">{{role.name}}
+					</label>
+					</div>
+
+				</div>
+
+				<div class="row"></div>
+
+			</form>
+		</div>
+		<div class="modal-footer">
+			<button type="button" ng-click="resetForm(group)"
+				class="btn btn-default" data-dismiss="modal">Close</button>
+			<button ng-click="resetForm(group)" type="button"
+				class="btn btn-default">Reset</button>
+
+
+			<button ng-click="updateGroup(group,group.name)" type="button"
+				class="btn btn-primary" data-dismiss="modal">Save</button>
+
+		</div>
+	</div>
+
+</div>

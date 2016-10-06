@@ -1,9 +1,9 @@
-oakAdminApp.factory('userFactory',['$http','$log',function($http,$log){
+oakAdminApp.factory('roleFactory',['$http','$log',function($http,$log){
 	
-var userFactory = {};
+var roleFactory = {};
 
-userFactory.getUsers = function(){
-	  var url = AppConfig.appUrl+'users';
+roleFactory.getRoles = function(){
+	  var url = AppConfig.appUrl+'roles';
 	return $http({
 		  method: 'GET',
 		  url: url,
@@ -16,9 +16,9 @@ userFactory.getUsers = function(){
   
 }
 
-userFactory.getUserByID = function(userID){
-	  var url = AppConfig.appUrl+'users';
-	  url = url+"/"+userID;
+roleFactory.getRoleByID = function(roleID){
+	  var url = AppConfig.appUrl+'roles';
+	  url = url+"/"+roleID;
 	return $http({
 		  method: 'GET',
 		  url: url,
@@ -31,9 +31,9 @@ userFactory.getUserByID = function(userID){
   
 }
 
-userFactory.deleteUserByID = function(userID){
-	  var url = AppConfig.appUrl+'users';
-	  url = url+"/"+userID;
+roleFactory.deleteRoleByID = function(roleID){
+	  var url = AppConfig.appUrl+'roles';
+	  url = url+"/"+roleID;
 	return $http({
 		  method: 'DELETE',
 		  url: url,
@@ -48,16 +48,16 @@ userFactory.deleteUserByID = function(userID){
 }
 
 
-userFactory.createUsers = function(userData){
-		var url = AppConfig.appUrl+'usersadmin';
+roleFactory.createRoles = function(roleData){
+		var url = AppConfig.appUrl+'roles';
 		var req = {
 				method: 'POST',
 				url: url,
-				data:userData
+				data:roleData
 			}
 
 	return $http(req).then(function success(response) {
-			$log.debug('user created successfully ');			
+			$log.debug('role created successfully ');			
 		},function error(response) {
 		$log.debug('There is some issue while getting data from rest service');
 	});
@@ -65,17 +65,17 @@ userFactory.createUsers = function(userData){
 	
 }
 
-userFactory.updateUsers = function(userData,userID){
-		var url = AppConfig.appUrl+'users';
-		url = url+"/"+userID;
+roleFactory.updateRoles = function(roleData,roleID){
+		var url = AppConfig.appUrl+'roles';
+		url = url+"/"+roleID;
 		var req = {
 				method: 'PUT',
 				url: url,
-				data:userData
+				data:roleData
 		   }
 	
 	return $http(req).then(function success(response) {
-			$log.debug('user updated successfully ');
+			$log.debug('role updated successfully ');
 		},function error(response) {
 		$log.debug('There is some issue while getting data from rest service');
 	});
@@ -83,6 +83,6 @@ userFactory.updateUsers = function(userData,userID){
 	
 }
 
-	return userFactory;
+	return roleFactory;
 
 }]);

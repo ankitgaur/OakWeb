@@ -1,0 +1,43 @@
+<div class="container admin-content"><dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" 
+											template-url="dirPagination.tpl.html"></dir-pagination-controls>
+
+	<table class="poctable table table-striped table-bordered">
+		<h1>Roles</h1>
+		<thead>
+			<tr>
+				<th style="width: 20px;"></th>
+				<!-- select checkbox -->
+				<th>Name</th>
+				<th>Created By</th>
+				<th>Updated By</th>
+				<th>Created On</th>
+				<th>Updated On</th>
+								
+				<th>Remove</th>
+
+			</tr>
+		</thead>
+		<tbody>
+
+			<tr dir-paginate="role in roles | itemsPerPage: pageSize" current-page="currentPage">
+				<td style="width: 20px;"><input id="selectRow" type="checkbox" /></td>
+				<td>{{role.name}}</td>
+				<td>{{role.createdby}}</td>
+				<td>{{role.updatedby}}</td>
+				<td>{{role.createdOnStr}}</td>
+				<td>{{role.updateOnStr}}</td>
+				<td><a style="cursor: pointer;"
+					ng-click="deleteRole(role.name)"><i
+						class="glyphicon glyphicon-minus"></i></a></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<a data-toggle="modal" data-target="#createRoleModal"><i
+		class="glyphicon glyphicon-plus"></i></a>
+
+</div>
+
+<div id="createRoleModal" class="modal fade" role="dialog">
+	<div ng-include = "'partial_views/roles/createRole.html'"></div>
+</div>

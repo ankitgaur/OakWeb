@@ -1,0 +1,53 @@
+<div class="container admin-content"><dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" 
+											template-url="dirPagination.tpl.html"></dir-pagination-controls>
+
+	<table class="poctable table table-striped table-bordered">
+		<h1>Groups</h1>
+		<thead>
+			<tr>
+				<th style="width: 20px;"></th>
+				<!-- select checkbox -->
+				<th style="width: 20px;"></th>
+				<!-- edit -->
+				<th>Name</th>
+				<th>Roles</th>
+				<th>Created By</th>
+				<th>Updated By</th>
+				<th>Created On</th>
+				<th>Updated On</th>
+								
+				<th>Remove</th>
+
+			</tr>
+		</thead>
+		<tbody>
+
+			<tr dir-paginate="group in groups | itemsPerPage: pageSize" current-page="currentPage">
+				<td style="width: 20px;"><input id="selectRow" type="checkbox" /></td>
+				<td style="width: 20px;cursor: pointer;"><a data-toggle="modal" data-target="#updateGroupModal" ng-click="getGroupByID(group.name);"><i
+						class="glyphicon glyphicon-pencil"></i></a></td>
+				<td>{{group.name}}</td>
+				<td>{{group.roles}}</td>
+				<td>{{group.createdby}}</td>
+				<td>{{group.updatedby}}</td>
+				<td>{{group.createdOnStr}}</td>
+				<td>{{group.updateOnStr}}</td>
+				<td><a style="cursor: pointer;"
+					ng-click="deleteGroup(group.name)"><i
+						class="glyphicon glyphicon-minus"></i></a></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<a data-toggle="modal" data-target="#createGroupModal"><i
+		class="glyphicon glyphicon-plus"></i></a>
+
+</div>
+
+<div id="createGroupModal" class="modal fade" role="dialog">
+	<div ng-include = "'partial_views/groups/createGroup.html'"></div>
+</div>
+<div id="updateGroupModal" class="modal fade" role="dialog">
+	<div ng-include = "'partial_views/groups/updateGroup.html'"></div>
+</div>
+
