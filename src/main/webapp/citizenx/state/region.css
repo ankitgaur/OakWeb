@@ -1,0 +1,16 @@
+table{
+    width:96%;
+}
+.dashboard td{
+	padding: 5px;
+    background-color: steelblue;
+    color: white;
+}
+.dashboard td a {	
+    text-decoration: none;
+    color: white;
+}
+.dashboard td a:hover{	
+    text-decoration: none;
+    color: white;
+}
