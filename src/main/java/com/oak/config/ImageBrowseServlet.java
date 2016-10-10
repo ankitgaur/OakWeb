@@ -26,8 +26,12 @@ public class ImageBrowseServlet  extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		String url = "http://www.ipledge2nigeria.com/service/images";
-
+		
+		
+		String fullurl = request.getRequestURL().toString();
+		
+		String url = fullurl.substring(0,fullurl.lastIndexOf("/"))+"/service/images";
+		
 		String funcNum = request.getParameter("CKEditorFuncNum");
 		
 		URL obj = new URL(url);
@@ -75,8 +79,10 @@ public class ImageBrowseServlet  extends HttpServlet{
 		htmlBuilder.append("; window.opener.CKEDITOR.tools.callFunction( funcNum, fileUrl ); window.close();}");
 		htmlBuilder.append("</script></head><body>");
 		
+		String imgurl = fullurl.substring(0,fullurl.lastIndexOf("/"))+"/service/image/";
+		
 		for(Image img : images){
-			String imgurl = "http://www.ipledge2nigeria.com/service/image/"+img.getId();
+			String thisimgurl = imgurl+img.getId();
 			htmlBuilder.append("<div><a onclick='returnFileUrl(\""+imgurl+"\")'><figure><img src='"+imgurl+"' style='width: 300px;'></figure></a></div>");
 			
 		}

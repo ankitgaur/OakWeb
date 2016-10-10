@@ -46,8 +46,11 @@ public class ImageUploadServlet extends HttpServlet{
 		}
 		
 		System.out.println("Inside");
-		String url = "http://www.ipledge2nigeria.com/service/ckimages/blogs";
+		String fullurl = request.getRequestURL().toString();
 		
+		//String url = fullurl.substring(0,fullurl.lastIndexOf("/"))+"/service/ckimages/blogs";
+		
+		String url = "http://localhost:6767/ckimages/blogs";
 		
 		String ctype = request.getHeader("Content-Type");
 		
