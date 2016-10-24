@@ -15,7 +15,10 @@ oakHomeApp
 								var req = {
 									method : 'POST',
 									url : url,
-									data : ForumPostData
+									data : ForumPostData,
+									headers : {
+										Authorization : 'Basic ' + AppConfig.key
+									}
 								}
 
 								return $http(req)
@@ -35,7 +38,10 @@ oakHomeApp
 								var url = AppConfig.appUrl+'forum_topics';
 								return $http.post(url, forumTopicData, {
 							          transformRequest: angular.identity,
-							          headers: {'Content-Type': undefined}
+							          headers: {
+							        	  Authorization : 'Basic ' + AppConfig.key,
+							        	  'Content-Type': undefined }
+							          
 							       }).then(function success(response) {
 									   return response.data;
 									   showSuccessAlert('Forum Topic was created.');
@@ -50,7 +56,10 @@ oakHomeApp
 								return $http({
 									  method: 'DELETE',
 									  url: url,
-									  crossDomain:true
+									  crossDomain:true,
+									  headers : {
+											Authorization : 'Basic ' + AppConfig.key
+										}
 									  
 								 }).then(function successCallback(response) {
 									 return response.data;
@@ -66,7 +75,10 @@ oakHomeApp
 								return $http({
 									  method: 'DELETE',
 									  url: url,
-									  crossDomain:true
+									  crossDomain:true,
+										headers : {
+											Authorization : 'Basic ' + AppConfig.key
+										}
 									  
 								 }).then(function successCallback(response) {
 									 return response.data;
@@ -81,7 +93,10 @@ oakHomeApp
 						  
 							$http.post(url, bdata, {
 				                  transformRequest: angular.identity,
-				                  headers: {'Content-Type': undefined}
+						          headers: {
+						        	  Authorization : 'Basic ' + AppConfig.key,
+						        	  'Content-Type': undefined }
+						          
 				               })
 				            
 				               .success(function(){
@@ -98,7 +113,9 @@ oakHomeApp
 								var url = AppConfig.appUrl + 'blog_entries';
 								$http.post(url, bdata, {
 					                  transformRequest: angular.identity,
-					                  headers: {'Content-Type': undefined}
+					                  headers: {
+							        	  Authorization : 'Basic ' + AppConfig.key,
+							        	  'Content-Type': undefined }
 					               })
 					            
 					               .success(function(){
@@ -301,7 +318,10 @@ oakHomeApp
 								return $http({
 									method : 'GET',
 									url : url,
-									crossDomain : true
+									crossDomain : true,
+									headers : {
+										Authorization : 'Basic ' + AppConfig.key
+									}
 								})
 										.then(
 												function successCallback(
@@ -470,6 +490,38 @@ oakHomeApp
 												});
 
 							};
+							
+							oakHomeFactory.createArticles = function(articleData){
+								var url = AppConfig.appUrl+'articles';
+								return $http.post(url, articleData, {
+							          transformRequest: angular.identity,
+							          headers: {
+							        	  Authorization : 'Basic ' + AppConfig.key,
+							        	  'Content-Type': undefined }
+							       }).then(function success(response) {
+							    	   showSuccessAlert("Article created successfully.");
+							    	   return response.data;
+									   
+									},function error(response) {
+										showErrorAlert("Article could not be created.Please contact the System Administrator.");
+								});
+						  
+							
+						    };
+						    
+						    oakHomeFactory.getArticleCategories = function(){
+						  	  var url = AppConfig.appUrl+'article_categories';
+						  	return $http({
+						  		  method: 'GET',
+						  		  url: url,
+						  		  crossDomain:true
+						  		 }).then(function successCallback(response) {
+						  			 return response.data;
+						  	  }, function errorCallback(response) {
+						  			$log.debug('There is some issue while getting article category from rest service');
+						  	  }); 
+						    
+						  };
 
 							oakHomeFactory.getBlogPostByID = function(
 									blogPostID) {

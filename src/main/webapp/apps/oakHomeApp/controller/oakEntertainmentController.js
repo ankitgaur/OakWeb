@@ -12,11 +12,12 @@ oakHomeApp
 						function($scope, $rootScope, $http, $stateParams, $log,
 								oakHomeFactory) {
 
-							getEntertainmentFooter(); // news
-							getEntertainmentSlider(); // news
-							getPopularEntertainment(); // news
-							getLatestEntertainment(); // news
-							getEntertainmentSpotLight(); // news
+							getEntertainmentFooter(); // entertainment
+							getEntertainmentSlider(); // entertainment
+							getPopularEntertainment(); // entertainment
+							getLatestEntertainment(); // entertainment
+							getEntertainmentSpotLight(); // entertainment
+							getCategories();
 
 							function getEntertainmentFooter() {
 								$scope.footerbox1_title = "Nollywood";
@@ -249,7 +250,27 @@ oakHomeApp
 												});
 							}
 							
+							function clearArticleForm(articleFormObj){
+								articleFormObj.category=null;
+								articleFormObj.title=null;
+								articleFormObj.displayImage=null;
+								CKEDITOR.instances.editor1.setData("Enter Text");
 							
+							}
+							
+							function getCategories(){
+								oakHomeFactory.getArticleCategories().then(function success(response) {
+									setTimeout(function () {
+											$scope.$apply(function () {						
+											$scope.articleCategories = response;
+											  
+									});
+									}, 0);
+									
+							  }, function error(response) {
+									$log.debug('There is some issue while getting articleCategories from rest service');
+							  });
+							}
 							
 							$scope.openModelPopup = function(link) {
 								oakHomeFactory
@@ -303,6 +324,36 @@ oakHomeApp
 															.debug('There is some issue while getting topmid from rest service');
 												});
 
+							}
+							
+							$scope.resetForm = function(articleFormObj){
+								clearArticleForm(articleFormObj);
+							}
+							
+							$scope.createArticle = function(articleFormObj){
+								
+								var file =  $("#displayImage").get(0).files[0];
+								var bdata = new FormData();
+								
+								bdata.append('category',articleFormObj.category);
+								bdata.append('title',articleFormObj.title);
+								bdata.append('intro',articleFormObj.intro);
+								bdata.append('displayImage', file);
+								bdata.append('content', CKEDITOR.instances.editor1.getData());
+								
+								oakHomeFactory.createArticles(bdata)
+										.then(function success(response) {
+															
+											getEntertainmentFooter(); // entertainment
+											getEntertainmentSlider(); // entertainment
+											getPopularEntertainment(); // entertainment
+											getLatestEntertainment(); // entertainment
+											getEntertainmentSpotLight(); // entertainment
+											clearArticleForm(articleFormObj);
+											$('#createArticleModal').modal('hide');
+										}, function error(response) {
+								 $log.debug('There is some issue while creating  article ');
+							  }); 
 							}
 							
 							

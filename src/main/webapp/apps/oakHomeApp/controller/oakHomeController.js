@@ -113,23 +113,23 @@ oakHomeApp
 							function getVideos() {
 
 								oakHomeFactory
-										.getVideoList()
-										.then(
-												function success(response) {
+								.getPlacement('home_videos')
+								.then(
+										function success(response) {
 
-													setTimeout(
-															function() {
-																$scope
-																		.$apply(function() {
-																			$scope.videos = response;
-																		});
-															}, 0);
+											setTimeout(
+													function() {
+														$scope
+																.$apply(function() {
+																	$scope.videos = response;
+																});
+													}, 0);
 
-												},
-												function error(response) {
-													$log
-															.debug('There is some issue while getting topmid from rest service');
-												});
+										},
+										function error(response) {
+											$log
+													.debug('There is some issue while getting videos from rest service');
+										});
 							}
 							
 							function getHomeAds() {

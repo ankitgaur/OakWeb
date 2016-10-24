@@ -83,7 +83,7 @@ oakAdminApp.controller('articleCtrl',['$scope','$http','$stateParams','$log','ar
 			articleFormObj.category=null;
 			articleFormObj.title=null;
 			articleFormObj.displayImage=null;
-			CKEDITOR.instances.editor2.setData("Enter Text");
+			CKEDITOR.instances.editor1.setData("Enter Text");
 		
 	}
 	

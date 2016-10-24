@@ -18,6 +18,7 @@ oakHomeApp
 							getPopularNews(); // news
 							getLatestNews(); // news
 							getNewsSpotLight(); // news
+							getCategories();
 
 							function getNewsFooter() {
 								$scope.footerbox1_title = "Headlines";
@@ -247,6 +248,28 @@ oakHomeApp
 												});
 							}
 							
+							function clearArticleForm(articleFormObj){
+								articleFormObj.category=null;
+								articleFormObj.title=null;
+								articleFormObj.displayImage=null;
+								CKEDITOR.instances.editor1.setData("Enter Text");
+							
+							}
+							
+							function getCategories(){
+								oakHomeFactory.getArticleCategories().then(function success(response) {
+									setTimeout(function () {
+											$scope.$apply(function () {						
+											$scope.articleCategories = response;
+											  
+									});
+									}, 0);
+									
+							  }, function error(response) {
+									$log.debug('There is some issue while getting articleCategories from rest service');
+							  });
+							}
+							
 							$scope.openArticlePopup = function(link) {
 								oakHomeFactory
 										.getArticle(link)
@@ -306,7 +329,44 @@ oakHomeApp
 												});
 
 							}
+							
+							/*$scope.sendToServer = function(){
+								alert('test');
+								
+							}*/
+							
+							$scope.resetForm = function(articleFormObj){
+								clearArticleForm(articleFormObj);
+							}
+							
+							$scope.createArticle = function(articleFormObj){
+								
+								var file =  $("#displayImage").get(0).files[0];
+								var bdata = new FormData();
+								
+								bdata.append('category',articleFormObj.category);
+								bdata.append('title',articleFormObj.title);
+								bdata.append('intro',articleFormObj.intro);
+								bdata.append('displayImage', file);
+								bdata.append('content', CKEDITOR.instances.editor1.getData());
+								
+								oakHomeFactory.createArticles(bdata)
+										.then(function success(response) {
+															
+											getNewsFooter(); // news
+											getNewsSlider(); // news
+											getPopularNews(); // news
+											getLatestNews(); // news
+											getNewsSpotLight(); // news
+											clearArticleForm(articleFormObj);
+											$('#createArticleModal').modal('hide');
+										}, function error(response) {
+								 $log.debug('There is some issue while creating  article ');
+							  }); 
+							}
 
 						} ]);
+
+						
 
 /* News Controller Ends */

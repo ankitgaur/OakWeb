@@ -60,6 +60,10 @@ oakHomeApp
 																	$scope
 																			.$apply(function() {
 																				$rootScope.userName = response.name;	
+																				if(response.groups.includes("admin") || response.groups.includes('author')){
+																					$rootScope.author = response.name;
+																				}
+																				
 																				$state.reload();
 																			});
 																}, 0); 
